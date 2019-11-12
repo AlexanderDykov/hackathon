@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Rider cache directory
+.idea/
+
 # Visual Studio cache directory
 .vs/
 
@@ -34,3 +37,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Entitas
+Jenny/
+Preferences.properties
+*.userproperties
