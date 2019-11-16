@@ -45,8 +45,7 @@ namespace GameScene.ECS.Systems.Skill
         private void CreateTile(GameEntity entity, Vector3 transformPosition)
         {
             var soulEntity = Context.CreateEntity();
-            soulEntity.AddResource(map[entity.skill.Type].ToString());
-            soulEntity.AddInitialPosition(transformPosition);
+            soulEntity.AddTile(transformPosition, map[entity.skill.Type]) ;
         }
 
         protected override bool CheckSkillType(GameEntity entity)
