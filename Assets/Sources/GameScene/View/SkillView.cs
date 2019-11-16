@@ -26,6 +26,7 @@ namespace GameScene.View
             _model = skill;
             _entity = entity;
             _skillName.text = skill.Description;
+            gameObject.SetActive(true);
         }
 
         private void OnDestroy()

@@ -34,6 +34,10 @@ namespace GameScene.View
         public void Hide()
         {
             gameObject.SetActive(false);
+            for (var i = 0; i < _list.Count; i++)
+            {
+                _list[i].gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -32,10 +32,15 @@ namespace GameScene.Factories
                     new Skill("Create water tile", SkillType.CreateWater),
                     new Skill("Create air tile", SkillType.CreateAir ),
                     new Skill("Create fire tile", SkillType.CreateFire ),
-                    new Skill("Create soul tile", SkillType.CreateSoul ), 
                     new Skill("Create earth tile", SkillType.CreateEarth )
                 }
+            },
+            {1,
+            new List<Skill>()
+            {
+                new Skill("Create soul tile", SkillType.CreateSoul ), 
             }
+        }
         };
         private List<Skill> SkillsByLevel(int level)
         {
@@ -45,6 +50,12 @@ namespace GameScene.Factories
         private List<Skill> GetTwoRandomLevels( List<Skill> skills)
         {
             int firstRndIndex = Random.Range(0, skills.Count);
+
+            if (skills.Count <= 1)
+            {
+                return skills;
+            }
+            
             int secondRndIndex;
             do
             {

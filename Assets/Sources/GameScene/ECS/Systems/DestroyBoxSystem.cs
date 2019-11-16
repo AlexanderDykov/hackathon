@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Core.Contexts;
 using Entitas;
 using GameScene.ECS.Utils;
@@ -40,7 +41,16 @@ namespace GameScene.ECS.Systems
                 Object.Destroy(entity.view.Value);
                 entity.isDestroy = true;
 
-                _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition(), 0);
+                var randomPosition = _positionGenerator.RandomPosition();
+                
+                var tiles = _context.GetEntitiesWithIndexTilePosition(randomPosition).Select(x => x.hasTile);
+
+                var level = 0;
+                if (tiles.Any())
+                {
+                    level = 1;
+                }
+                _boxFactory.CreateEntity(_context, randomPosition, level);
             }
         }
     }
