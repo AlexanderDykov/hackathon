@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class LifeTimeListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<ILifeTimeListener> value;
+public sealed class LifeListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<ILifeListener> value;
 }
