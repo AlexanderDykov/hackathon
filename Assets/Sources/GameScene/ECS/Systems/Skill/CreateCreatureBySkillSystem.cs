@@ -1,16 +1,14 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
-using GameScene.ECS.Components;
-using GameScene.Utils;
 
 namespace GameScene.ECS.Systems.Skill
 {
-    public abstract class CreateCreatureSkillSystem: ReactiveSystem<GameEntity>
+    public abstract class CreateCreatureBySkillSystem: ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
 
-        protected CreateCreatureSkillSystem(IGameContext context) : base(context)
+        protected CreateCreatureBySkillSystem(IGameContext context) : base(context)
         {
             _context = context;
         }

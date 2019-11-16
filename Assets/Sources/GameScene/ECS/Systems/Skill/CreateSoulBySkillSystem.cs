@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace GameScene.ECS.Systems.Skill
 {
-    public class CreateSoulSkillSystem : CreateCreatureSkillSystem
+    public class CreateSoulBySkillSystem : CreateCreatureBySkillSystem
     {
         protected override bool CheckSkillType(GameEntity entity)
         {
@@ -18,9 +18,10 @@ namespace GameScene.ECS.Systems.Skill
         {
             soulEntity.AddResource(ResourceNames.Soul);
             soulEntity.AddCreatureType(CreatureType.Soul);
+            soulEntity.isPhysic = true;
         }
 
-        public CreateSoulSkillSystem(IGameContext context) : base(context)
+        public CreateSoulBySkillSystem(IGameContext context) : base(context)
         {
         }
     }

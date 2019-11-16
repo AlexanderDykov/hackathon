@@ -4,7 +4,7 @@ using GameScene.Utils;
 
 namespace GameScene.ECS.Systems.Skill
 {
-    public class CreateStatueSkillSystem: CreateCreatureSkillSystem
+    public class CreateStatueBySkillSystem: CreateCreatureBySkillSystem
     {
         protected override bool CheckSkillType(GameEntity entity)
         {
@@ -17,7 +17,7 @@ namespace GameScene.ECS.Systems.Skill
             soulEntity.AddCreatureType(CreatureType.Statue);
         }
 
-        public CreateStatueSkillSystem(IGameContext context) : base(context)
+        public CreateStatueBySkillSystem(IGameContext context) : base(context)
         {
         }
     }

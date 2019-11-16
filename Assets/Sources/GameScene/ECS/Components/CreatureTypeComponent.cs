@@ -11,6 +11,9 @@ namespace GameScene.ECS.Components
     public enum CreatureType
     {
         Soul,
-        Statue
+        Statue,
+        Zombie,
+        Human,
+        Skeleton
     }
 }
