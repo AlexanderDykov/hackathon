@@ -8,18 +8,19 @@ namespace GameScene.View
     public class BoxView : MonoBehaviour, IView
     {
         IGameContext _context;
-        
+
+        private GameEntity _entity;
         private void Awake()
         {
             //TODO: remade it with DI
-            _context = Contexts.sharedInstance.game;
+//            _context = Contexts.sharedInstance.game;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
-                _context.isShowSelectView = true;
+                _entity.isShowSelectView = true;
             }
         }
 
@@ -27,13 +28,14 @@ namespace GameScene.View
         {
             if (other.CompareTag("Player"))
             {
-                _context.isShowSelectView = false;
+                _entity.isShowSelectView = false;
             }
         }
         
         public void Link(IGameContext context, GameEntity entity)
         {
             _context = context;
+            _entity = entity;
         }
     }
 }

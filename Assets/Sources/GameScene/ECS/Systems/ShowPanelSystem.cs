@@ -21,7 +21,7 @@ namespace GameScene.ECS.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity.hasBoxSkills;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -30,7 +30,7 @@ namespace GameScene.ECS.Systems
             {
                 if (entity.isShowSelectView)
                 {
-                    _selectPanel.Show();
+                    _selectPanel.Show(entity);
                     return;
                 }
                 _selectPanel.Hide();

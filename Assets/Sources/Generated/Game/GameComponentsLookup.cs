@@ -11,28 +11,31 @@ public static class GameComponentsLookup {
     public const int Animated = 0;
     public const int Animator = 1;
     public const int Body = 2;
-    public const int EndGame = 3;
-    public const int InitialPosition = 4;
-    public const int Life = 5;
-    public const int LifeTimer = 6;
-    public const int Parent = 7;
-    public const int Physic = 8;
-    public const int Player = 9;
-    public const int Resource = 10;
-    public const int Score = 11;
-    public const int ShowSelectView = 12;
-    public const int Speed = 13;
-    public const int View = 14;
-    public const int LifeListener = 15;
-    public const int LifeTimerListener = 16;
-    public const int ScoreListener = 17;
+    public const int BoxSkills = 3;
+    public const int EndGame = 4;
+    public const int InitialPosition = 5;
+    public const int Life = 6;
+    public const int LifeTimer = 7;
+    public const int Parent = 8;
+    public const int Physic = 9;
+    public const int Player = 10;
+    public const int Resource = 11;
+    public const int Score = 12;
+    public const int ShowSelectView = 13;
+    public const int Skill = 14;
+    public const int Speed = 15;
+    public const int View = 16;
+    public const int LifeListener = 17;
+    public const int LifeTimerListener = 18;
+    public const int ScoreListener = 19;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "Animated",
         "Animator",
         "Body",
+        "BoxSkills",
         "EndGame",
         "InitialPosition",
         "Life",
@@ -43,6 +46,7 @@ public static class GameComponentsLookup {
         "Resource",
         "Score",
         "ShowSelectView",
+        "Skill",
         "Speed",
         "View",
         "LifeListener",
@@ -54,6 +58,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.AnimatedComponent),
         typeof(GameScene.ECS.Components.AnimatorComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
+        typeof(GameScene.ECS.Components.BoxSkillsComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LifeComponent),
@@ -64,6 +69,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
+        typeof(GameScene.ECS.Components.SkillComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(LifeListenerComponent),
