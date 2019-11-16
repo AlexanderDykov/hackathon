@@ -30,12 +30,13 @@ public static class GameComponentsLookup {
     public const int ShowSelectView = 19;
     public const int Skill = 20;
     public const int Speed = 21;
-    public const int View = 22;
-    public const int LifeListener = 23;
-    public const int LifeTimerListener = 24;
-    public const int ScoreListener = 25;
+    public const int Tile = 22;
+    public const int View = 23;
+    public const int LifeListener = 24;
+    public const int LifeTimerListener = 25;
+    public const int ScoreListener = 26;
 
-    public const int TotalComponents = 26;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "Animated",
@@ -60,6 +61,7 @@ public static class GameComponentsLookup {
         "ShowSelectView",
         "Skill",
         "Speed",
+        "Tile",
         "View",
         "LifeListener",
         "LifeTimerListener",
@@ -89,6 +91,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
         typeof(GameScene.ECS.Components.SkillComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
+        typeof(GameScene.ECS.Components.TileComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(LifeListenerComponent),
         typeof(LifeTimerListenerComponent),

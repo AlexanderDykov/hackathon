@@ -40,7 +40,7 @@ namespace GameScene.ECS.Systems
                 Object.Destroy(entity.view.Value);
                 entity.isDestroy = true;
 
-                _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition());
+                _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition(), 0);
             }
         }
     }

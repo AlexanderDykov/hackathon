@@ -12,9 +12,13 @@ namespace GameScene.ECS.Utils
         public Vector2 RandomPosition()
         {
             var pos = Random.insideUnitCircle * 5;
-            Vector3Int f = new Vector3Int((int)pos.x ,(int)pos.y, 0);
-            return _grid.CellToWorld(f);;
+            return CellToWorld(pos);
         }
 
+        private Vector2 CellToWorld(Vector2 pos)
+        {
+            Vector3Int f = new Vector3Int((int) pos.x, (int) pos.y, 0);
+            return _grid.CellToWorld(f);
+        }
     }
 }

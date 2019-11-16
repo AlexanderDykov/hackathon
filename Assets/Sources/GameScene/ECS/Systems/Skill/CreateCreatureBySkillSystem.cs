@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using UnityEngine;
 
 namespace GameScene.ECS.Systems.Skill
 {
     public abstract class CreateCreatureBySkillSystem: ReactiveSystem<GameEntity>
     {
-        private IGameContext _context;
+        protected IGameContext Context;
 
         protected CreateCreatureBySkillSystem(IGameContext context) : base(context)
         {
-            _context = context;
+            Context = context;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -23,18 +24,15 @@ namespace GameScene.ECS.Systems.Skill
             return entity.hasSkill && entity.hasView && CheckSkillType(entity);
         }
 
-
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)
             {
-                var soulEntity = _context.CreateEntity();
-                soulEntity.AddInitialPosition(entity.view.Value.transform.position);
-                CreateCreature(soulEntity);
+                CreateCreature(entity, entity.view.Value.transform.position);
             }
         }
 
         protected abstract bool CheckSkillType(GameEntity entity);
-        protected abstract void CreateCreature(GameEntity soulEntity);
+        protected abstract void CreateCreature(GameEntity soulEntity, Vector3 transformPosition);
     }
 }

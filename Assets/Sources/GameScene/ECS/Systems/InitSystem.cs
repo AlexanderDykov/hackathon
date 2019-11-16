@@ -34,7 +34,7 @@ namespace GameScene.ECS.Systems
 
             _uiFactory.CreateCamera(_context);
 
-            _boxFactory.CreateEntity(_context, Vector2.zero);
+            _boxFactory.CreateEntity(_context, Vector2.zero, 0);
             
             
 //            var entity = _context.CreateEntity();

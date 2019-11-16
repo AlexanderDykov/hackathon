@@ -46,8 +46,8 @@ namespace GameScene.Installer
             InstallUpdateSystem<FindTargetSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
             InstallUpdateSystem<CheckHPSystem>();
-            InstallUpdateSystem<CreateSoulBySkillSystem>();
-            InstallUpdateSystem<CreateStatueBySkillSystem>();
+            InstallUpdateSystem<CreateTileBySkillSystem>();
+//            InstallUpdateSystem<CreateStatueBySkillSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
             InstallUpdateSystem<ShowPanelSystem>();
             InstallUpdateSystem<OpenChestSystem>();
