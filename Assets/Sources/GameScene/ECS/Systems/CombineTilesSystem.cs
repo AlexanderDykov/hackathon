@@ -106,15 +106,20 @@ namespace GameScene.ECS.Systems
                 var oldTiles = _context.GetEntitiesWithIndexTilePosition(newTilePos);
                 foreach (var oldTile in oldTiles)
                 {
-                    if (newTile != oldTile) {
+                    if (oldTile != newTile) {
                         var oldTileType = oldTile.tile.TileType;
-                        if (_tilesCombinationActions.ContainsKey(newTileType | oldTileType)) {
-                            _tilesCombinationActions[newTileType | oldTileType](newTilePos);
-                            newTile.isDestroy = true;
-                            UnityEngine.Object.Destroy(newTile.view.Value);
+                        if (newTileType != oldTileType) {
+                            if (_tilesCombinationActions.ContainsKey(newTileType | oldTileType)) {
+                                _tilesCombinationActions[newTileType | oldTileType](newTilePos);
+                                newTile.isDestroy = true;
+                                UnityEngine.Object.Destroy(newTile.view.Value);
+                                oldTile.isDestroy = true;
+                                UnityEngine.Object.Destroy(oldTile.view.Value);
+                                break;
+                            }
+                        } else {
                             oldTile.isDestroy = true;
                             UnityEngine.Object.Destroy(oldTile.view.Value);
-                            break;
                         }
                     }
                 }
