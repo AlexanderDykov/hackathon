@@ -17,15 +17,6 @@ namespace GameScene.ECS.Systems
         public CombineTilesSystem(IGameContext context) : base(context)
         {
             _context = context;
-            _tilesCombinationActions.Add(TileType.Earth | TileType.Soul,
-                                         (Vector2 pos) => {
-                                             var tile = _context.CreateEntity();
-                                             if (_randomGen.Next(2) == 0) {
-                                                 tile.AddTile(pos, TileType.Grass);
-                                             } else {
-                                                 tile.AddTile(pos, TileType.PoisonGround);
-                                             }
-                                         });
             _tilesCombinationActions.Add(TileType.Earth | TileType.Water,
                                          (Vector2 pos) => {
                                              var tile = _context.CreateEntity();
@@ -41,15 +32,6 @@ namespace GameScene.ECS.Systems
                                              var tile = _context.CreateEntity();
                                              tile.AddTile(pos, TileType.Lava);
                                          });
-            _tilesCombinationActions.Add(TileType.Water | TileType.Soul,
-                                         (Vector2 pos) => {
-                                             var tile = _context.CreateEntity();
-                                             if (_randomGen.Next(2) == 0) {
-                                                 tile.AddTile(pos, TileType.HealingWater);
-                                             } else {
-                                                 tile.AddTile(pos, TileType.PoisonWater);
-                                             }
-                                         });
             _tilesCombinationActions.Add(TileType.Water | TileType.Air,
                                          (Vector2 pos) => {
                                              var tile = _context.CreateEntity();
@@ -58,32 +40,12 @@ namespace GameScene.ECS.Systems
             _tilesCombinationActions.Add(TileType.Water | TileType.Fire,
                                          (Vector2 pos) => {
                                              var tile = _context.CreateEntity();
-                                             tile.AddTile(pos, TileType.Fog);
-                                         });
-            _tilesCombinationActions.Add(TileType.Air | TileType.Soul,
-                                         (Vector2 pos) => {
-                                             var creature = _context.CreateEntity();
-                                             if (_randomGen.Next(2) == 0) {
-                                                 creature.AddResource(ResourceNames.Human);
-                                             } else {
-                                                 creature.AddResource(ResourceNames.Skeleton);
-                                             }
-                                             creature.AddInitialPosition(pos);
+                                             tile.AddTile(pos, TileType.Sand);
                                          });
             _tilesCombinationActions.Add(TileType.Air | TileType.Fire,
                                          (Vector2 pos) => {
                                              var tile = _context.CreateEntity();
                                              tile.AddTile(pos, TileType.Coal);
-                                         });
-            _tilesCombinationActions.Add(TileType.Fire | TileType.Soul,
-                                         (Vector2 pos) => {
-                                             var creature = _context.CreateEntity();
-                                             if (_randomGen.Next(2) == 0) {
-                                                 creature.AddResource(ResourceNames.Human);
-                                             } else {
-                                                 creature.AddResource(ResourceNames.Zombie);
-                                             }
-                                             creature.AddInitialPosition(pos);
                                          });
         }
 
