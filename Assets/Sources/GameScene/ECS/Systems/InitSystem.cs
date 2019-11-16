@@ -1,7 +1,10 @@
 using Core.Contexts;
 using Entitas;
+using GameScene.ECS.Components;
 using GameScene.ECS.Utils;
 using GameScene.Factories;
+using GameScene.Utils;
+using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
@@ -33,10 +36,23 @@ namespace GameScene.ECS.Systems
 
             _uiFactory.CreateCamera(_context);
 
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < 15; i++)
             {
                 _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition());
             }
+            
+//            var entity = _context.CreateEntity();
+//            entity.AddInitialPosition(Vector2.one);
+//            entity.AddResource(ResourceNames.Human);
+//            entity.AddCreatureType(CreatureType.Human);
+//            entity.AddHealth(10);
+//            
+//            
+//            var sEntity = _context.CreateEntity();
+//            sEntity.AddInitialPosition(Vector2.zero);
+//            sEntity.AddResource(ResourceNames.Skeleton);
+//            sEntity.AddCreatureType(CreatureType.Skeleton);
+//            sEntity.AddHealth(10);
         }
     }
 }

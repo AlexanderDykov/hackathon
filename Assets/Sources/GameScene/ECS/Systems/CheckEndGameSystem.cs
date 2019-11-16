@@ -30,7 +30,6 @@ namespace GameScene.ECS.Systems
                 if (entity.life.Value <= 0)
                 {
                     _context.isEndGame = true;
-                    Debug.Log("End Game");
                 }
             }
         }

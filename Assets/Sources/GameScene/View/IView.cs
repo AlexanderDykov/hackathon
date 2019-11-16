@@ -6,4 +6,9 @@ namespace GameScene.View
     {
         void Link(IGameContext context, GameEntity entity);
     }
+    
+    public interface IDamagable
+    {
+        void Damage(int value);
+    }
 }

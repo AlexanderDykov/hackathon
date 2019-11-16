@@ -6,8 +6,8 @@ namespace GameScene.ECS.Utils
     {
         public Vector2 RandomPosition()
         {
-            int rndX = Random.Range(0, 10);
-            int rndY = Random.Range(0, 10);
+            int rndX = Random.Range(0, 20);
+            int rndY = Random.Range(0, 20);
             return new Vector2(rndX, rndY);
         }
     }
