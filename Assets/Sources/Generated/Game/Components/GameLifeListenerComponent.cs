@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public LifeTimeListenerComponent lifeTimeListener { get { return (LifeTimeListenerComponent)GetComponent(GameComponentsLookup.LifeTimeListener); } }
-    public bool hasLifeTimeListener { get { return HasComponent(GameComponentsLookup.LifeTimeListener); } }
+    public LifeListenerComponent lifeListener { get { return (LifeListenerComponent)GetComponent(GameComponentsLookup.LifeListener); } }
+    public bool hasLifeListener { get { return HasComponent(GameComponentsLookup.LifeListener); } }
 
-    public void AddLifeTimeListener(System.Collections.Generic.List<ILifeTimeListener> newValue) {
-        var index = GameComponentsLookup.LifeTimeListener;
-        var component = CreateComponent<LifeTimeListenerComponent>(index);
+    public void AddLifeListener(System.Collections.Generic.List<ILifeListener> newValue) {
+        var index = GameComponentsLookup.LifeListener;
+        var component = CreateComponent<LifeListenerComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLifeTimeListener(System.Collections.Generic.List<ILifeTimeListener> newValue) {
-        var index = GameComponentsLookup.LifeTimeListener;
-        var component = CreateComponent<LifeTimeListenerComponent>(index);
+    public void ReplaceLifeListener(System.Collections.Generic.List<ILifeListener> newValue) {
+        var index = GameComponentsLookup.LifeListener;
+        var component = CreateComponent<LifeListenerComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveLifeTimeListener() {
-        RemoveComponent(GameComponentsLookup.LifeTimeListener);
+    public void RemoveLifeListener() {
+        RemoveComponent(GameComponentsLookup.LifeListener);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLifeTimeListener;
+    static Entitas.IMatcher<GameEntity> _matcherLifeListener;
 
-    public static Entitas.IMatcher<GameEntity> LifeTimeListener {
+    public static Entitas.IMatcher<GameEntity> LifeListener {
         get {
-            if (_matcherLifeTimeListener == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LifeTimeListener);
+            if (_matcherLifeListener == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LifeListener);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherLifeTimeListener = matcher;
+                _matcherLifeListener = matcher;
             }
 
-            return _matcherLifeTimeListener;
+            return _matcherLifeListener;
         }
     }
 }
@@ -65,21 +65,21 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public void AddLifeTimeListener(ILifeTimeListener value) {
-        var listeners = hasLifeTimeListener
-            ? lifeTimeListener.value
-            : new System.Collections.Generic.List<ILifeTimeListener>();
+    public void AddLifeListener(ILifeListener value) {
+        var listeners = hasLifeListener
+            ? lifeListener.value
+            : new System.Collections.Generic.List<ILifeListener>();
         listeners.Add(value);
-        ReplaceLifeTimeListener(listeners);
+        ReplaceLifeListener(listeners);
     }
 
-    public void RemoveLifeTimeListener(ILifeTimeListener value, bool removeComponentWhenEmpty = true) {
-        var listeners = lifeTimeListener.value;
+    public void RemoveLifeListener(ILifeListener value, bool removeComponentWhenEmpty = true) {
+        var listeners = lifeListener.value;
         listeners.Remove(value);
         if (removeComponentWhenEmpty && listeners.Count == 0) {
-            RemoveLifeTimeListener();
+            RemoveLifeListener();
         } else {
-            ReplaceLifeTimeListener(listeners);
+            ReplaceLifeListener(listeners);
         }
     }
 }
