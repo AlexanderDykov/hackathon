@@ -18,7 +18,8 @@ namespace GameScene.ECS.Components
     [Flags]
     public enum TileType
     {
-        Earth = 1 << 0,
+        None = -1,
+        Earth = 1,
         Water = 1 << 1,
         Air = 1 << 2,
         Fire = 1 << 3,

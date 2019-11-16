@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Contexts;
 using Entitas;
+using GameScene.ECS.Components;
 using GameScene.ECS.Utils;
 using GameScene.Factories;
 using GameScene.View;
@@ -43,12 +44,13 @@ namespace GameScene.ECS.Systems
 
                 var randomPosition = _positionGenerator.RandomPosition();
                 
-                var tiles = _context.GetEntitiesWithIndexTilePosition(randomPosition).Select(x => x.hasTile);
+                var tiles = _context.GetEntitiesWithIndexTilePosition(randomPosition).Where(x => x.hasTile);
 
-                var level = 0;
-                if (tiles.Any())
+                var level = TileType.None;
+                var gameEntities = tiles.ToList();
+                if (gameEntities.Any())
                 {
-                    level = 1;
+                    level = gameEntities.First().tile.TileType;
                 }
                 _boxFactory.CreateEntity(_context, randomPosition, level);
             }
