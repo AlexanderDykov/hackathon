@@ -29,7 +29,7 @@ namespace GameScene.ECS.Systems
         {
             _playerFactory.CreatePlayer(_context);
 
-            _uiFactory.CreateLifeTimeView(_context);
+            _uiFactory.CreatePlayerHUD(_context);
 
             for (var i = 0; i < 5; i++)
             {

@@ -19,13 +19,15 @@ public static class GameComponentsLookup {
     public const int Physic = 8;
     public const int Player = 9;
     public const int Resource = 10;
-    public const int ShowSelectView = 11;
-    public const int Speed = 12;
-    public const int View = 13;
-    public const int LifeListener = 14;
-    public const int LifeTimerListener = 15;
+    public const int Score = 11;
+    public const int ShowSelectView = 12;
+    public const int Speed = 13;
+    public const int View = 14;
+    public const int LifeListener = 15;
+    public const int LifeTimerListener = 16;
+    public const int ScoreListener = 17;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Animated",
@@ -39,11 +41,13 @@ public static class GameComponentsLookup {
         "Physic",
         "Player",
         "Resource",
+        "Score",
         "ShowSelectView",
         "Speed",
         "View",
         "LifeListener",
-        "LifeTimerListener"
+        "LifeTimerListener",
+        "ScoreListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -58,10 +62,12 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.PhysicComponent),
         typeof(GameScene.ECS.Components.PlayerComponent),
         typeof(GameScene.ECS.Components.ResourceComponent),
+        typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(LifeListenerComponent),
-        typeof(LifeTimerListenerComponent)
+        typeof(LifeTimerListenerComponent),
+        typeof(ScoreListenerComponent)
     };
 }
