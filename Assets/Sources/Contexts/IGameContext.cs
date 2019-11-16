@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
 using GameScene.ECS.Components;
+using UnityEngine;
 
 namespace Core.Contexts
 {
@@ -19,4 +21,10 @@ namespace Core.Contexts
     }
 }
 
-partial class GameContext : IGameContext {}
+partial class GameContext : IGameContext
+{
+    public HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position)
+         {
+             return this.GetEntitiesWithTilePosition(position);
+         }
+}
