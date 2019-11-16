@@ -20,6 +20,7 @@ namespace GameScene.Factories
             playerEntity.AddSpeed(5f);
             //TODO: load parameter from configs
             playerEntity.AddResource("Player");
+            playerEntity.AddLifeTime(30);
             playerEntity.AddInitialPosition(Vector2.zero);
             return playerEntity;
         }
