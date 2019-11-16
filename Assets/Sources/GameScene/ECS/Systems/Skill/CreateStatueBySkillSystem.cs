@@ -8,7 +8,7 @@ namespace GameScene.ECS.Systems.Skill
     {
         protected override bool CheckSkillType(GameEntity entity)
         {
-            return entity.skill.Type == SkillType.CreateStatuya;
+            return entity.skill.Type == SkillType.CreateStatue;
         }
 
         protected override void CreateCreature(GameEntity soulEntity)
