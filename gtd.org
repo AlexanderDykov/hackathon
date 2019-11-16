@@ -23,7 +23,7 @@
 *** TODO creature types [0/2]
 **** TODO enemy
 **** TODO friends
-*** TODO box types [0/4]
+*** TODO box types [0/6]
 **** TODO changes environment [0/3]
 ***** TODO add statue
 ***** TODO add building
@@ -39,6 +39,22 @@
 ***** TODO add music
 ***** TODO add colors
 ***** TODO add more textures
+**** TODO tile types [0/2]
+****** TODO basic [0/5]
+******* TODO earth
+******* TODO water
+******* TODO fire
+******* TODO air
+******* TODO soul(good/evil)
+****** TODO upgrades [0/6]
+******* TODO earth + good soul = grass
+******* TODO earth + bad soul = spoiled ground
+******* TODO water + good soul = ???
+******* TODO water + bad soul = spoiled water
+******* TODO wind + good soul = 
+******* TODO wind + bad soul = skeleton
+**** TODO tile collision rules
+***** TODO 
 * ideas
 ** skills
 *** player can take damage
@@ -51,4 +67,3 @@
 *** make one zombie(zombie transform human into skeleton)
 ** general
 *** single box which will telleport
-
