@@ -18,13 +18,14 @@ namespace Core.Contexts
         bool isEndGame{ get; set; }
         void ReplaceScore(int newValue);
         ScoreComponent score { get; }
+        HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position);
     }
 }
 
 partial class GameContext : IGameContext
 {
     public HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position)
-         {
-             return this.GetEntitiesWithTilePosition(position);
-         }
+    {
+        return this.GetEntitiesWithTilePosition(position);
+    }
 }
