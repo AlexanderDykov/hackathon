@@ -12,31 +12,33 @@ public static class GameComponentsLookup {
     public const int Animator = 1;
     public const int Body = 2;
     public const int BoxSkills = 3;
-    public const int Destroy = 4;
-    public const int EndGame = 5;
-    public const int InitialPosition = 6;
-    public const int Life = 7;
-    public const int LifeTimer = 8;
-    public const int Parent = 9;
-    public const int Physic = 10;
-    public const int Player = 11;
-    public const int Resource = 12;
-    public const int Score = 13;
-    public const int ShowSelectView = 14;
-    public const int Skill = 15;
-    public const int Speed = 16;
-    public const int View = 17;
-    public const int LifeListener = 18;
-    public const int LifeTimerListener = 19;
-    public const int ScoreListener = 20;
+    public const int CreatureType = 4;
+    public const int Destroy = 5;
+    public const int EndGame = 6;
+    public const int InitialPosition = 7;
+    public const int Life = 8;
+    public const int LifeTimer = 9;
+    public const int Parent = 10;
+    public const int Physic = 11;
+    public const int Player = 12;
+    public const int Resource = 13;
+    public const int Score = 14;
+    public const int ShowSelectView = 15;
+    public const int Skill = 16;
+    public const int Speed = 17;
+    public const int View = 18;
+    public const int LifeListener = 19;
+    public const int LifeTimerListener = 20;
+    public const int ScoreListener = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "Animated",
         "Animator",
         "Body",
         "BoxSkills",
+        "CreatureType",
         "Destroy",
         "EndGame",
         "InitialPosition",
@@ -61,6 +63,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.AnimatorComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
         typeof(GameScene.ECS.Components.BoxSkillsComponent),
+        typeof(GameScene.ECS.Components.CreatureTypeComponent),
         typeof(GameScene.ECS.Components.DestroyComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),

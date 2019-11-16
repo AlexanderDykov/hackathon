@@ -47,6 +47,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<AddAnimatorSystem>();
             
             InstallUpdateSystem<CreateSoulSkillSystem>();
+            InstallUpdateSystem<CreateStatueSkillSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
             InstallUpdateSystem<ShowPanelSystem>();
             base.InstallBindings();
