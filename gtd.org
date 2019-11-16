@@ -39,3 +39,16 @@
 ***** TODO add music
 ***** TODO add colors
 ***** TODO add more textures
+* ideas
+** skills
+*** player can take damage
+*** player can attack
+*** player can create souls
+*** player can create statues
+*** add 1 day lifetime
+*** kill all zombies
+*** transform half of the popul into skeleton
+*** make one zombie(zombie transform human into skeleton)
+** general
+*** single box which will telleport
+
