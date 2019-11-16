@@ -1,3 +1,4 @@
+using System;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
@@ -14,8 +15,23 @@ namespace GameScene.ECS.Components
         public TileType TileType;
     }
 
+    [Flags]
     public enum TileType
     {
-        Earth, Water, Air, Fire,Soul
+        Earth = 1 << 0,
+        Water = 1 << 1,
+        Air = 1 << 2,
+        Fire = 1 << 3,
+        Soul = 1 << 4,
+        Grass = 1 << 5,
+        PoisonGround = 1 << 6,
+        Sand = 1 << 7,
+        Mountain = 1 << 8,
+        Lava = 1 << 9,
+        HealingWater = 1 << 10,
+        PoisonWater = 1 << 11,
+        Ice = 1 << 12,
+        Fog = 1 << 13,
+        Coal = 1 << 14
     }
 }

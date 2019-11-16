@@ -18,7 +18,7 @@ namespace GameScene.ECS.Components
             Description = description;
             SkillType = skillType;
         }
-        
+
         public string Description;
         public SkillType SkillType;
     }

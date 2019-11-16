@@ -25,7 +25,7 @@ namespace GameScene.Installer
             Container.Bind<IInputContext>().FromInstance(Contexts.sharedInstance.input).AsSingle();
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
             Container.Bind<IBoxFactory>().To<BoxFactory>().AsSingle();
-            Container.Bind<UIFactory>().AsSingle();           
+            Container.Bind<UIFactory>().AsSingle();
             Container.Bind<Grid>().FromInstance(_grid).AsSingle();
 
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
@@ -46,6 +46,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<FindTargetSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
             InstallUpdateSystem<CheckHPSystem>();
+            InstallUpdateSystem<CombineTilesSystem>();
             InstallUpdateSystem<CreateTileBySkillSystem>();
             InstallUpdateSystem<CreateTileSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
