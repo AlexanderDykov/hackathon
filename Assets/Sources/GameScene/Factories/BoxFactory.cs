@@ -37,9 +37,9 @@ namespace GameScene.Factories
                 new List<SkillAvl>
                 {
                     new SkillAvl(CreateWaterTileSkill, 50),
-                    new SkillAvl(CreateAirTileSkill, 50),
-                    new SkillAvl(CreateFireTileSkill, 25),
-                    new SkillAvl(CreateEarthTileSkill, 25)
+                    new SkillAvl(CreateFireTileSkill, 5),
+                    new SkillAvl(CreateAirTileSkill, 5),
+                    new SkillAvl(CreateEarthTileSkill, 50)
                 }
             },
             {
@@ -48,7 +48,7 @@ namespace GameScene.Factories
                 {
                     new SkillAvl(CreateSoulSkill, 100),
                 }
-        }
+            }
         };
         
         private List<Skill> SkillsByTileType(TileType level)
