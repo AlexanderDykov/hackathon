@@ -8,5 +8,6 @@ namespace GameScene.Utils
         public static string Zombie = "Zombie";
         public static string Skeleton = "Skeleton";
         public static string Human = "Human";
+        public static string Soul = "Soul";
     }
 }
