@@ -1,4 +1,5 @@
 using Core.Contexts;
+using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.Factories
@@ -14,7 +15,7 @@ namespace GameScene.Factories
         {
             var playerEntity = context.CreateEntity();
             playerEntity.AddInitialPosition(position);
-            playerEntity.AddResource("Box");
+            playerEntity.AddResource(ResourceNames.Box);
             return playerEntity;
         }
     }
