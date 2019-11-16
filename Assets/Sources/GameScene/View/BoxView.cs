@@ -8,6 +8,7 @@ namespace GameScene.View
     public class BoxView : MonoBehaviour, IView
     {
         IGameContext _context;
+        [SerializeField] private Animator _animator;
         
         private void Awake()
         {
@@ -20,6 +21,7 @@ namespace GameScene.View
             if (other.CompareTag("Player"))
             {
                 _context.isShowSelectView = true;
+                _animator.SetBool("isOpen", true);
             }
         }
 
@@ -28,6 +30,7 @@ namespace GameScene.View
             if (other.CompareTag("Player"))
             {
                 _context.isShowSelectView = false;
+                _animator.SetBool("isOpen", false);
             }
         }
         
