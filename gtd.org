@@ -7,7 +7,8 @@
 *** DONE add lifetime line
 *** DONE add score counter
     CLOSED: [2019-11-16 сб 14:38]
-*** TODO choose skills
+*** DONE choose skills
+    CLOSED: [2019-11-16 сб 15:58]
 *** TODO basic skills [0/2]
 **** TODO create statue
 **** TODO open soul
