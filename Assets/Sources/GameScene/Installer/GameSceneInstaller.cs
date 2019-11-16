@@ -15,11 +15,9 @@ namespace GameScene.Installer
 {
     public sealed class GameSceneInstaller : EcsInstaller
     {
-        private void Awake()
-        {
-        }
-
         [SerializeField] private SelectPanel _selectPanel;
+        [SerializeField] private Grid _grid;
+
         public override void InstallBindings()
         {
             Container.Bind<IGameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
@@ -27,7 +25,8 @@ namespace GameScene.Installer
             Container.Bind<IInputContext>().FromInstance(Contexts.sharedInstance.input).AsSingle();
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
             Container.Bind<IBoxFactory>().To<BoxFactory>().AsSingle();
-            Container.Bind<UIFactory>().AsSingle();
+            Container.Bind<UIFactory>().AsSingle();           
+            Container.Bind<Grid>().FromInstance(_grid).AsSingle();
 
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
 
