@@ -13,20 +13,16 @@ namespace GameScene.View
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                _entity.isShowSelectView = true;
-                _animator.SetBool(IsOpen, true);
-            }
+            if (!other.CompareTag("Player")) return;
+            _entity.isShowSelectView = true;
+            _animator.SetBool(IsOpen, true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                _entity.isShowSelectView = false;
-                _animator.SetBool(IsOpen, false);
-            }
+            if (!other.CompareTag("Player")) return;
+            _entity.isShowSelectView = false;
+            _animator.SetBool(IsOpen, false);
         }
         
         public void Link(IGameContext context, GameEntity entity)

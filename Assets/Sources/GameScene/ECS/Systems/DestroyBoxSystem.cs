@@ -6,10 +6,12 @@ using Object = UnityEngine.Object;
 
 namespace GameScene.ECS.Systems
 {
-    public class ExecuteSkillSystem : ReactiveSystem<GameEntity>
+    public class DestroyBoxSystem : ReactiveSystem<GameEntity>
     {
-        public ExecuteSkillSystem(IGameContext context) : base(context)
+        private IGameContext _context;
+        public DestroyBoxSystem(IGameContext context) : base(context)
         {
+            _context = context;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -26,9 +28,8 @@ namespace GameScene.ECS.Systems
         {
             foreach (var entity in entities)
             {
-                // TODO: move it to next position
-                Debug.Log("Execute " + entity.skill.Type);
                 Object.Destroy(entity.view.Value);
+                entity.isDestroy = true;
             }
         }
     }
