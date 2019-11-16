@@ -31,6 +31,8 @@ namespace GameScene.ECS.Systems
 
             _uiFactory.CreatePlayerHUD(_context);
 
+            _uiFactory.CreateCamera(_context);
+
             for (var i = 0; i < 5; i++)
             {
                 _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition());

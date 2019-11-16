@@ -31,6 +31,7 @@ namespace GameScene.ECS.Systems
             {
                 var prefab = Resources.Load<GameObject>(entity.resource.Path);
                 var go =  Object.Instantiate(prefab);
+                go.name = entity.resource.Path;
                 entity.AddView(go);
                 go.GetComponent<IView>()?.Link(_context, entity);
                 entity.RemoveResource();
