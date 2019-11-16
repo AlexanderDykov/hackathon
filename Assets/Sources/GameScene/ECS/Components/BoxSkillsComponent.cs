@@ -25,7 +25,7 @@ namespace GameScene.ECS.Components
 
     public enum SkillType
     {
-        CreateStatuya,
+        CreateStatue,
         CreateSoul
     }
 }
