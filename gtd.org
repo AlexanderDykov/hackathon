@@ -1,0 +1,36 @@
+* roadmap
+** basic mechanics
+*** DONE player movement
+    CLOSED: [2019-11-16 сб 13:25]
+*** DONE box generation
+    CLOSED: [2019-11-16 сб 13:25]
+*** TODO add lifetime line
+*** TODO add score counter
+*** TODO choose skills
+*** TODO basic skills [0/2]
+**** TODO create statue
+**** TODO open soul
+*** TODO put soul into statue(creates creatures enemy/friend)
+*** TODO creature properties [0/3]
+**** TODO simple(just hp + walking)
+**** TODO warriors(+ attach)
+**** TODO workers(+ build)
+*** TODO creature types [0/2]
+**** TODO enemy
+**** TODO friends
+*** TODO box types [0/3]
+**** TODO changes environment [0/2]
+***** TODO add statue
+***** TODO add building
+***** TODO add tree
+**** TODO player skills [0/1]
+***** TODO aura
+**** TODO creatures abilities [0/3]
+***** TODO attach
+***** TODO build
+***** TODO work
+**** TODO game features [0/4]
+***** TODO add sounds
+***** TODO add music
+***** TODO add colors
+***** TODO add more textures
