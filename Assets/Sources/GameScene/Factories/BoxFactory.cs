@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using GameScene.ECS.Components;
+using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.Factories
@@ -18,12 +19,12 @@ namespace GameScene.Factories
         {
             var playerEntity = context.CreateEntity();
             playerEntity.AddInitialPosition(position);
-            playerEntity.AddResource("Box");
             playerEntity.AddBoxSkills(new List<Skill>()
             {
                 soulSkill,
                 statueSkill
             });
+            playerEntity.AddResource(ResourceNames.Box);
             return playerEntity;
         }
     }

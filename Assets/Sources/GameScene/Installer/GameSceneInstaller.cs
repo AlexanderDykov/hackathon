@@ -42,7 +42,6 @@ namespace GameScene.Installer
             InstallUpdateSystem<AddBodySystem>();
             InstallUpdateSystem<PlayerMovementSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
-            InstallUpdateSystem<PlayerAnimationSystem>();
             InstallUpdateSystem<ExecuteSkillSystem>();
             base.InstallBindings();
         }

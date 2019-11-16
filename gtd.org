@@ -5,7 +5,8 @@
 *** DONE box generation
     CLOSED: [2019-11-16 сб 13:25]
 *** DONE add lifetime line
-*** TODO add score counter
+*** DONE add score counter
+    CLOSED: [2019-11-16 сб 14:38]
 *** TODO choose skills
 *** TODO basic skills [0/2]
 **** TODO create statue

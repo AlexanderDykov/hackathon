@@ -1,4 +1,5 @@
 using Core.Contexts;
+using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.Factories
@@ -19,7 +20,7 @@ namespace GameScene.Factories
             //TODO: load parameter from configs
             playerEntity.AddSpeed(5f);
             //TODO: load parameter from configs
-            playerEntity.AddResource("Player");
+            playerEntity.AddResource(ResourceNames.Player);
             playerEntity.AddInitialPosition(Vector2.zero);
             return playerEntity;
         }
