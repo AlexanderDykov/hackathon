@@ -27,7 +27,6 @@ namespace GameScene.ECS.Systems
             {
                 //TODO: fix it
                 var parent = GameObject.Find(entity.parent.Name).transform;
-                Debug.Log(parent);
                 entity.view.Value.transform.SetParent(parent, false);
             }
         }

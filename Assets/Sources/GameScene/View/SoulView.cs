@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Core.Contexts;
 using GameScene.ECS.Components;
@@ -45,11 +44,17 @@ namespace GameScene.View
             Clear(statueEntity);
 
             var rndIndex = Random.Range(0, soulPlusStatue.Count);
-            var entity =  _context.CreateEntity();
-            entity.AddInitialPosition(other.transform.position);
+            
+            CreateMob(other.transform.position, soulPlusStatue[rndIndex]);
+        }
 
-            entity.AddResource(soulPlusStatue[rndIndex].CreatureName);
-            entity.AddCreatureType(soulPlusStatue[rndIndex].CreatureType);
+        private void CreateMob(Vector2 position, CreatureInfo creatureInfo)
+        {
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(creatureInfo.CreatureName);
+            entity.AddCreatureType(creatureInfo.CreatureType);
+            entity.AddHealth(10);
         }
 
         private void Clear(StatueView statueEntity)

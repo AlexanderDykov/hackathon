@@ -13,13 +13,13 @@ public static class GameComponentsLookup {
     public const int Body = 2;
     public const int BoxSkills = 3;
     public const int CreatureType = 4;
-    public const int Destroy = 5;
-    public const int Direction = 6;
+    public const int Damage = 5;
+    public const int Destroy = 6;
     public const int EndGame = 7;
-    public const int InitialPosition = 8;
-    public const int Life = 9;
-    public const int LifeTimer = 10;
-    public const int LookNearest = 11;
+    public const int Health = 8;
+    public const int InitialPosition = 9;
+    public const int Life = 10;
+    public const int LifeTimer = 11;
     public const int Parent = 12;
     public const int Physic = 13;
     public const int Player = 14;
@@ -41,9 +41,11 @@ public static class GameComponentsLookup {
         "Body",
         "BoxSkills",
         "CreatureType",
+        "Damage",
         "Destroy",
         "Direction",
         "EndGame",
+        "Health",
         "InitialPosition",
         "Life",
         "LifeTimer",
@@ -68,9 +70,11 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.BodyComponent),
         typeof(GameScene.ECS.Components.BoxSkillsComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
+        typeof(GameScene.ECS.Components.DamageComponent),
         typeof(GameScene.ECS.Components.DestroyComponent),
         typeof(GameScene.ECS.Components.DirectionComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
+        typeof(GameScene.ECS.Components.HealthComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LifeComponent),
         typeof(GameScene.ECS.Components.LifeTimerComponent),
