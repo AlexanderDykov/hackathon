@@ -12,24 +12,6 @@ namespace GameScene.View
         private IGameContext _context;
         private GameEntity _entity;
 
-        class CreatureInfo
-        {
-            public CreatureType CreatureType;
-            public string CreatureName;
-
-            public CreatureInfo(CreatureType creatureType, string creatureName)
-            {
-                CreatureType = creatureType;
-                CreatureName = creatureName;
-            }
-        }
-        
-        private List<CreatureInfo> soulPlusStatue = new List<CreatureInfo>()
-        {
-            new CreatureInfo(CreatureType.Human, ResourceNames.Human),
-            new CreatureInfo(CreatureType.Skeleton,ResourceNames.Skeleton),
-            new CreatureInfo(CreatureType.Zombie,ResourceNames.Zombie)
-        };
         public void Link(IGameContext context, GameEntity entity)
         {
             _context = context;
@@ -42,19 +24,18 @@ namespace GameScene.View
 
             var statueEntity = other.gameObject.GetComponent<StatueView>();
             Clear(statueEntity);
-
-            var rndIndex = Random.Range(0, soulPlusStatue.Count);
-            
-            CreateMob(other.transform.position, soulPlusStatue[rndIndex]);
+            CreateMob(other.transform.position);
         }
 
-        private void CreateMob(Vector2 position, CreatureInfo creatureInfo)
+        private void CreateMob(Vector2 position)
         {
             var entity = _context.CreateEntity();
             entity.AddInitialPosition(position);
-            entity.AddResource(creatureInfo.CreatureName);
-            entity.AddCreatureType(creatureInfo.CreatureType);
+            entity.AddResource(ResourceNames.Human);
+            entity.AddCreatureType(CreatureType.Human);
             entity.AddHealth(10);
+            entity.isPhysic = true;
+            entity.AddSpeed(1);
         }
 
         private void Clear(StatueView statueEntity)

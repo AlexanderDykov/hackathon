@@ -51,6 +51,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<CreateStatueBySkillSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
             InstallUpdateSystem<ShowPanelSystem>();
+            InstallUpdateSystem<OpenChestSystem>();
             base.InstallBindings();
         }
     }

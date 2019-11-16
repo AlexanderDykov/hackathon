@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using GameScene.View;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -28,6 +29,7 @@ namespace GameScene.ECS.Systems
         {
             foreach (var entity in entities)
             {
+                entity.view.Value.GetComponent<BoxView>().Open(false);
                 Object.Destroy(entity.view.Value);
                 entity.isDestroy = true;
             }

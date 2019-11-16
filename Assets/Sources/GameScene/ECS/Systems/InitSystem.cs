@@ -42,17 +42,21 @@ namespace GameScene.ECS.Systems
             }
             
 //            var entity = _context.CreateEntity();
-//            entity.AddInitialPosition(Vector2.one);
+//            entity.AddInitialPosition(new Vector2(2, 0));
 //            entity.AddResource(ResourceNames.Human);
 //            entity.AddCreatureType(CreatureType.Human);
 //            entity.AddHealth(10);
+//            entity.isPhysic = true;
 //            
 //            
 //            var sEntity = _context.CreateEntity();
-//            sEntity.AddInitialPosition(Vector2.zero);
+//            sEntity.AddInitialPosition(new Vector2(-2, 0));
 //            sEntity.AddResource(ResourceNames.Skeleton);
 //            sEntity.AddCreatureType(CreatureType.Skeleton);
 //            sEntity.AddHealth(10);
+//            sEntity.isPhysic = true;
+//            sEntity.AddSpeed(1);
+//            sEntity.AddLookNearest(CreatureType.Human);
         }
     }
 }
