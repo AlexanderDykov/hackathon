@@ -35,11 +35,19 @@ namespace GameScene.ECS.Systems.Skill
             var rightPos = _grid.CellToWorld(new Vector3Int(gridPos.x + 1, gridPos.y, gridPos.z));
             var topPos = _grid.CellToWorld(new Vector3Int(gridPos.x, gridPos.y + 1, gridPos.z));
             var bottomPos = _grid.CellToWorld(new Vector3Int(gridPos.x, gridPos.y - 1, gridPos.z));
+            var leftTopPos = _grid.CellToWorld(new Vector3Int(gridPos.x - 1, gridPos.y + 1, gridPos.z));
+            var leftBottomPos = _grid.CellToWorld(new Vector3Int(gridPos.x - 1, gridPos.y - 1, gridPos.z));
+            var rightTopPos = _grid.CellToWorld(new Vector3Int(gridPos.x + 1, gridPos.y + 1, gridPos.z));
+            var rightBottomPos = _grid.CellToWorld(new Vector3Int(gridPos.x + 1, gridPos.y - 1, gridPos.z));
 
             CreateTile(entity, leftPos);
             CreateTile(entity, rightPos);
             CreateTile(entity, topPos);
             CreateTile(entity, bottomPos);
+            CreateTile(entity, leftTopPos);
+            CreateTile(entity, leftBottomPos);
+            CreateTile(entity, rightTopPos);
+            CreateTile(entity, rightBottomPos);
         }
 
         private void CreateTile(GameEntity entity, Vector3 transformPosition)
