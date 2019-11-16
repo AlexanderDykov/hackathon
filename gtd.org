@@ -9,9 +9,12 @@
     CLOSED: [2019-11-16 сб 14:38]
 *** DONE choose skills
     CLOSED: [2019-11-16 сб 15:58]
-*** TODO basic skills [0/2]
-**** TODO create statue
-**** TODO open soul
+*** DONE basic skills [2/2]
+    CLOSED: [2019-11-16 сб 17:08]
+**** DONE create statue
+     CLOSED: [2019-11-16 сб 17:08]
+**** DONE open soul
+     CLOSED: [2019-11-16 сб 17:08]
 *** TODO put soul into statue(creates creatures enemy/friend)
 *** TODO creature properties [0/3]
 **** TODO simple(just hp + walking)
