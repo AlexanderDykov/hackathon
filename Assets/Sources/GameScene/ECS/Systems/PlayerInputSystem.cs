@@ -4,26 +4,24 @@ using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public sealed class PlayerInputSystem : IExecuteSystem, IInitializeSystem
+    public sealed class PlayerInputSystem : IExecuteSystem
     {
-        private readonly IInputContext _context;
+        private readonly IGroup<GameEntity> _player;
         private const float StartMovingCoefficient = 0.05f;
 
-        public PlayerInputSystem(IInputContext context)
+        public PlayerInputSystem(IGameContext gameContext)
         {
-            _context = context;
+            _player = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.Player));
         }
-        
-        public void Initialize()
-        {
-            _context.CreateEntity().AddInput(Vector2.zero);
-        }
-        
+
         public void Execute()
         {
             var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
-            _context.inputEntity.ReplaceInput(new Vector2(horizontal,vertical));
+            foreach (var player in _player)
+            {
+                player.ReplaceDirection(new Vector3(horizontal, vertical, 0f));
+            }
         }
 
     }

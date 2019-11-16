@@ -18,7 +18,9 @@ namespace GameScene.ECS.Systems.Skill
         {
             soulEntity.AddResource(ResourceNames.Soul);
             soulEntity.AddCreatureType(CreatureType.Soul);
+            soulEntity.AddSpeed(1f);
             soulEntity.isPhysic = true;
+            soulEntity.AddLookNearest(CreatureType.Statue);
         }
 
         public CreateSoulBySkillSystem(IGameContext context) : base(context)

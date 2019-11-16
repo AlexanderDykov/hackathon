@@ -30,9 +30,9 @@ namespace GameScene.Installer
             Container.Bind<UIFactory>().AsSingle();
 
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
-            
+
             Container.Bind<RandomPositionGenerator>().AsSingle();
-            
+
             InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
             InstallUpdateSystem<PlayerInputSystem>();
@@ -43,9 +43,10 @@ namespace GameScene.Installer
             InstallUpdateSystem<LifeTickSystem>();
             InstallUpdateSystem<SetInitialWorldPositionSystem>();
             InstallUpdateSystem<AddBodySystem>();
-            InstallUpdateSystem<PlayerMovementSystem>();
+            InstallUpdateSystem<MovementSystem>();
+            InstallUpdateSystem<FindTargetSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
-            
+
             InstallUpdateSystem<CreateSoulBySkillSystem>();
             InstallUpdateSystem<CreateStatueBySkillSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
