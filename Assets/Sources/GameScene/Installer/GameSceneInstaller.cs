@@ -42,7 +42,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<AddBodySystem>();
             InstallUpdateSystem<PlayerMovementSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
-            InstallUpdateSystem<PlayerAnimationSystem>();
+            // InstallUpdateSystem<PlayerAnimationSystem>(); // Temp: Not enough sprites for animation!
             base.InstallBindings();
         }
     }
