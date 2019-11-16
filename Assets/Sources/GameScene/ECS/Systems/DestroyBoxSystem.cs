@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using GameScene.ECS.Utils;
+using GameScene.Factories;
 using GameScene.View;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -10,9 +12,14 @@ namespace GameScene.ECS.Systems
     public class DestroyBoxSystem : ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
-        public DestroyBoxSystem(IGameContext context) : base(context)
+        private IBoxFactory _boxFactory;
+        private readonly RandomPositionGenerator _positionGenerator;
+        public DestroyBoxSystem(IGameContext context, IBoxFactory boxFactory,
+            RandomPositionGenerator positionGenerator) : base(context)
         {
             _context = context;
+            _boxFactory = boxFactory;
+            _positionGenerator = positionGenerator;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -32,6 +39,8 @@ namespace GameScene.ECS.Systems
                 entity.view.Value.GetComponent<BoxView>().Open(false);
                 Object.Destroy(entity.view.Value);
                 entity.isDestroy = true;
+
+                _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition());
             }
         }
     }

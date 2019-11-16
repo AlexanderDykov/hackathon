@@ -14,17 +14,15 @@ namespace GameScene.ECS.Systems
         private readonly IPlayerFactory _playerFactory;
         private readonly IBoxFactory _boxFactory;
         private readonly UIFactory _uiFactory;
-        private readonly RandomPositionGenerator _positionGenerator;
         
         public InitSystem(IGameContext context,
             IPlayerFactory playerFactory,
-            IBoxFactory boxFactory,UIFactory uiFactory,
-            RandomPositionGenerator positionGenerator)
+            IBoxFactory boxFactory,
+            UIFactory uiFactory)
         {
             _context = context;
             _playerFactory = playerFactory;
             _boxFactory = boxFactory;
-            _positionGenerator = positionGenerator;
             _uiFactory = uiFactory;
         }
         
@@ -36,10 +34,8 @@ namespace GameScene.ECS.Systems
 
             _uiFactory.CreateCamera(_context);
 
-            for (var i = 0; i < 15; i++)
-            {
-                _boxFactory.CreateEntity(_context, _positionGenerator.RandomPosition());
-            }
+            _boxFactory.CreateEntity(_context, Vector2.zero);
+            
             
 //            var entity = _context.CreateEntity();
 //            entity.AddInitialPosition(new Vector2(2, 0));
