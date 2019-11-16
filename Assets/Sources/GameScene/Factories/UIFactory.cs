@@ -5,13 +5,14 @@ namespace GameScene.Factories
 {
     public class UIFactory
     {
-        public GameEntity CreateLifeTimeView(IGameContext context)
+        public GameEntity CreatePlayerHUD(IGameContext context)
         {
             var entity = context.CreateEntity();
-            entity.AddResource("LifeTimeView");
+            entity.AddResource("PlayerHUD");
             
             entity.AddLife(Constants.StartLifeValue);
             entity.AddLifeTimer(Constants.MaxTimerValue);
+            entity.AddScore(0);
             entity.AddParent("Canvas");
             return entity;
         }

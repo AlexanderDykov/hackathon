@@ -14,6 +14,8 @@ namespace Core.Contexts
         LifeComponent life { get; }
         void ReplaceLife(int newValue);
         bool isEndGame{ get; set; }
+        void ReplaceScore(int newValue);
+        ScoreComponent score { get; }
     }
 }
 

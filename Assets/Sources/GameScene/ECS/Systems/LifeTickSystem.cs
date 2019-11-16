@@ -26,6 +26,7 @@ namespace GameScene.ECS.Systems
             if (_context.lifeTimer.Value  <= 0) {
                 _context.ReplaceLife(--_context.life.Value);
                 _context.ReplaceLifeTimer(Constants.MaxTimerValue);
+                _context.ReplaceScore(++_context.score.Value);
                 return;
             }
             _context.ReplaceLifeTimer(_context.lifeTimer.Value - Time.deltaTime);
