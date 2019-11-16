@@ -3,7 +3,9 @@ using System.ComponentModel;
 using Core.Contexts;
 using Core.Installer;
 using Entitas;
+using GameScene.ECS;
 using GameScene.ECS.Systems;
+using GameScene.ECS.Systems.Skill;
 using GameScene.ECS.Utils;
 using GameScene.Factories;
 using GameScene.View;
@@ -30,6 +32,8 @@ namespace GameScene.Installer
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
             
             Container.Bind<RandomPositionGenerator>().AsSingle();
+            
+            InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
             InstallUpdateSystem<PlayerInputSystem>();
             InstallUpdateSystem<AddViewSystem>();
@@ -37,12 +41,14 @@ namespace GameScene.Installer
             InstallUpdateSystem<AddParentSystem>();
             InstallUpdateSystem<GameEventSystems>();
             InstallUpdateSystem<LifeTickSystem>();
-            InstallUpdateSystem<ShowPanelSystem>();
             InstallUpdateSystem<SetInitialWorldPositionSystem>();
             InstallUpdateSystem<AddBodySystem>();
             InstallUpdateSystem<PlayerMovementSystem>();
             InstallUpdateSystem<AddAnimatorSystem>();
-            InstallUpdateSystem<ExecuteSkillSystem>();
+            
+            InstallUpdateSystem<CreateSoulSkillSystem>();
+            InstallUpdateSystem<DestroyBoxSystem>();
+            InstallUpdateSystem<ShowPanelSystem>();
             base.InstallBindings();
         }
     }

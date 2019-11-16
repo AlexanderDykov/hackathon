@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using GameScene.ECS.Components;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace GameScene.ECS.Systems
+namespace GameScene.ECS.Systems.Skill
 {
-    public class ExecuteSkillSystem : ReactiveSystem<GameEntity>
+    public class CreateSoulSkillSystem : ReactiveSystem<GameEntity>
     {
-        public ExecuteSkillSystem(IGameContext context) : base(context)
+        public CreateSoulSkillSystem(IGameContext context) : base(context)
         {
         }
 
@@ -19,7 +19,7 @@ namespace GameScene.ECS.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasSkill && entity.hasView;
+            return entity.hasSkill && entity.hasView && entity.skill.Type == SkillType.CreateSoul;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -28,7 +28,6 @@ namespace GameScene.ECS.Systems
             {
                 // TODO: move it to next position
                 Debug.Log("Execute " + entity.skill.Type);
-                Object.Destroy(entity.view.Value);
             }
         }
     }
