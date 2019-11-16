@@ -36,24 +36,29 @@ namespace GameScene.Factories
                 TileType.None,
                 new List<SkillAvl>
                 {
-                    new SkillAvl(CreateWaterTileSkill, 50),
-                    new SkillAvl(CreateFireTileSkill, 5),
-                    new SkillAvl(CreateAirTileSkill, 5),
-                    new SkillAvl(CreateEarthTileSkill, 50)
+                    new SkillAvl(CreateEarthTileSkill, 50),
+                    new SkillAvl(CreateWaterTileSkill, 50)
                 }
             },
             {
-                TileType.Air,
+                TileType.Earth | TileType.Water,
                 new List<SkillAvl>
                 {
-                    new SkillAvl(CreateSoulSkill, 100),
+                    new SkillAvl(CreateAirTileSkill, 50),
+                    new SkillAvl(CreateFireTileSkill, 50)
                 }
-            }
+            },
         };
-        
         private List<Skill> SkillsByTileType(TileType level)
         {
-            return _hardcodedSkills.ContainsKey(level) ? GetTwoRandomLevels(_hardcodedSkills[level]) : new List<Skill>(){new SkillAvl(CreateSoulSkill, 100)};
+            foreach (var skillForTailType in _hardcodedSkills)
+            {
+                if ((skillForTailType.Key & level) != 0)
+                {
+                    return GetTwoRandomLevels(skillForTailType.Value);
+                }
+            }
+            return new List<Skill>(){new SkillAvl(CreateSoulSkill, 100)};
         }
 
         private List<Skill> GetTwoRandomLevels( List<SkillAvl> skills)

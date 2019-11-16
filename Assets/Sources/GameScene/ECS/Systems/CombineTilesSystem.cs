@@ -47,6 +47,10 @@ namespace GameScene.ECS.Systems
                                              var tile = _context.CreateEntity();
                                              tile.AddTile(pos, TileType.Coal);
                                          });
+            _tilesCombinationActions.Add(TileType.Air | TileType.None,
+                                         (Vector2 pos) => {});
+            _tilesCombinationActions.Add(TileType.Fire | TileType.None,
+                                         (Vector2 pos) => {});
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -66,23 +70,35 @@ namespace GameScene.ECS.Systems
                 var newTilePos = newTile.tile.Position;
                 var newTileType = newTile.tile.TileType;
                 var oldTiles = _context.GetEntitiesWithIndexTilePosition(newTilePos);
+                GameEntity oldTileFoo = null;
+                var oldTileType = TileType.None;
                 foreach (var oldTile in oldTiles)
                 {
-                    if (oldTile != newTile) {
-                        var oldTileType = oldTile.tile.TileType;
-                        if (newTileType != oldTileType) {
-                            if (_tilesCombinationActions.ContainsKey(newTileType | oldTileType)) {
-                                _tilesCombinationActions[newTileType | oldTileType](newTilePos);
-                                newTile.isDestroy = true;
-                                UnityEngine.Object.Destroy(newTile.view.Value);
-                                oldTile.isDestroy = true;
-                                UnityEngine.Object.Destroy(oldTile.view.Value);
-                                break;
-                            }
-                        } else {
-                            oldTile.isDestroy = true;
-                            UnityEngine.Object.Destroy(oldTile.view.Value);
+                    if (oldTile != newTile)
+                    {
+                        oldTileFoo = oldTile;
+                        oldTileType = oldTile.tile.TileType;
+                        break;
+                    }
+                }
+                if (newTileType != oldTileType)
+                {
+                    if (_tilesCombinationActions.ContainsKey(newTileType | oldTileType))
+                    {
+                        _tilesCombinationActions[newTileType | oldTileType](newTilePos);
+                        newTile.isDestroy = true;
+                        UnityEngine.Object.Destroy(newTile.view.Value);
+                        if (oldTileFoo != null)
+                        {
+                            oldTileFoo.isDestroy = true;
+                            UnityEngine.Object.Destroy(oldTileFoo.view.Value);
                         }
+                    }
+                } else {
+                    if (oldTileFoo != null)
+                    {
+                        oldTileFoo.isDestroy = true;
+                        UnityEngine.Object.Destroy(oldTileFoo.view.Value);
                     }
                 }
             }
