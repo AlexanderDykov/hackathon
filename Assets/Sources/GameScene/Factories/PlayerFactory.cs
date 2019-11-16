@@ -1,6 +1,7 @@
 using Core.Contexts;
+using UnityEngine;
 
-namespace SpaceWars.GameScene.Factories
+namespace GameScene.Factories
 {
     public interface IPlayerFactory
     {
@@ -19,6 +20,7 @@ namespace SpaceWars.GameScene.Factories
             playerEntity.AddSpeed(5f);
             //TODO: load parameter from configs
             playerEntity.AddResource("Player");
+            playerEntity.AddInitialPosition(Vector2.zero);
             return playerEntity;
         }
     }

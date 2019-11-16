@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
 using Entitas.Unity;
+using GameScene.View;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems
@@ -31,7 +32,7 @@ namespace GameScene.ECS.Systems
                 var prefab = Resources.Load<GameObject>(entity.resource.Path);
                 var go =  Object.Instantiate(prefab);
                 entity.AddView(go);
-                go.Link(entity, _context);
+                go.GetComponent<IView>()?.Link(_context, entity);
                 entity.RemoveResource();
             }
         }
