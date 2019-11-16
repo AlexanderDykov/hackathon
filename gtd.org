@@ -47,20 +47,12 @@
 ******* TODO air
 ******* TODO soul(good/evil)
 ****** TODO upgrades [0/6]
-******* TODO earth + good soul = grass
-******* TODO earth + bad soul = poison ground
 ******* TODO earth + water = sand
 ******* TODO earth + air = mountain
 ******* TODO earth + fire = lava
-******* TODO water + good soul = healing water
-******* TODO water + bad soul = poison water
 ******* TODO water + air = ice
-******* TODO water + fire = fog
-******* TODO air + good soul = centaur
-******* TODO air + bad soul = skeleton
+******* TODO water + fire = sand
 ******* TODO air + fire = coal
-******* TODO fire + good soul = human
-******* TODO fire + bad soul = zombie
 **** TODO tile collision rules
 ***** TODO 
 * ideas
