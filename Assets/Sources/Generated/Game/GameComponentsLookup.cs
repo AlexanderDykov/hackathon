@@ -15,25 +15,27 @@ public static class GameComponentsLookup {
     public const int CreatureType = 4;
     public const int Damage = 5;
     public const int Destroy = 6;
-    public const int EndGame = 7;
-    public const int Health = 8;
-    public const int InitialPosition = 9;
-    public const int Life = 10;
-    public const int LifeTimer = 11;
-    public const int Parent = 12;
-    public const int Physic = 13;
-    public const int Player = 14;
-    public const int Resource = 15;
-    public const int Score = 16;
-    public const int ShowSelectView = 17;
-    public const int Skill = 18;
-    public const int Speed = 19;
-    public const int View = 20;
-    public const int LifeListener = 21;
-    public const int LifeTimerListener = 22;
-    public const int ScoreListener = 23;
+    public const int Direction = 7;
+    public const int EndGame = 8;
+    public const int Health = 9;
+    public const int InitialPosition = 10;
+    public const int Life = 11;
+    public const int LifeTimer = 12;
+    public const int LookNearest = 13;
+    public const int Parent = 14;
+    public const int Physic = 15;
+    public const int Player = 16;
+    public const int Resource = 17;
+    public const int Score = 18;
+    public const int ShowSelectView = 19;
+    public const int Skill = 20;
+    public const int Speed = 21;
+    public const int View = 22;
+    public const int LifeListener = 23;
+    public const int LifeTimerListener = 24;
+    public const int ScoreListener = 25;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "Animated",
