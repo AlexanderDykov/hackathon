@@ -54,7 +54,6 @@ namespace GameScene.Installer
             InstallUpdateSystem<CheckHPSystem>();
             InstallUpdateSystem<DestroyBoxSystem>();
             InstallUpdateSystem<ShowPanelSystem>();
-            InstallUpdateSystem<OpenChestSystem>();
             InstallUpdateSystem<AttackSystem>();
             InstallUpdateSystem<HealSystem>();
             InstallUpdateSystem<CreateNewCreatureSystem>();
@@ -65,6 +64,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<CallDownSystem>();
             InstallUpdateSystem<ZombieCooldownSystem>();
             InstallUpdateSystem<ZombieSystem>();
+            InstallUpdateSystem<OpenChestSystem>();
             base.InstallBindings();
         }
     }
