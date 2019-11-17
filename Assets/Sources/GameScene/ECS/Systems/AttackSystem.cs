@@ -17,11 +17,12 @@ namespace GameScene.ECS.Systems
         {
             foreach (var gameEntity in _attackGroup)
             {
-                if (!(gameEntity.calldown.Value < 0.001f)) continue;
-
-                var damage = gameEntity.target.Entity.hasDamage ? gameEntity.target.Entity.damage.Value : 0;
-                gameEntity.target.Entity.ReplaceDamage(damage + gameEntity.attackPower.Value);
-                gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+                if (gameEntity.calldown.Value <= 0f)
+                {
+                    var damage = gameEntity.target.Entity.hasDamage ? gameEntity.target.Entity.damage.Value : 0;
+                    gameEntity.target.Entity.ReplaceDamage(damage + gameEntity.attackPower.Value);
+                    gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+                }
             }
         }
     }

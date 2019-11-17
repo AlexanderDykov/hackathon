@@ -27,13 +27,15 @@ namespace GameScene.ECS.Systems
         {
             foreach (var gameEntity in _attackGroup)
             {
-                if (!(gameEntity.calldown.Value < 0.001f)) continue;
-                _factory.Create(gameEntity.creator.Value, gameEntity.target.Entity.view.Value.transform.position);
-                
-                if(gameEntity.target.Entity.creatureType.Value == CreatureType.Position) 
-                    gameEntity.target.Entity.ReplaceInitialPosition(_randomPositionGenerator.RandomPosition());
-                
-                gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+                if (gameEntity.calldown.Value <= 0f)
+                {
+                    _factory.Create(gameEntity.creator.Value, gameEntity.target.Entity.view.Value.transform.position);
+                    if(gameEntity.target.Entity.creatureType.Value == CreatureType.Position)
+                    {
+                        gameEntity.target.Entity.ReplaceInitialPosition(_randomPositionGenerator.RandomPosition());
+                    }
+                    gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+                }
             }
         }
     }
