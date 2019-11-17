@@ -17,6 +17,8 @@ namespace GameScene.Installer
     {
         [SerializeField] private SelectPanel _selectPanel;
         [SerializeField] private Grid _grid;
+        [SerializeField] 
+        private EndGame _panel;
 
         public override void InstallBindings()
         {
@@ -28,6 +30,7 @@ namespace GameScene.Installer
             Container.Bind<UIFactory>().AsSingle();
             Container.Bind<MonsterFactory>().AsSingle();
             Container.Bind<Grid>().FromInstance(_grid).AsSingle();
+            Container.Bind<EndGame>().FromInstance(_panel).AsSingle();
 
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
 
@@ -35,7 +38,7 @@ namespace GameScene.Installer
 
             InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
-            InstallCommonSystem<InitWorldSystem>();
+            InstallUpdateSystem<InitWorldSystem>();
             
             
             InstallUpdateSystem<TrackCellReputationSystem>();
@@ -66,6 +69,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<ZombieCooldownSystem>();
             InstallUpdateSystem<ZombieSystem>();
             InstallUpdateSystem<OpenChestSystem>();
+            InstallUpdateSystem<EndGameSystem>();
             base.InstallBindings();
         }
     }

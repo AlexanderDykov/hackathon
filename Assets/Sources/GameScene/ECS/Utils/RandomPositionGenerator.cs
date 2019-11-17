@@ -14,8 +14,7 @@ namespace GameScene.ECS.Utils
             _grid = grid;
             _context = context;
         }
-        
-        
+
 
         public Vector3Int RandomPosition()
         {

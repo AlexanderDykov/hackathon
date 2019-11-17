@@ -7,12 +7,14 @@ using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public sealed class InitWorldSystem : IInitializeSystem
+    public sealed class InitWorldSystem : IInitializeSystem, IExecuteSystem
     {
         private readonly IGameContext _context;
         private readonly IBoxFactory _boxFactory;
         private readonly RandomPositionGenerator _randomPositionGenerator;
         private MonsterFactory _monsterFactory;
+        private float _timer = 0.1f;
+        private bool flag;
         public InitWorldSystem(IGameContext context, MonsterFactory monsterFactory,
             IBoxFactory boxFactory, RandomPositionGenerator randomPositionGenerator)
         {
@@ -40,15 +42,24 @@ namespace GameScene.ECS.Systems
                 }
             }
             
+        }
 
-            for (int i = 0; i < 6; i++)
-            {
-                _monsterFactory.CreatePosition(_randomPositionGenerator.RandomPosition());
-            }
+        public void Execute()
+        {
+            _timer -= Time.deltaTime;
             
-            for (int i = 0; i < 6; i++)
+            if (_timer < 0 && !flag)
             {
-                _boxFactory.CreateEntity(_randomPositionGenerator.RandomPosition());
+                flag = true;
+                for (int i = 0; i < 6; i++)
+                {
+                    _monsterFactory.CreatePosition(_randomPositionGenerator.RandomPosition());
+                }
+
+                for (int i = 0; i < 6; i++)
+                {
+                    _boxFactory.CreateEntity(_randomPositionGenerator.RandomPosition());
+                }
             }
         }
     }
