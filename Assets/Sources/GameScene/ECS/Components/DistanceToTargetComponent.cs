@@ -3,7 +3,7 @@ using Entitas;
 namespace GameScene.ECS.Components
 {
     [Game]
-    public class AttackDistance : IComponent
+    public class DistanceToTargetComponent : IComponent
     {
         public float Value;
     }

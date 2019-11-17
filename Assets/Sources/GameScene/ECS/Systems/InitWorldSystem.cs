@@ -12,11 +12,12 @@ namespace GameScene.ECS.Systems
         private readonly IGameContext _context;
         private readonly IBoxFactory _boxFactory;
         private readonly RandomPositionGenerator _randomPositionGenerator;
-
-        public InitWorldSystem(IGameContext context, 
+        private MonsterFactory _monsterFactory;
+        public InitWorldSystem(IGameContext context, MonsterFactory monsterFactory,
             IBoxFactory boxFactory, RandomPositionGenerator randomPositionGenerator)
         {
             _boxFactory = boxFactory;
+            _monsterFactory = monsterFactory;
             _context = context;
             _randomPositionGenerator = randomPositionGenerator;
         }
@@ -37,12 +38,16 @@ namespace GameScene.ECS.Systems
                 }
             }
             
+
+            for (int i = 0; i < 15; i++)
+            {
+                _monsterFactory.CreatePosition(_randomPositionGenerator.RandomPosition());
+            }
             
             for (int i = 0; i < 5; i++)
             {
                 _boxFactory.CreateEntity(_randomPositionGenerator.RandomPosition());
             }
-
         }
     }
 }

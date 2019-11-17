@@ -35,11 +35,10 @@ namespace GameScene.ECS.Systems
 
             _context.ReplaceWorld(new Vector2Int(10, 10));
 
-
-            _monsterFactory.CreateHuman(new Vector2(-2, 0));
-            _monsterFactory.CreateWarrior(new Vector2(-2, 4));
-//            _monsterFactory.CreateWorker(new Vector2(-2, 8));
-            _monsterFactory.CreateSkeleton(new Vector2(2, 0));
+//            _monsterFactory.CreateHuman(new Vector2(-2, 0));
+//            _monsterFactory.CreateWarrior(new Vector2(-2, 4));
+            _monsterFactory.CreateWorker(new Vector2(-2, 8));
+//            _monsterFactory.CreateSkeleton(new Vector2(2, 0));
         }
     }
 }

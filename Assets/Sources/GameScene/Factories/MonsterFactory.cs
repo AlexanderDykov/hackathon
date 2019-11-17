@@ -41,7 +41,16 @@ namespace GameScene.Factories
             {
                 {CreatureType.Statue, CreateHuman},
                 {CreatureType.Warrior, CreateWarrior},
+                {CreatureType.WhiteBuilding, CreateWhiteBuilding},
             };
+        }
+
+        private void CreateWhiteBuilding(Vector2 transformPosition)
+        {
+            var statue = _context.CreateEntity();
+            statue.AddResource(ResourceNames.WhiteBuilding);
+            statue.AddInitialPosition(transformPosition);
+            statue.AddCreatureType(CreatureType.WhiteBuilding);
         }
 
 
@@ -53,6 +62,7 @@ namespace GameScene.Factories
             entity.AddResource(ResourceNames.Human);
             entity.AddCreatureType(CreatureType.Human);
             entity.AddHealth(10);
+            entity.AddDistanceToTarget(1f);
             entity.isPhysic = true;
             entity.isDamagable = true;
             entity.AddSide(Side.White);
@@ -73,11 +83,11 @@ namespace GameScene.Factories
             entity.isDamagable = true;
             entity.AddSide(Side.White);
             entity.AddSpeed(1);
+            entity.AddDistanceToTarget(1f);
             
             entity.AddAttackPower(4);
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
-            entity.AddAttackDistance(1f);
         }
         
         // 3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
@@ -85,8 +95,8 @@ namespace GameScene.Factories
         {
             var entity = _context.CreateEntity();
             entity.AddInitialPosition(position);
-            entity.AddResource(ResourceNames.Warrior);
-            entity.AddCreatureType(CreatureType.Warrior);
+            entity.AddResource(ResourceNames.Worker);
+            entity.AddCreatureType(CreatureType.Worker);
             entity.AddHealth(15);
             entity.isPhysic = true;
             entity.isAttackable = true;
@@ -98,6 +108,9 @@ namespace GameScene.Factories
             
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
+            entity.AddDistanceToTarget(1f);
+            
+            entity.AddLookNearest(CreatureType.Position);
         }
         
         // 1. Skeleton: 8 HP, 4 Attack
@@ -113,11 +126,13 @@ namespace GameScene.Factories
             entity.isDamagable = true;
             entity.AddSide(Side.Black);
             entity.AddSpeed(1);
+            entity.AddDistanceToTarget(1f);
             
             entity.AddAttackPower(2);
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
-            entity.AddAttackDistance(1f);
+            
+            entity.AddLookNearest(CreatureType.Human | CreatureType.Warrior | CreatureType.Worker);
         }
 
         public void Create(CreatureType creatureType, Vector2 position)
@@ -179,6 +194,14 @@ namespace GameScene.Factories
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.BlackStatue);
         }
+
+        public void CreatePosition(Vector3 transformPosition)
+        {
+            var statue = _context.CreateEntity();
+            statue.AddResource(ResourceNames.Position);
+            statue.AddInitialPosition(transformPosition);
+            statue.AddCreatureType(CreatureType.Position);
+        }
     }
 }
 
@@ -200,4 +223,5 @@ public enum CreatureType
     BlackWorker = 1 << 12,
     WhiteBuilding = 1 << 13,
     BlackBuilding = 1 << 14,
+    Position = 1 << 15
 }

@@ -12,25 +12,26 @@ namespace GameScene.ECS.Systems
 
         public FindTargetSystem(IGameContext gameContext)
         {
-            _lookingGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.Attackable, GameMatcher.Side, GameMatcher.AttackDistance));
-            _creaturesGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.Damagable, GameMatcher.Side));
+            _lookingGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.LookNearest, GameMatcher.DistanceToTarget));
+            _creaturesGroup = gameContext.GetGroup(GameMatcher.AllOf(GameMatcher.View, GameMatcher.CreatureType));
         }
 
         public void Execute()
         {
             foreach (var look in _lookingGroup.GetEntities())
             {
+                Debug.Log("Aaa");
                 var minDist = Mathf.Infinity;
                 var lookPos = look.view.Value.transform.position;
                 var direction = Vector2.zero;
                 var stopEndAttack = false;
-                foreach (var target in _creaturesGroup.GetEntities().Where(x => x.side.Value != look.side.Value))
+                foreach (var target in _creaturesGroup.GetEntities().Where(x => (x.creatureType.Value & look.lookNearest.Value) != 0))
                 {
                     var tmpDirection = target.view.Value.transform.position - lookPos;
                     var dist = Vector3.SqrMagnitude(tmpDirection);
-                    if (dist <= look.attackDistance.Value)
+                    if (dist <= look.distanceToTarget.Value)
                     {
-                        look.ReplaceAttackTarget(target);
+                        look.ReplaceTarget(target);
                         stopEndAttack = true;
                         break;
                     }
@@ -45,8 +46,8 @@ namespace GameScene.ECS.Systems
                     look.ReplaceDirection(Vector3.zero);
                     continue;
                 }
-                if(look.hasAttackTarget)
-                    look.RemoveAttackTarget();
+                if(look.hasTarget)
+                    look.RemoveTarget();
                 look.ReplaceDirection(direction.normalized);
             }
         }

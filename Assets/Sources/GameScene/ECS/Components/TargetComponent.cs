@@ -2,8 +2,9 @@ using Entitas;
 
 namespace GameScene.ECS.Components
 {
-    public class LookNearestComponent: IComponent
+    [Game]
+    public class TargetComponent : IComponent
     {
-        public CreatureType Value;
+        public GameEntity Entity;
     }
 }

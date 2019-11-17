@@ -55,11 +55,11 @@ namespace GameScene.Installer
             InstallUpdateSystem<OpenChestSystem>();
             InstallUpdateSystem<AttackSystem>();
             InstallUpdateSystem<CreateNewCreatureSystem>();
-            InstallUpdateSystem<FindBuildTargetSystem>();
             InstallUpdateSystem<CreateSoulBySkillSystem>();
             InstallUpdateSystem<CreateStatueBySkillSystem>();
             InstallUpdateSystem<SoulMoveSystem>();
             InstallUpdateSystem<UpgradeSystem>();
+            InstallUpdateSystem<CallDownSystem>();
             base.InstallBindings();
         }
     }
