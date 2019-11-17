@@ -33,7 +33,7 @@ namespace GameScene.Factories
 
         private IGameContext _context;
         private Dictionary<CreatureType, Action<Vector2>> map;
-        
+
         public MonsterFactory(IGameContext context)
         {
             _context = context;
@@ -73,7 +73,7 @@ namespace GameScene.Factories
             entity.AddSpeed(1);
             entity.AddReputation(1);
         }
-        
+
         // 2. Warrior: 10 HP, 4 Attack
         public void CreateWarrior(Vector2 position)
         {
@@ -86,15 +86,18 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
-            
+
             entity.AddAttackPower(4);
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
-            
-            entity.AddLookNearest(CreatureType.Black);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.Black) != 0;
+            });
 
         }
-        
+
         // 3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
         public void CreateWorker(Vector2 position)
         {
@@ -108,12 +111,15 @@ namespace GameScene.Factories
             entity.AddSpeed(1.5f);
 
             entity.AddCreator(CreatureType.WhiteBuilding);
-            
+
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
-            
-            entity.AddLookNearest(CreatureType.Position);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.Position) != 0;
+            });
         }
 
         // 4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
@@ -134,7 +140,11 @@ namespace GameScene.Factories
             entity.AddCalldown(2);
             entity.AddDistanceToTarget(3f);
 
-            entity.AddLookNearest(CreatureType.Human | CreatureType.Warrior | CreatureType.Worker |  CreatureType.Priest);
+            entity.AddLookNearest(possibleTarget =>
+            {
+                var desired = CreatureType.Human | CreatureType.Warrior | CreatureType.Worker |  CreatureType.Priest;
+                return (possibleTarget.creatureType.Value & desired) != 0;
+            });
         }
 
         // 1. Skeleton: 8 HP, 4 Attack
@@ -149,13 +159,16 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
-            
+
             entity.AddAttackPower(2);
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
-            
-            
-            entity.AddLookNearest(CreatureType.White);
+
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.White) != 0;
+            });
         }
 
         public void Create(CreatureType creatureType, Vector2 position)
@@ -173,7 +186,7 @@ namespace GameScene.Factories
             soul.AddInitialPosition(transformPosition);
             soul.AddCreatureType(CreatureType.Statue);
         }
-        
+
         public void CreateSoul(Vector2 position)
         {
             var soul = _context.CreateEntity();
@@ -184,14 +197,17 @@ namespace GameScene.Factories
             soul.AddSpeed(3);
             soul.isSoul = true;
             soul.AddDistanceToTarget(1f);
-            soul.AddLookNearest(
-                CreatureType.Statue 
-                |CreatureType.Human
-                |CreatureType.Warrior 
-                |CreatureType.Worker
-                |CreatureType.BlackStatue
-                |CreatureType.Skeleton
-                |CreatureType.BlackWorker);
+            soul.AddLookNearest(possibleTarget =>
+            {
+                var desired = CreatureType.Statue |
+                              CreatureType.Human |
+                              CreatureType.Warrior |
+                              CreatureType.Worker |
+                              CreatureType.BlackStatue |
+                              CreatureType.Skeleton |
+                              CreatureType.BlackWorker;
+                return (possibleTarget.creatureType.Value & desired) != 0;
+            });
         }
 
         // 5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
@@ -207,12 +223,15 @@ namespace GameScene.Factories
             entity.AddSpeed(1.5f);
 
             entity.AddCreator(CreatureType.Soul);
-            
+
             entity.AddCalldown(4);
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
-            
-            entity.AddLookNearest(CreatureType.WhiteBuilding);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.WhiteBuilding) != 0;
+            });
         }
 
         public void CreateBlackWorker(Vector2 position)
@@ -227,12 +246,15 @@ namespace GameScene.Factories
             entity.AddSpeed(1.5f);
 
             entity.AddCreator(CreatureType.BlackBuilding);
-            
+
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
-            
-            entity.AddLookNearest(CreatureType.Position);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.Position) != 0;
+            });
         }
 
         public void CreateZombie(Vector2 position)
@@ -246,12 +268,16 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
-            
+
             entity.AddZombieTimer(3);
             entity.AddCalldown(3);
             entity.AddInitialCalldown(3);
-            
-            entity.AddLookNearest(CreatureType.Human | CreatureType.Worker);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                var desired = CreatureType.Human | CreatureType.Worker;
+                return (possibleTarget.creatureType.Value & desired) != 0;
+            });
         }
 
         public void CreateLich(Vector2 position)
@@ -266,12 +292,15 @@ namespace GameScene.Factories
             entity.AddSpeed(1.5f);
 
             entity.AddCreator(CreatureType.Skeleton);
-            
+
             entity.AddCalldown(4);
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
-            
-            entity.AddLookNearest(CreatureType.BlackBuilding);
+
+            entity.AddLookNearest(possibleTarget =>
+            {
+                return (possibleTarget.creatureType.Value & CreatureType.BlackBuilding) != 0;
+            });
         }
 
         public void CreateBlackStatue(Vector3 transformPosition)
@@ -293,10 +322,10 @@ namespace GameScene.Factories
         public void CreateBlackBuilding(Vector2 transformPosition)
         {
             var statue = _context.CreateEntity();
-            
+
             statue.AddInitialHealth(20);
             statue.AddHealth(20);
-            
+
             statue.AddResource(ResourceNames.BlackBuilding);
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.BlackBuilding);
