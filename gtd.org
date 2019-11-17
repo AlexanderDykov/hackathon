@@ -1,7 +1,10 @@
-* roadmap [0/10]
-** TODO generate initial white/black board
-** TODO create reputation system for each cell on the board
-** TODO dynamically redraw tiles on board
+* roadmap [3/10]
+** DONE generate initial white/black board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE create reputation system for each cell on the board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE dynamically redraw tiles on board
+   CLOSED: [2019-11-17 нд 15:24]
 ** TODO create balance system(-100; +100)
 ** TODO create multiple random chest
 ** TODO choose skills system
