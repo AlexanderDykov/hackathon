@@ -20,9 +20,14 @@ namespace GameScene.ECS.Systems
         {
             _updateScoreTimer -= Time.deltaTime;
             if (_updateScoreTimer < 0) {
-                var scoreDiff = 1;
-                if (Math.Abs(_context.balance.Value) > 0.2 * Settings.MaxBalance) {
-                    scoreDiff = -1;
+                var scoreDiff = 0;
+                if (_context.balance.Value != 0)
+                {
+                    scoreDiff = 1;
+                    if (Math.Abs(_context.balance.Value) > 0.2 * Settings.MaxBalance)
+                    {
+                        scoreDiff = -1;
+                    }
                 }
                 _context.ReplaceScore(_context.score.Value + scoreDiff);
                 _updateScoreTimer = Settings.UpdateScorePeriodSeconds;
