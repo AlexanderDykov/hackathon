@@ -9,9 +9,11 @@ namespace GameScene.ECS.Systems
     {
         readonly IGroup<GameEntity> _zombieGroup;
         private readonly MonsterFactory _monsterFactory;
-        public ZombieSystem(IGameContext context, MonsterFactory monsterFactory)
+        private Grid _grid;
+        public ZombieSystem(IGameContext context, MonsterFactory monsterFactory, Grid grid)
         {
             _monsterFactory = monsterFactory;
+            _grid = grid;
             _zombieGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Target, GameMatcher.ZombieTimer, GameMatcher.Calldown, GameMatcher.InitialCalldown));
         }
         
@@ -23,7 +25,7 @@ namespace GameScene.ECS.Systems
                 gameEntity.target.Entity.isDestroy = true;
                 Object.Destroy( gameEntity.target.Entity.view.Value);
                 
-                _monsterFactory.CreateSkeleton(gameEntity.target.Entity.view.Value.transform.position);
+                _monsterFactory.CreateSkeleton(_grid.WorldToCell(gameEntity.target.Entity.view.Value.transform.position));
                 
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
                 gameEntity.ReplaceZombieTimer(3);

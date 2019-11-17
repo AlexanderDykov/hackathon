@@ -14,19 +14,19 @@ namespace GameScene.ECS.Systems
         
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.InitialPosition.Added());
+            return context.CreateCollector(GameMatcher.Cell.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasView && entity.hasInitialPosition;
+            return entity.hasView && entity.hasCell;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)
             {
-                entity.view.Value.transform.position = entity.initialPosition.Value;
+                entity.view.Value.transform.position = entity.cell.Position;
             }
         }
     }

@@ -9,7 +9,7 @@ namespace GameScene.Factories
 {
     public interface IBoxFactory
     {
-        GameEntity CreateEntity(Vector2 position);
+        GameEntity CreateEntity(Vector3Int position);
     }
 
     public class BoxFactory : IBoxFactory
@@ -25,7 +25,7 @@ namespace GameScene.Factories
             _grid = grid;
         }
 
-        public GameEntity CreateEntity( Vector2 position)
+        public GameEntity CreateEntity( Vector3Int position)
         {
             var playerEntity = _context.CreateEntity();
 
@@ -39,7 +39,7 @@ namespace GameScene.Factories
                 isWhite = cells.FirstOrDefault(x => x.hasReputation)?.reputation?.Value > 0;
             }
 
-            playerEntity.AddInitialPosition(position);
+            playerEntity.AddCell(position);
             var newSkills = new List<Skill> {CreateSoulSkill, isWhite ? _statueSkill : _blackStatueSkill};
 
             playerEntity.AddBoxSkills(newSkills);

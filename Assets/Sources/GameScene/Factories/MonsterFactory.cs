@@ -32,12 +32,12 @@ namespace GameScene.Factories
 //        4. Lich: 20 HP, [create skeleton near house](10 seconds){30 seconds cooldown}
 
         private IGameContext _context;
-        private Dictionary<CreatureType, Action<Vector2>> map;
+        private Dictionary<CreatureType, Action<Vector3Int>> map;
         
         public MonsterFactory(IGameContext context)
         {
             _context = context;
-            map = new Dictionary<CreatureType, Action<Vector2>>()
+            map = new Dictionary<CreatureType, Action<Vector3Int>>()
             {
                 {CreatureType.Statue, CreateStatue},
                 {CreatureType.Warrior, CreateWarrior},
@@ -48,22 +48,22 @@ namespace GameScene.Factories
             };
         }
 
-        public void CreateWhiteBuilding(Vector2 transformPosition)
+        public void CreateWhiteBuilding(Vector3Int transformPosition)
         {
             var statue = _context.CreateEntity();
             statue.AddInitialHealth(20);
             statue.AddHealth(20);
             statue.AddResource(ResourceNames.WhiteBuilding);
-            statue.AddInitialPosition(transformPosition);
+            statue.AddCell(transformPosition);
             statue.AddCreatureType(CreatureType.WhiteBuilding);
         }
 
 
         // 1. Human: 10 HP
-        public void CreateHuman( Vector2 position)
+        public void CreateHuman( Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Human);
             entity.AddCreatureType(CreatureType.Human);
             entity.AddInitialHealth(10);
@@ -75,10 +75,10 @@ namespace GameScene.Factories
         }
         
         // 2. Warrior: 10 HP, 4 Attack
-        public void CreateWarrior(Vector2 position)
+        public void CreateWarrior(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Warrior);
             entity.AddCreatureType(CreatureType.Warrior);
             entity.AddInitialHealth(10);
@@ -96,31 +96,31 @@ namespace GameScene.Factories
         }
         
         // 3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
-        public void CreateWorker(Vector2 position)
+        public void CreateWorker(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Worker);
             entity.AddCreatureType(CreatureType.Worker);
             entity.AddInitialHealth(15);
             entity.AddHealth(15);
             entity.isPhysic = true;
-            entity.AddSpeed(1.5f);
+            entity.AddSpeed(1f);
 
             entity.AddCreator(CreatureType.WhiteBuilding);
             
-            entity.AddCalldown(2);
-            entity.AddInitialCalldown(2);
+            entity.AddCalldown(30);
+            entity.AddInitialCalldown(30);
             entity.AddDistanceToTarget(1f);
             
             entity.AddLookNearest(CreatureType.Position);
         }
 
         // 4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
-        public void CreateHealer(Vector2 position)
+        public void CreateHealer(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Healer);
             entity.AddCreatureType(CreatureType.Healer);
             entity.AddInitialHealth(15);
@@ -138,10 +138,10 @@ namespace GameScene.Factories
         }
 
         // 1. Skeleton: 8 HP, 4 Attack
-        public void CreateSkeleton(Vector2 position)
+        public void CreateSkeleton(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Skeleton);
             entity.AddCreatureType(CreatureType.Skeleton);
             entity.AddInitialHealth(8);
@@ -158,7 +158,7 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.White);
         }
 
-        public void Create(CreatureType creatureType, Vector2 position)
+        public void Create(CreatureType creatureType, Vector3Int position)
         {
             if (map.ContainsKey(creatureType))
             {
@@ -166,19 +166,19 @@ namespace GameScene.Factories
             }
         }
 
-        public void CreateStatue(Vector2 transformPosition)
+        public void CreateStatue(Vector3Int transformPosition)
         {
             var soul = _context.CreateEntity();
             soul.AddResource(ResourceNames.Statue);
-            soul.AddInitialPosition(transformPosition);
+            soul.AddCell(transformPosition);
             soul.AddCreatureType(CreatureType.Statue);
         }
         
-        public void CreateSoul(Vector2 position)
+        public void CreateSoul(Vector3Int position)
         {
             var soul = _context.CreateEntity();
             soul.AddResource(ResourceNames.Soul);
-            soul.AddInitialPosition(position);
+            soul.AddCell(position);
             soul.AddCreatureType(CreatureType.Soul);
             soul.isPhysic = true;
             soul.AddSpeed(3);
@@ -195,10 +195,10 @@ namespace GameScene.Factories
         }
 
         // 5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
-        public void CreatePrist(Vector2 position)
+        public void CreatePrist(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Priest);
             entity.AddCreatureType(CreatureType.Priest);
             entity.AddInitialHealth(20);
@@ -215,10 +215,10 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.WhiteBuilding);
         }
 
-        public void CreateBlackWorker(Vector2 position)
+        public void CreateBlackWorker(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Worker);
             entity.AddCreatureType(CreatureType.Worker);
             entity.AddInitialHealth(15);
@@ -235,10 +235,10 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.Position);
         }
 
-        public void CreateZombie(Vector2 position)
+        public void CreateZombie(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Zombie);
             entity.AddCreatureType(CreatureType.Zombie);
             entity.AddInitialHealth(10);
@@ -254,10 +254,10 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.Human | CreatureType.Worker);
         }
 
-        public void CreateLich(Vector2 position)
+        public void CreateLich(Vector3Int position)
         {
             var entity = _context.CreateEntity();
-            entity.AddInitialPosition(position);
+            entity.AddCell(position);
             entity.AddResource(ResourceNames.Lich);
             entity.AddCreatureType(CreatureType.Lich);
             entity.AddInitialHealth(20);
@@ -274,23 +274,23 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.BlackBuilding);
         }
 
-        public void CreateBlackStatue(Vector3 transformPosition)
+        public void CreateBlackStatue(Vector3Int transformPosition)
         {
             var statue = _context.CreateEntity();
             statue.AddResource(ResourceNames.BlackStatue);
-            statue.AddInitialPosition(transformPosition);
+            statue.AddCell(transformPosition);
             statue.AddCreatureType(CreatureType.BlackStatue);
         }
 
-        public void CreatePosition(Vector3 transformPosition)
+        public void CreatePosition(Vector3Int transformPosition)
         {
             var statue = _context.CreateEntity();
             statue.AddResource(ResourceNames.Position);
-            statue.AddInitialPosition(transformPosition);
+            statue.AddCell(transformPosition);
             statue.AddCreatureType(CreatureType.Position);
         }
 
-        public void CreateBlackBuilding(Vector2 transformPosition)
+        public void CreateBlackBuilding(Vector3Int transformPosition)
         {
             var statue = _context.CreateEntity();
             
@@ -298,7 +298,7 @@ namespace GameScene.Factories
             statue.AddHealth(20);
             
             statue.AddResource(ResourceNames.BlackBuilding);
-            statue.AddInitialPosition(transformPosition);
+            statue.AddCell(transformPosition);
             statue.AddCreatureType(CreatureType.BlackBuilding);
         }
     }
@@ -324,5 +324,6 @@ public enum CreatureType
     BlackBuilding = 1 << 14,
     Position = 1 << 15,
     White = Human | Warrior | Worker | Healer | Priest | WhiteBuilding ,
-    Black = Skeleton | Lich | Zombie | BlackWorker | BlackBuilding
+    Black = Skeleton | Lich | Zombie | BlackWorker | BlackBuilding,
+    Building = Statue | BlackStatue | WhiteBuilding | BlackBuilding | Position
 }

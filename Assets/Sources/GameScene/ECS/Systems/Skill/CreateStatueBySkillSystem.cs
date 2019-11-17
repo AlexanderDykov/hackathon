@@ -17,12 +17,12 @@ namespace GameScene.ECS.Systems.Skill
         protected override void CreateCreature(GameEntity entity, Vector3 transformPosition)
         {
             if(entity.skill.Type == SkillType.CreateStatue)
-                MonsterFactory.CreateStatue(transformPosition);
+                MonsterFactory.CreateStatue(Grid.WorldToCell(transformPosition));
             else
-                MonsterFactory.CreateBlackStatue(transformPosition);
+                MonsterFactory.CreateBlackStatue(Grid.WorldToCell(transformPosition));
         }
 
-        public CreateStatueBySkillSystem(IGameContext context, MonsterFactory monsterFactory) : base(context, monsterFactory)
+        public CreateStatueBySkillSystem(IGameContext context, MonsterFactory monsterFactory, Grid grid) : base(context, monsterFactory, grid)
         {
         }
     }

@@ -19,7 +19,7 @@ namespace GameScene.ECS.Systems
                 if (!(gameEntity.calldown.Value < 0.001f)) continue;
                 
                 var damage = gameEntity.target.Entity.hasDamage ? gameEntity.target.Entity.damage.Value : 0;
-                gameEntity.target.Entity.AddDamage(damage - gameEntity.healPower.Value);
+                gameEntity.target.Entity.ReplaceDamage(damage - gameEntity.healPower.Value);
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
             }
         }

@@ -22,12 +22,14 @@ namespace GameScene.ECS.Systems
 //        4. worker -> lich
         private IGameContext _context;
         
-        Dictionary<CreatureType, Action<Vector2>> upgrade;
-        
-        public UpgradeSystem(IGameContext context, MonsterFactory monsterFactory) : base(context)
+        Dictionary<CreatureType, Action<Vector3Int>> upgrade;
+
+        private Grid _grid;
+        public UpgradeSystem(IGameContext context, MonsterFactory monsterFactory, Grid grid) : base(context)
         {
-            _context = context; 
-            upgrade = new Dictionary<CreatureType, Action<Vector2>>()
+            _context = context;
+            _grid = grid;
+            upgrade = new Dictionary<CreatureType, Action<Vector3Int>>()
             {
                 // white
                 {CreatureType.Statue, monsterFactory.CreateHuman},
@@ -79,7 +81,7 @@ namespace GameScene.ECS.Systems
                 var upgradeEntity = entity.upgrade.Entity;
                 var creatureTypeValue = upgradeEntity.creatureType.Value;
                 if (!upgrade.ContainsKey(creatureTypeValue)) continue;
-                upgrade[creatureTypeValue].Invoke(upgradeEntity.view.Value.transform.position);
+                upgrade[creatureTypeValue].Invoke(_grid.WorldToCell(upgradeEntity.view.Value.transform.position));
                 Object.Destroy(upgradeEntity.view.Value);
                 upgradeEntity.isDestroy = true;
             }

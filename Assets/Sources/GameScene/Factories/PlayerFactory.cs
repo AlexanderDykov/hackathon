@@ -21,7 +21,7 @@ namespace GameScene.Factories
             playerEntity.AddSpeed(5f);
             //TODO: load parameter from configs
             playerEntity.AddResource(ResourceNames.Player);
-            playerEntity.AddInitialPosition(Vector2.zero);
+            playerEntity.AddCell(Vector3Int.zero);
             return playerEntity;
         }
     }

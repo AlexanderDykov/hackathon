@@ -29,28 +29,27 @@ public static class GameComponentsLookup {
     public const int Health = 18;
     public const int InitialCalldown = 19;
     public const int InitialHealth = 20;
-    public const int InitialPosition = 21;
-    public const int LookNearest = 22;
-    public const int Parent = 23;
-    public const int Physic = 24;
-    public const int Player = 25;
-    public const int Prist = 26;
-    public const int Reputation = 27;
-    public const int Resource = 28;
-    public const int Score = 29;
-    public const int ShowSelectView = 30;
-    public const int Skill = 31;
-    public const int Soul = 32;
-    public const int Speed = 33;
-    public const int Target = 34;
-    public const int Tile = 35;
-    public const int Upgrade = 36;
-    public const int View = 37;
-    public const int World = 38;
-    public const int ZombieTimer = 39;
-    public const int ScoreListener = 40;
+    public const int LookNearest = 21;
+    public const int Parent = 22;
+    public const int Physic = 23;
+    public const int Player = 24;
+    public const int Prist = 25;
+    public const int Reputation = 26;
+    public const int Resource = 27;
+    public const int Score = 28;
+    public const int ShowSelectView = 29;
+    public const int Skill = 30;
+    public const int Soul = 31;
+    public const int Speed = 32;
+    public const int Target = 33;
+    public const int Tile = 34;
+    public const int Upgrade = 35;
+    public const int View = 36;
+    public const int World = 37;
+    public const int ZombieTimer = 38;
+    public const int ScoreListener = 39;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "BalanceListener",
@@ -74,7 +73,6 @@ public static class GameComponentsLookup {
         "Health",
         "InitialCalldown",
         "InitialHealth",
-        "InitialPosition",
         "LookNearest",
         "Parent",
         "Physic",
@@ -118,7 +116,6 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.HealthComponent),
         typeof(GameScene.ECS.Components.InitialCalldownComponent),
         typeof(GameScene.ECS.Components.InitialHealthComponent),
-        typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LookNearestComponent),
         typeof(GameScene.ECS.Components.ParentComponent),
         typeof(GameScene.ECS.Components.PhysicComponent),

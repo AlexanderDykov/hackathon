@@ -15,10 +15,10 @@ namespace GameScene.ECS.Systems.Skill
 
         protected override void CreateCreature(GameEntity entity, Vector3 transformPosition)
         {
-            MonsterFactory.CreateSoul(transformPosition);
+            MonsterFactory.CreateSoul(Grid.WorldToCell(transformPosition));
         }
 
-        public CreateSoulBySkillSystem(IGameContext context, MonsterFactory monsterFactory) : base(context, monsterFactory)
+        public CreateSoulBySkillSystem(IGameContext context, MonsterFactory monsterFactory, Grid grid) : base(context, monsterFactory, grid)
         {
         }
     }

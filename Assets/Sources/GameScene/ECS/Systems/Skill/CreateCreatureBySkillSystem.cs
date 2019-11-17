@@ -10,9 +10,11 @@ namespace GameScene.ECS.Systems.Skill
     {
         protected IGameContext Context;
         protected MonsterFactory MonsterFactory;
+        protected Grid Grid;
 
-        protected CreateCreatureBySkillSystem(IGameContext context, MonsterFactory monsterFactory) : base(context)
+        protected CreateCreatureBySkillSystem(IGameContext context, MonsterFactory monsterFactory, Grid grid) : base(context)
         {
+            Grid = grid;
             Context = context;
             MonsterFactory = monsterFactory;
         }

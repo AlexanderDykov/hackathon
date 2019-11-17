@@ -35,7 +35,7 @@ namespace GameScene.ECS.Systems
 
             _context.ReplaceWorld(new Vector2Int(10, 10));
 
-//            _monsterFactory.CreateHuman(new Vector2(-2, 0));
+            _monsterFactory.CreateWorker(new Vector3Int(1, 0, 0));
 //            _monsterFactory.CreateWarrior(new Vector2(-2, 4));
 //            _monsterFactory.CreateBlackBuilding(new Vector2(-2, 0));
 //            _monsterFactory.CreateLich(new Vector2(2, 0));

@@ -39,12 +39,12 @@ namespace GameScene.ECS.Systems
             }
             
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 6; i++)
             {
                 _monsterFactory.CreatePosition(_randomPositionGenerator.RandomPosition());
             }
             
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 _boxFactory.CreateEntity(_randomPositionGenerator.RandomPosition());
             }

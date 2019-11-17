@@ -18,7 +18,7 @@ namespace Core.Contexts
         void ReplaceWorld(Vector2Int size);
         GameEntity worldEntity { get; }
         HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position);
-        HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position);
+//        HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position);
         HashSet<GameEntity> EntitiesWithCellPosition(Vector3Int position);
     }
 }
@@ -30,10 +30,10 @@ partial class GameContext : IGameContext
         return this.GetEntitiesWithTilePosition(position);
     }
 
-    public HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position)
-    {
-        return this.GetEntitiesWithInitialPosition(position);
-    }
+//    public HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position)
+//    {
+//        return this.GetEntitiesWithInitialPosition(position);
+//    }
     
     public HashSet<GameEntity> EntitiesWithCellPosition(Vector3Int position)
     {

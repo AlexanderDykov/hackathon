@@ -24,7 +24,7 @@ namespace GameScene.ECS.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasCell && entity.hasReputation;
+            return entity.hasCell && entity.hasReputation && !entity.hasCreatureType;
         }
 
         protected override void Execute(List<GameEntity> entities)
