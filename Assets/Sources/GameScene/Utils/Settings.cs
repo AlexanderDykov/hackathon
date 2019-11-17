@@ -4,5 +4,6 @@ namespace GameScene.Utils
     {
         public static int MaxBalance = 100;
         public static int UpdateScorePeriodSeconds = 1;
+        public static int DefaultUpgradeCooldownSeconds = 3;
     }
 }

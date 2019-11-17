@@ -69,6 +69,7 @@ namespace GameScene.Factories
             entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddReputation(1);
@@ -86,6 +87,7 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddAttackPower(4);
             entity.AddCalldown(2);
@@ -115,6 +117,7 @@ namespace GameScene.Factories
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -139,6 +142,7 @@ namespace GameScene.Factories
             entity.AddInitialCalldown(2);
             entity.AddCalldown(2);
             entity.AddDistanceToTarget(3f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -159,6 +163,7 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddAttackPower(2);
             entity.AddCalldown(2);
@@ -199,14 +204,22 @@ namespace GameScene.Factories
             soul.AddDistanceToTarget(1f);
             soul.AddLookNearest(possibleTarget =>
             {
-                var desired = CreatureType.Statue |
-                              CreatureType.Human |
+                var desired = CreatureType.Human |
                               CreatureType.Warrior |
                               CreatureType.Worker |
                               CreatureType.BlackStatue |
                               CreatureType.Skeleton |
                               CreatureType.BlackWorker;
-                return (possibleTarget.creatureType.Value & desired) != 0;
+                if ((((possibleTarget.creatureType.Value & desired) != 0) &&
+                     possibleTarget.hasUpgradeCooldown &&
+                     (possibleTarget.upgradeCooldown.Value <= 0)) ||
+                    ((possibleTarget.creatureType.Value & CreatureType.Statue) != 0))
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
             });
         }
 
@@ -227,6 +240,7 @@ namespace GameScene.Factories
             entity.AddCalldown(4);
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -250,6 +264,7 @@ namespace GameScene.Factories
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -268,6 +283,7 @@ namespace GameScene.Factories
             entity.isPhysic = true;
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddZombieTimer(3);
             entity.AddCalldown(3);
@@ -296,6 +312,7 @@ namespace GameScene.Factories
             entity.AddCalldown(4);
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
+            entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
 
             entity.AddLookNearest(possibleTarget =>
             {

@@ -45,12 +45,13 @@ public static class GameComponentsLookup {
     public const int Target = 34;
     public const int Tile = 35;
     public const int Upgrade = 36;
-    public const int View = 37;
-    public const int World = 38;
-    public const int ZombieTimer = 39;
-    public const int ScoreListener = 40;
+    public const int UpgradeCooldown = 37;
+    public const int View = 38;
+    public const int World = 39;
+    public const int ZombieTimer = 40;
+    public const int ScoreListener = 41;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 42;
 
     public static readonly string[] componentNames = {
         "BalanceListener",
@@ -90,6 +91,7 @@ public static class GameComponentsLookup {
         "Target",
         "Tile",
         "Upgrade",
+        "UpgradeCooldown",
         "View",
         "World",
         "ZombieTimer",
@@ -134,6 +136,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.TargetComponent),
         typeof(GameScene.ECS.Components.TileComponent),
         typeof(GameScene.ECS.Components.UpgradeComponent),
+        typeof(GameScene.ECS.Components.UpgradeCooldownComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(GameScene.ECS.Components.WorldComponent),
         typeof(GameScene.ECS.Components.ZombieTimerComponent),

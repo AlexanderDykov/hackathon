@@ -78,10 +78,12 @@ namespace GameScene.ECS.Systems
             {
                 var upgradeEntity = entity.upgrade.Entity;
                 var creatureTypeValue = upgradeEntity.creatureType.Value;
-                if (!upgrade.ContainsKey(creatureTypeValue)) continue;
-                upgrade[creatureTypeValue].Invoke(upgradeEntity.view.Value.transform.position);
-                Object.Destroy(upgradeEntity.view.Value);
-                upgradeEntity.isDestroy = true;
+                if (upgrade.ContainsKey(creatureTypeValue))
+                {
+                    upgrade[creatureTypeValue].Invoke(upgradeEntity.view.Value.transform.position);
+                    Object.Destroy(upgradeEntity.view.Value);
+                    upgradeEntity.isDestroy = true;
+                }
             }
         }
     }
