@@ -33,7 +33,7 @@ namespace GameScene.ECS.Systems
 
             _uiFactory.CreateCamera(_context);
 
-            _context.ReplaceWorld(new Vector2Int(40, 40));
+            _context.ReplaceWorld(new Vector2Int(10, 10));
 
 
             _monsterFactory.CreateHuman(new Vector2(-2, 0));

@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public class TrackReputationSystem  : ReactiveSystem<GameEntity>
+    public class TrackCellReputationSystem : ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
         private Grid _grid;
 
-        public TrackReputationSystem(IGameContext context, Grid grid) : base(context)
+        public TrackCellReputationSystem(IGameContext context, Grid grid) : base(context)
         {
             _context = context;
             _grid = grid;
@@ -24,7 +24,7 @@ namespace GameScene.ECS.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasReputation;
+            return entity.hasCell && entity.hasReputation;
         }
 
         protected override void Execute(List<GameEntity> entities)

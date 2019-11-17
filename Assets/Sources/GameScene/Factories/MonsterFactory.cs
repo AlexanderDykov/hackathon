@@ -57,6 +57,7 @@ namespace GameScene.Factories
             entity.isDamagable = true;
             entity.AddSide(Side.White);
             entity.AddSpeed(1);
+            entity.AddReputation(1);
         }
         
         // 2. Warrior: 10 HP, 4 Attack

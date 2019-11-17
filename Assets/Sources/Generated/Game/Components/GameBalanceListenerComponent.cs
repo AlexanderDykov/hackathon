@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public LifeListenerComponent lifeListener { get { return (LifeListenerComponent)GetComponent(GameComponentsLookup.LifeListener); } }
-    public bool hasLifeListener { get { return HasComponent(GameComponentsLookup.LifeListener); } }
+    public BalanceListenerComponent balanceListener { get { return (BalanceListenerComponent)GetComponent(GameComponentsLookup.BalanceListener); } }
+    public bool hasBalanceListener { get { return HasComponent(GameComponentsLookup.BalanceListener); } }
 
-    public void AddLifeListener(System.Collections.Generic.List<ILifeListener> newValue) {
-        var index = GameComponentsLookup.LifeListener;
-        var component = CreateComponent<LifeListenerComponent>(index);
+    public void AddBalanceListener(System.Collections.Generic.List<IBalanceListener> newValue) {
+        var index = GameComponentsLookup.BalanceListener;
+        var component = CreateComponent<BalanceListenerComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLifeListener(System.Collections.Generic.List<ILifeListener> newValue) {
-        var index = GameComponentsLookup.LifeListener;
-        var component = CreateComponent<LifeListenerComponent>(index);
+    public void ReplaceBalanceListener(System.Collections.Generic.List<IBalanceListener> newValue) {
+        var index = GameComponentsLookup.BalanceListener;
+        var component = CreateComponent<BalanceListenerComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveLifeListener() {
-        RemoveComponent(GameComponentsLookup.LifeListener);
+    public void RemoveBalanceListener() {
+        RemoveComponent(GameComponentsLookup.BalanceListener);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLifeListener;
+    static Entitas.IMatcher<GameEntity> _matcherBalanceListener;
 
-    public static Entitas.IMatcher<GameEntity> LifeListener {
+    public static Entitas.IMatcher<GameEntity> BalanceListener {
         get {
-            if (_matcherLifeListener == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LifeListener);
+            if (_matcherBalanceListener == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.BalanceListener);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherLifeListener = matcher;
+                _matcherBalanceListener = matcher;
             }
 
-            return _matcherLifeListener;
+            return _matcherBalanceListener;
         }
     }
 }
@@ -65,21 +65,21 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public void AddLifeListener(ILifeListener value) {
-        var listeners = hasLifeListener
-            ? lifeListener.value
-            : new System.Collections.Generic.List<ILifeListener>();
+    public void AddBalanceListener(IBalanceListener value) {
+        var listeners = hasBalanceListener
+            ? balanceListener.value
+            : new System.Collections.Generic.List<IBalanceListener>();
         listeners.Add(value);
-        ReplaceLifeListener(listeners);
+        ReplaceBalanceListener(listeners);
     }
 
-    public void RemoveLifeListener(ILifeListener value, bool removeComponentWhenEmpty = true) {
-        var listeners = lifeListener.value;
+    public void RemoveBalanceListener(IBalanceListener value, bool removeComponentWhenEmpty = true) {
+        var listeners = balanceListener.value;
         listeners.Remove(value);
         if (removeComponentWhenEmpty && listeners.Count == 0) {
-            RemoveLifeListener();
+            RemoveBalanceListener();
         } else {
-            ReplaceLifeListener(listeners);
+            ReplaceBalanceListener(listeners);
         }
     }
 }

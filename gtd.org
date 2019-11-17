@@ -1,13 +1,19 @@
-* roadmap [0/10]
-** TODO generate initial white/black board
-** TODO create reputation system for each cell on the board
-** TODO dynamically redraw tiles on board
+* roadmap [5/10]
+** DONE generate initial white/black board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE create reputation system for each cell on the board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE dynamically redraw tiles on board
+   CLOSED: [2019-11-17 нд 15:24]
 ** TODO create balance system(-100; +100)
 ** TODO create multiple random chest
-** TODO choose skills system
-** TODO skills
-*** TODO create soul
-*** TODO create statue
+** DONE choose skills system
+** DONE skills [2/2]
+   CLOSED: [2019-11-17 нд 16:54]
+*** DONE create soul
+    CLOSED: [2019-11-17 нд 16:54]
+*** DONE create statue
+    CLOSED: [2019-11-17 нд 16:54]
 ** TODO soul upgrades [0/2]
 *** TODO white
 1. statue -> human(hp + walking)

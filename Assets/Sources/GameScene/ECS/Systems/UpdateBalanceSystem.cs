@@ -7,34 +7,36 @@ using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public class CheckEndGameSystem: ReactiveSystem<GameEntity>
+    public class UpdateBalanceSystem : ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
-        public CheckEndGameSystem(IGameContext context) : base(context)
+
+        public UpdateBalanceSystem(IGameContext context) : base(context)
         {
             _context = context;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Balance.Added());
+            return context.CreateCollector(GameMatcher.Reputation.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasBalance;
+            return entity.hasReputation;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)
             {
-                if (Math.Abs(entity.balance.Value) == Settings.MaxBalance)
-                {
-                    Debug.Log("You're looser!");
-                    _context.isEndGame = true;
+                int newBalance = _context.balance.Value + entity.reputation.Value;
+                if (Math.Abs(newBalance) > Settings.MaxBalance) {
+                    newBalance = Math.Sign(newBalance) * Settings.MaxBalance;
                 }
+                _context.ReplaceBalance(newBalance);
             }
         }
     }
+
 }
