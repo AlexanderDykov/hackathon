@@ -8,15 +8,135 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int BalanceListener = 0;
+    public const int Animated = 1;
+    public const int Animator = 2;
+    public const int AttackPower = 3;
+    public const int Balance = 4;
+    public const int Body = 5;
+    public const int BoxSkills = 6;
+    public const int Calldown = 7;
+    public const int Cell = 8;
+    public const int CreateSoul = 9;
+    public const int Creator = 10;
+    public const int CreatureType = 11;
+    public const int Damage = 12;
+    public const int Destroy = 13;
+    public const int Direction = 14;
+    public const int DistanceToTarget = 15;
+    public const int EndGame = 16;
+    public const int HealPower = 17;
+    public const int Health = 18;
+    public const int InitialCalldown = 19;
+    public const int InitialHealth = 20;
+    public const int LookNearest = 21;
+    public const int Parent = 22;
+    public const int Physic = 23;
+    public const int Player = 24;
+    public const int Prist = 25;
+    public const int Reputation = 26;
+    public const int Resource = 27;
+    public const int Score = 28;
+    public const int ShowSelectView = 29;
+    public const int Skill = 30;
+    public const int Soul = 31;
+    public const int Speed = 32;
+    public const int Target = 33;
+    public const int Tile = 34;
+    public const int Upgrade = 35;
+    public const int UpgradeCooldown = 36;
+    public const int View = 37;
+    public const int World = 38;
+    public const int ZombieTimer = 39;
+    public const int ScoreListener = 40;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 41;
 
     public static readonly string[] componentNames = {
-
+        "BalanceListener",
+        "Animated",
+        "Animator",
+        "AttackPower",
+        "Balance",
+        "Body",
+        "BoxSkills",
+        "Calldown",
+        "Cell",
+        "CreateSoul",
+        "Creator",
+        "CreatureType",
+        "Damage",
+        "Destroy",
+        "Direction",
+        "DistanceToTarget",
+        "EndGame",
+        "HealPower",
+        "Health",
+        "InitialCalldown",
+        "InitialHealth",
+        "LookNearest",
+        "Parent",
+        "Physic",
+        "Player",
+        "Prist",
+        "Reputation",
+        "Resource",
+        "Score",
+        "ShowSelectView",
+        "Skill",
+        "Soul",
+        "Speed",
+        "Target",
+        "Tile",
+        "Upgrade",
+        "UpgradeCooldown",
+        "View",
+        "World",
+        "ZombieTimer",
+        "ScoreListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(BalanceListenerComponent),
+        typeof(GameScene.ECS.Components.AnimatedComponent),
+        typeof(GameScene.ECS.Components.AnimatorComponent),
+        typeof(GameScene.ECS.Components.AttackPowerComponent),
+        typeof(GameScene.ECS.Components.BalanceComponent),
+        typeof(GameScene.ECS.Components.BodyComponent),
+        typeof(GameScene.ECS.Components.BoxSkillsComponent),
+        typeof(GameScene.ECS.Components.CalldownComponent),
+        typeof(GameScene.ECS.Components.CellComponent),
+        typeof(GameScene.ECS.Components.CreateSoulComponent),
+        typeof(GameScene.ECS.Components.CreatorComponent),
+        typeof(GameScene.ECS.Components.CreatureTypeComponent),
+        typeof(GameScene.ECS.Components.DamageComponent),
+        typeof(GameScene.ECS.Components.DestroyComponent),
+        typeof(GameScene.ECS.Components.DirectionComponent),
+        typeof(GameScene.ECS.Components.DistanceToTargetComponent),
+        typeof(GameScene.ECS.Components.EndGameComponent),
+        typeof(GameScene.ECS.Components.HealPowerComponent),
+        typeof(GameScene.ECS.Components.HealthComponent),
+        typeof(GameScene.ECS.Components.InitialCalldownComponent),
+        typeof(GameScene.ECS.Components.InitialHealthComponent),
+        typeof(GameScene.ECS.Components.LookNearestComponent),
+        typeof(GameScene.ECS.Components.ParentComponent),
+        typeof(GameScene.ECS.Components.PhysicComponent),
+        typeof(GameScene.ECS.Components.PlayerComponent),
+        typeof(GameScene.ECS.Components.PristComponent),
+        typeof(GameScene.ECS.Components.ReputationComponent),
+        typeof(GameScene.ECS.Components.ResourceComponent),
+        typeof(GameScene.ECS.Components.ScoreComponent),
+        typeof(GameScene.ECS.Components.ShowSelectViewComponent),
+        typeof(GameScene.ECS.Components.SkillComponent),
+        typeof(GameScene.ECS.Components.SoulComponent),
+        typeof(GameScene.ECS.Components.SpeedComponent),
+        typeof(GameScene.ECS.Components.TargetComponent),
+        typeof(GameScene.ECS.Components.TileComponent),
+        typeof(GameScene.ECS.Components.UpgradeComponent),
+        typeof(GameScene.ECS.Components.UpgradeCooldownComponent),
+        typeof(GameScene.ECS.Components.ViewComponent),
+        typeof(GameScene.ECS.Components.WorldComponent),
+        typeof(GameScene.ECS.Components.ZombieTimerComponent),
+        typeof(ScoreListenerComponent)
     };
 }

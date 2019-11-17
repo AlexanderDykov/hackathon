@@ -1,0 +1,96 @@
+* roadmap [5/10]
+** DONE generate initial white/black board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE create reputation system for each cell on the board
+   CLOSED: [2019-11-17 нд 15:24]
+** DONE dynamically redraw tiles on board
+   CLOSED: [2019-11-17 нд 15:24]
+** TODO create balance system(-100; +100)
+** TODO create multiple random chest
+** DONE choose skills system
+** DONE skills [2/2]
+   CLOSED: [2019-11-17 нд 16:54]
+*** DONE create soul
+    CLOSED: [2019-11-17 нд 16:54]
+*** DONE create statue
+    CLOSED: [2019-11-17 нд 16:54]
+** TODO soul upgrades [0/2]
+*** TODO white
+1. statue -> human(hp + walking)
+2. human -> warrior(+attack) or worker(+build)
+3. warrior -> healer
+4. worker -> prist
+*** TODO black
+ 1. statue -> skeleton(hp + walking + attack)
+ 2. skeleton -> zombie(-attack +disease spell) or worker(-attack +build)
+ 4. worker -> lich
+** TODO unit balances
+1. White
+   1. Human: 10 HP
+   2. Warrior: 10 HP, 4 Attack
+   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+   4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
+   5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
+2. Black
+   1. Skeleton: 8 HP, 4 Attack
+   2. Zombie: 10 HP, [human,worker -> skeleton](need to stay around 3 seconds)
+   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+   4. Lich: 20 HP, [create skeleton near house](10 seconds){30 seconds cooldown}
+** TODO house change reputation +3 on 4 radius
+* read later
+** basic mechanics
+*** DONE player movement
+    CLOSED: [2019-11-16 сб 13:25]
+*** DONE box generation
+    CLOSED: [2019-11-16 сб 13:25]
+*** DONE add lifetime line
+*** DONE add score counter
+    CLOSED: [2019-11-16 сб 14:38]
+*** DONE choose skills
+    CLOSED: [2019-11-16 сб 15:58]
+*** DONE basic skills [2/2]
+    CLOSED: [2019-11-16 сб 17:08]
+**** DONE create statue
+     CLOSED: [2019-11-16 сб 17:08]
+**** DONE open soul
+     CLOSED: [2019-11-16 сб 17:08]
+*** TODO put soul into statue(creates creatures enemy/friend)
+*** TODO creature properties [0/3]
+**** TODO simple(just hp + walking)
+**** TODO warriors(+ attach)
+**** TODO workers(+ build)
+*** TODO creature types [0/2]
+**** TODO enemy
+**** TODO friends
+*** TODO box types [0/6]
+**** TODO changes environment [0/3]
+***** TODO add statue
+***** TODO add building
+***** TODO add tree
+**** TODO player skills [0/1]
+***** TODO aura
+**** TODO creatures abilities [0/3]
+***** TODO attach
+***** TODO build
+***** TODO work
+**** TODO game features [0/4]
+***** TODO add sounds
+***** TODO add music
+***** TODO add colors
+***** TODO add more textures
+**** TODO tile types [0/2]
+****** TODO basic [0/5]
+******* TODO earth
+******* TODO water
+******* TODO fire
+******* TODO air
+******* TODO soul(good/evil)
+****** TODO upgrades [0/6]
+******* TODO earth + water = sand
+******* TODO earth + air = mountain
+******* TODO earth + fire = lava
+******* TODO water + air = ice
+******* TODO water + fire = sand
+******* TODO air + fire = coal
+**** TODO tile collision rules
+***** TODO 
