@@ -54,6 +54,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<ShowPanelSystem>();
             InstallUpdateSystem<OpenChestSystem>();
             InstallUpdateSystem<AttackSystem>();
+            InstallUpdateSystem<HealSystem>();
             InstallUpdateSystem<CreateNewCreatureSystem>();
             InstallUpdateSystem<CreateSoulBySkillSystem>();
             InstallUpdateSystem<CreateStatueBySkillSystem>();

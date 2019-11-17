@@ -27,30 +27,32 @@ public static class GameComponentsLookup {
     public const int Direction = 16;
     public const int DistanceToTarget = 17;
     public const int EndGame = 18;
-    public const int Health = 19;
-    public const int InitialCalldown = 20;
-    public const int InitialPosition = 21;
-    public const int LookNearest = 22;
-    public const int Parent = 23;
-    public const int Physic = 24;
-    public const int Player = 25;
-    public const int Prist = 26;
-    public const int Reputation = 27;
-    public const int Resource = 28;
-    public const int Score = 29;
-    public const int ShowSelectView = 30;
-    public const int Side = 31;
-    public const int Skill = 32;
-    public const int Soul = 33;
-    public const int Speed = 34;
-    public const int Target = 35;
-    public const int Tile = 36;
-    public const int Upgrade = 37;
-    public const int View = 38;
-    public const int World = 39;
-    public const int ScoreListener = 40;
+    public const int HealPower = 19;
+    public const int Health = 20;
+    public const int InitialCalldown = 21;
+    public const int InitialHealth = 22;
+    public const int InitialPosition = 23;
+    public const int LookNearest = 24;
+    public const int Parent = 25;
+    public const int Physic = 26;
+    public const int Player = 27;
+    public const int Prist = 28;
+    public const int Reputation = 29;
+    public const int Resource = 30;
+    public const int Score = 31;
+    public const int ShowSelectView = 32;
+    public const int Side = 33;
+    public const int Skill = 34;
+    public const int Soul = 35;
+    public const int Speed = 36;
+    public const int Target = 37;
+    public const int Tile = 38;
+    public const int Upgrade = 39;
+    public const int View = 40;
+    public const int World = 41;
+    public const int ScoreListener = 42;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "BalanceListener",
@@ -72,8 +74,10 @@ public static class GameComponentsLookup {
         "Direction",
         "DistanceToTarget",
         "EndGame",
+        "HealPower",
         "Health",
         "InitialCalldown",
+        "InitialHealth",
         "InitialPosition",
         "LookNearest",
         "Parent",
@@ -116,8 +120,10 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.DirectionComponent),
         typeof(GameScene.ECS.Components.DistanceToTargetComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
+        typeof(GameScene.ECS.Components.HealPowerComponent),
         typeof(GameScene.ECS.Components.HealthComponent),
         typeof(GameScene.ECS.Components.InitialCalldownComponent),
+        typeof(GameScene.ECS.Components.InitialHealthComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LookNearestComponent),
         typeof(GameScene.ECS.Components.ParentComponent),

@@ -16,6 +16,7 @@ namespace GameScene.Utils
         public static string BlackStatue = "BlackStatue";
         public static string Position = "Position";
         public static string Worker = "Worker";
+        public static string Healer = "Healer";
         public static string WhiteBuilding = "WhiteBuilding";
     }
 }

@@ -61,6 +61,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Human);
             entity.AddCreatureType(CreatureType.Human);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.AddDistanceToTarget(1f);
             entity.isPhysic = true;
@@ -77,6 +78,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Warrior);
             entity.AddCreatureType(CreatureType.Warrior);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.isPhysic = true;
             entity.isAttackable = true;
@@ -97,6 +99,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Worker);
             entity.AddCreatureType(CreatureType.Worker);
+            entity.AddInitialHealth(15);
             entity.AddHealth(15);
             entity.isPhysic = true;
             entity.isAttackable = true;
@@ -112,7 +115,30 @@ namespace GameScene.Factories
             
             entity.AddLookNearest(CreatureType.Position);
         }
-        
+
+        // 4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
+        public void CreateHealer(Vector2 position)
+        {
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Healer);
+            entity.AddCreatureType(CreatureType.Healer);
+            entity.AddInitialHealth(15);
+            entity.AddHealth(15);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.White);
+            entity.AddSpeed(1.5f);
+
+            entity.AddHealPower(2);
+
+            entity.AddInitialCalldown(2);
+            entity.AddCalldown(2);
+            entity.AddDistanceToTarget(3f);
+
+            entity.AddLookNearest(CreatureType.Human | CreatureType.Warrior | CreatureType.Worker |  CreatureType.Priest);
+        }
+
         // 1. Skeleton: 8 HP, 4 Attack
         public void CreateSkeleton(Vector2 position)
         {
@@ -120,6 +146,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Skeleton);
             entity.AddCreatureType(CreatureType.Skeleton);
+            entity.AddInitialHealth(8);
             entity.AddHealth(8);
             entity.isPhysic = true;
             entity.isAttackable = true;
@@ -166,10 +193,6 @@ namespace GameScene.Factories
         public void CreatePrist(Vector2 obj)
         {
             
-        }
-
-        public void CreateHealer(Vector2 obj)
-        {
         }
 
         public void CreateBlackWorker(Vector2 obj)
