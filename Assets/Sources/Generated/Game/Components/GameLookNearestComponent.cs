@@ -11,14 +11,14 @@ public partial class GameEntity {
     public GameScene.ECS.Components.LookNearestComponent lookNearest { get { return (GameScene.ECS.Components.LookNearestComponent)GetComponent(GameComponentsLookup.LookNearest); } }
     public bool hasLookNearest { get { return HasComponent(GameComponentsLookup.LookNearest); } }
 
-    public void AddLookNearest(CreatureType newValue) {
+    public void AddLookNearest(System.Predicate<GameEntity> newValue) {
         var index = GameComponentsLookup.LookNearest;
         var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLookNearest(CreatureType newValue) {
+    public void ReplaceLookNearest(System.Predicate<GameEntity> newValue) {
         var index = GameComponentsLookup.LookNearest;
         var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
         component.Value = newValue;

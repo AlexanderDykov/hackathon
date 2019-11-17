@@ -36,6 +36,7 @@ namespace GameScene.ECS.Systems
                     gameEntity.target.Entity.ReplaceCell(_randomPositionGenerator.RandomPosition());
                 
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+
             }
         }
     }

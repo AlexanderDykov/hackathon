@@ -80,6 +80,7 @@ namespace GameScene.ECS.Systems
             {
                 var upgradeEntity = entity.upgrade.Entity;
                 var creatureTypeValue = upgradeEntity.creatureType.Value;
+                
                 if (!upgrade.ContainsKey(creatureTypeValue)) continue;
                 upgrade[creatureTypeValue].Invoke(_grid.WorldToCell(upgradeEntity.view.Value.transform.position));
                 Object.Destroy(upgradeEntity.view.Value);

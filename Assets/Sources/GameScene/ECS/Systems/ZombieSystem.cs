@@ -16,7 +16,7 @@ namespace GameScene.ECS.Systems
             _grid = grid;
             _zombieGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Target, GameMatcher.ZombieTimer, GameMatcher.Calldown, GameMatcher.InitialCalldown));
         }
-        
+
         public void Execute()
         {
             foreach (var gameEntity in _zombieGroup)
