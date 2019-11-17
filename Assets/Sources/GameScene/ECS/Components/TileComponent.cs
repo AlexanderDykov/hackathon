@@ -33,6 +33,8 @@ namespace GameScene.ECS.Components
         Ice = 1 << 12,
         Fog = 1 << 13,
         Coal = 1 << 14,
-        None = 1 << 15
+        None = 1 << 15,
+        Black = 1 << 16,
+        White = 1 << 17
     }
 }

@@ -19,35 +19,38 @@ public static class GameComponentsLookup {
     public const int BuildTarget = 8;
     public const int Calldown = 9;
     public const int CanBuild = 10;
-    public const int Creator = 11;
-    public const int CreatureType = 12;
-    public const int Damagable = 13;
-    public const int Damage = 14;
-    public const int Destroy = 15;
-    public const int Direction = 16;
-    public const int EndGame = 17;
-    public const int Health = 18;
-    public const int InitialCalldown = 19;
-    public const int InitialPosition = 20;
-    public const int Life = 21;
-    public const int LifeTimer = 22;
-    public const int LookNearest = 23;
-    public const int Parent = 24;
-    public const int Physic = 25;
-    public const int Player = 26;
-    public const int Resource = 27;
-    public const int Score = 28;
-    public const int ShowSelectView = 29;
-    public const int Side = 30;
-    public const int Skill = 31;
-    public const int Speed = 32;
-    public const int Tile = 33;
-    public const int View = 34;
-    public const int LifeListener = 35;
-    public const int LifeTimerListener = 36;
-    public const int ScoreListener = 37;
+    public const int Cell = 11;
+    public const int Creator = 12;
+    public const int CreatureType = 13;
+    public const int Damagable = 14;
+    public const int Damage = 15;
+    public const int Destroy = 16;
+    public const int Direction = 17;
+    public const int EndGame = 18;
+    public const int Health = 19;
+    public const int InitialCalldown = 20;
+    public const int InitialPosition = 21;
+    public const int Life = 22;
+    public const int LifeTimer = 23;
+    public const int LookNearest = 24;
+    public const int Parent = 25;
+    public const int Physic = 26;
+    public const int Player = 27;
+    public const int Reputation = 28;
+    public const int Resource = 29;
+    public const int Score = 30;
+    public const int ShowSelectView = 31;
+    public const int Side = 32;
+    public const int Skill = 33;
+    public const int Speed = 34;
+    public const int Tile = 35;
+    public const int View = 36;
+    public const int World = 37;
+    public const int LifeListener = 38;
+    public const int LifeTimerListener = 39;
+    public const int ScoreListener = 40;
 
-    public const int TotalComponents = 38;
+    public const int TotalComponents = 41;
 
     public static readonly string[] componentNames = {
         "Animated",
@@ -61,6 +64,7 @@ public static class GameComponentsLookup {
         "BuildTarget",
         "Calldown",
         "CanBuild",
+        "Cell",
         "Creator",
         "CreatureType",
         "Damagable",
@@ -77,6 +81,7 @@ public static class GameComponentsLookup {
         "Parent",
         "Physic",
         "Player",
+        "Reputation",
         "Resource",
         "Score",
         "ShowSelectView",
@@ -85,6 +90,7 @@ public static class GameComponentsLookup {
         "Speed",
         "Tile",
         "View",
+        "World",
         "LifeListener",
         "LifeTimerListener",
         "ScoreListener"
@@ -102,6 +108,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.BuildTargetComponent),
         typeof(GameScene.ECS.Components.CalldownComponent),
         typeof(GameScene.ECS.Components.CanBuildComponent),
+        typeof(GameScene.ECS.Components.CellComponent),
         typeof(GameScene.ECS.Components.CreatorComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
         typeof(GameScene.ECS.Components.DamagableComponent),
@@ -118,6 +125,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ParentComponent),
         typeof(GameScene.ECS.Components.PhysicComponent),
         typeof(GameScene.ECS.Components.PlayerComponent),
+        typeof(GameScene.ECS.Components.ReputationComponent),
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
@@ -126,6 +134,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.SpeedComponent),
         typeof(GameScene.ECS.Components.TileComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
+        typeof(GameScene.ECS.Components.WorldComponent),
         typeof(LifeListenerComponent),
         typeof(LifeTimerListenerComponent),
         typeof(ScoreListenerComponent)

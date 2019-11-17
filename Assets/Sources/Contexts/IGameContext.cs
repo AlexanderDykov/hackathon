@@ -18,6 +18,8 @@ namespace Core.Contexts
         bool isEndGame{ get; set; }
         void ReplaceScore(int newValue);
         ScoreComponent score { get; }
+        void ReplaceWorld(Vector2Int size);
+        GameEntity worldEntity { get; }
         HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position);
         HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position);
     }

@@ -1,9 +1,7 @@
 using Core.Contexts;
 using Entitas;
 using GameScene.ECS.Components;
-using GameScene.ECS.Utils;
 using GameScene.Factories;
-using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems
@@ -15,7 +13,7 @@ namespace GameScene.ECS.Systems
         private readonly IBoxFactory _boxFactory;
         private readonly UIFactory _uiFactory;
         private readonly MonsterFactory _monsterFactory;
-        
+
         public InitSystem(IGameContext context,
             IPlayerFactory playerFactory,
             IBoxFactory boxFactory,
@@ -28,7 +26,7 @@ namespace GameScene.ECS.Systems
             _uiFactory = uiFactory;
             _monsterFactory = monsterFactory;
         }
-        
+
         public void Initialize()
         {
             _playerFactory.CreatePlayer(_context);
@@ -38,7 +36,9 @@ namespace GameScene.ECS.Systems
             _uiFactory.CreateCamera(_context);
 
             _boxFactory.CreateEntity(_context, Vector2.zero, TileType.None);
-            
+
+            _context.ReplaceWorld(new Vector2Int(40, 40));
+
             _monsterFactory.CreateHuman(new Vector2(-2, 0));
             _monsterFactory.CreateWarrior(new Vector2(-2, 4));
             _monsterFactory.CreateWorker(new Vector2(-2, 8));

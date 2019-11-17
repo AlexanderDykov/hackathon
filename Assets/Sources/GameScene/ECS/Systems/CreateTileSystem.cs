@@ -26,8 +26,8 @@ namespace GameScene.ECS.Systems
         {
             foreach (var entity in entities)
             {
-                entity.AddResource(entity.tile.TileType.ToString());
-                entity.AddInitialPosition(entity.tile.Position);
+                entity.ReplaceResource(entity.tile.TileType.ToString());
+                entity.ReplaceInitialPosition(entity.tile.Position);
             }
         }
     }
