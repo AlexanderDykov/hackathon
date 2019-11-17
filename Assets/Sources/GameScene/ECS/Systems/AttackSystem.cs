@@ -18,7 +18,9 @@ namespace GameScene.ECS.Systems
             foreach (var gameEntity in _attackGroup)
             {
                 if (!(gameEntity.calldown.Value < 0.001f)) continue;
-                gameEntity.target.Entity.AddDamage(gameEntity.attackPower.Value);
+
+                var damage = gameEntity.target.Entity.hasDamage ? gameEntity.target.Entity.damage.Value : 0;
+                gameEntity.target.Entity.ReplaceDamage(damage + gameEntity.attackPower.Value);
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
             }
         }

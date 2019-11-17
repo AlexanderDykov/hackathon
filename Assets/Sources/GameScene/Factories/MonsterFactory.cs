@@ -42,7 +42,9 @@ namespace GameScene.Factories
                 {CreatureType.Statue, CreateStatue},
                 {CreatureType.Warrior, CreateWarrior},
                 {CreatureType.WhiteBuilding, CreateWhiteBuilding},
+                {CreatureType.BlackBuilding, CreateBlackBuilding},
                 {CreatureType.Soul, CreateSoul},
+                {CreatureType.Skeleton, CreateSkeleton},
             };
         }
 
@@ -62,6 +64,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Human);
             entity.AddCreatureType(CreatureType.Human);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.AddDistanceToTarget(1f);
             entity.isPhysic = true;
@@ -78,6 +81,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Warrior);
             entity.AddCreatureType(CreatureType.Warrior);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -97,6 +101,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Worker);
             entity.AddCreatureType(CreatureType.Worker);
+            entity.AddInitialHealth(15);
             entity.AddHealth(15);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -111,7 +116,30 @@ namespace GameScene.Factories
             
             entity.AddLookNearest(CreatureType.Position);
         }
-        
+
+        // 4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
+        public void CreateHealer(Vector2 position)
+        {
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Healer);
+            entity.AddCreatureType(CreatureType.Healer);
+            entity.AddInitialHealth(15);
+            entity.AddHealth(15);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.White);
+            entity.AddSpeed(1.5f);
+
+            entity.AddHealPower(2);
+
+            entity.AddInitialCalldown(2);
+            entity.AddCalldown(2);
+            entity.AddDistanceToTarget(3f);
+
+            entity.AddLookNearest(CreatureType.Human | CreatureType.Warrior | CreatureType.Worker |  CreatureType.Priest);
+        }
+
         // 1. Skeleton: 8 HP, 4 Attack
         public void CreateSkeleton(Vector2 position)
         {
@@ -119,6 +147,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Skeleton);
             entity.AddCreatureType(CreatureType.Skeleton);
+            entity.AddInitialHealth(8);
             entity.AddHealth(8);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -176,6 +205,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Priest);
             entity.AddCreatureType(CreatureType.Priest);
+            entity.AddInitialHealth(20);
             entity.AddHealth(20);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -191,13 +221,26 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.WhiteBuilding);
         }
 
-        public void CreateHealer(Vector2 obj)
+        public void CreateBlackWorker(Vector2 position)
         {
-        }
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Worker);
+            entity.AddCreatureType(CreatureType.Worker);
+            entity.AddInitialHealth(15);
+            entity.AddHealth(15);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.Black);
+            entity.AddSpeed(1.5f);
 
-        public void CreateBlackWorker(Vector2 obj)
-        {
-//            throw new NotImplementedException();
+            entity.AddCreator(CreatureType.BlackBuilding);
+            
+            entity.AddCalldown(2);
+            entity.AddInitialCalldown(2);
+            entity.AddDistanceToTarget(1f);
+            
+            entity.AddLookNearest(CreatureType.Position);
         }
 
         public void CreateZombie(Vector2 position)
@@ -206,6 +249,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Zombie);
             entity.AddCreatureType(CreatureType.Zombie);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -220,9 +264,26 @@ namespace GameScene.Factories
             entity.AddLookNearest(CreatureType.Human | CreatureType.Worker);
         }
 
-        public void CreateLich(Vector2 obj)
+        public void CreateLich(Vector2 position)
         {
-//            throw new NotImplementedException();
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Lich);
+            entity.AddCreatureType(CreatureType.Lich);
+            entity.AddInitialHealth(20);
+            entity.AddHealth(20);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.White);
+            entity.AddSpeed(1.5f);
+
+            entity.AddCreator(CreatureType.Skeleton);
+            
+            entity.AddCalldown(4);
+            entity.AddInitialCalldown(4);
+            entity.AddDistanceToTarget(1f);
+            
+            entity.AddLookNearest(CreatureType.BlackBuilding);
         }
 
         public void CreateBlackStatue(Vector3 transformPosition)
@@ -239,6 +300,15 @@ namespace GameScene.Factories
             statue.AddResource(ResourceNames.Position);
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.Position);
+        }
+
+        public void CreateBlackBuilding(Vector2 transformPosition)
+        {
+        
+            var statue = _context.CreateEntity();
+            statue.AddResource(ResourceNames.BlackBuilding);
+            statue.AddInitialPosition(transformPosition);
+            statue.AddCreatureType(CreatureType.BlackBuilding);
         }
     }
 }

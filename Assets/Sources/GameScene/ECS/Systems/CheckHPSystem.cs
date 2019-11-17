@@ -27,13 +27,18 @@ namespace GameScene.ECS.Systems
         {
             foreach (var entity in entities)
             {
-                entity.ReplaceHealth(entity.health.Value - entity.damage.Value);
+                var newHealth = entity.health.Value - entity.damage.Value;
+                newHealth = (newHealth <= entity.initialHealth.Value) ? newHealth : entity.initialHealth.Value;
+                entity.ReplaceHealth(newHealth);
                 entity.RemoveDamage();
-                if (entity.health.Value > 0) continue;
-                Object.Destroy(entity.view.Value);
-                entity.isDestroy = true;
-                if (!entity.isPlayer) continue;
-                _context.isEndGame = true;
+                if (entity.health.Value <= 0) {
+                    Object.Destroy(entity.view.Value);
+                    entity.isDestroy = true;
+                    if (entity.isPlayer)
+                    {
+                        _context.isEndGame = true;
+                    }
+                }
             }
         }
     }

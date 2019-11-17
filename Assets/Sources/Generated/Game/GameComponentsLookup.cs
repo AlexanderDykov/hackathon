@@ -26,31 +26,33 @@ public static class GameComponentsLookup {
     public const int Direction = 15;
     public const int DistanceToTarget = 16;
     public const int EndGame = 17;
-    public const int Health = 18;
-    public const int InitialCalldown = 19;
-    public const int InitialPosition = 20;
-    public const int LookNearest = 21;
-    public const int Parent = 22;
-    public const int Physic = 23;
-    public const int Player = 24;
-    public const int Prist = 25;
-    public const int Reputation = 26;
-    public const int Resource = 27;
-    public const int Score = 28;
-    public const int ShowSelectView = 29;
-    public const int Side = 30;
-    public const int Skill = 31;
-    public const int Soul = 32;
-    public const int Speed = 33;
-    public const int Target = 34;
-    public const int Tile = 35;
-    public const int Upgrade = 36;
-    public const int View = 37;
-    public const int World = 38;
-    public const int ZombieTimer = 39;
-    public const int ScoreListener = 40;
+    public const int HealPower = 18;
+    public const int Health = 19;
+    public const int InitialCalldown = 20;
+    public const int InitialHealth = 21;
+    public const int InitialPosition = 22;
+    public const int LookNearest = 23;
+    public const int Parent = 24;
+    public const int Physic = 25;
+    public const int Player = 26;
+    public const int Prist = 27;
+    public const int Reputation = 28;
+    public const int Resource = 29;
+    public const int Score = 30;
+    public const int ShowSelectView = 31;
+    public const int Side = 32;
+    public const int Skill = 33;
+    public const int Soul = 34;
+    public const int Speed = 35;
+    public const int Target = 36;
+    public const int Tile = 37;
+    public const int Upgrade = 38;
+    public const int View = 39;
+    public const int World = 40;
+    public const int ZombieTimer = 41;
+    public const int ScoreListener = 42;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "BalanceListener",
@@ -71,8 +73,10 @@ public static class GameComponentsLookup {
         "Direction",
         "DistanceToTarget",
         "EndGame",
+        "HealPower",
         "Health",
         "InitialCalldown",
+        "InitialHealth",
         "InitialPosition",
         "LookNearest",
         "Parent",
@@ -115,8 +119,10 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.DirectionComponent),
         typeof(GameScene.ECS.Components.DistanceToTargetComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
+        typeof(GameScene.ECS.Components.HealPowerComponent),
         typeof(GameScene.ECS.Components.HealthComponent),
         typeof(GameScene.ECS.Components.InitialCalldownComponent),
+        typeof(GameScene.ECS.Components.InitialHealthComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LookNearestComponent),
         typeof(GameScene.ECS.Components.ParentComponent),

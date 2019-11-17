@@ -29,7 +29,7 @@
    1. Human: 10 HP
    2. Warrior: 10 HP, 4 Attack
    3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
-   4. Healer: 15 HP, +2 Heal on 3 radius
+   4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
    5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
 2. Black
    1. Skeleton: 8 HP, 4 Attack
