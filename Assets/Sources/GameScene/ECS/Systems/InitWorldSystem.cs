@@ -27,14 +27,16 @@ namespace GameScene.ECS.Systems
             var worldSize = _context.worldEntity.world.Size;
             var halfWidth = worldSize.x / 2;
             var halfHeight = worldSize.y / 2;
-            for (int i = -halfWidth; i < halfWidth; ++i)
+            for (int i = -halfWidth; i < 0; ++i)
             {
-                var reputation = (i < 0) ? -1 : 1;
                 for (int j = -halfHeight; j < halfHeight; ++j)
                 {
-                    var cellEntity = _context.CreateEntity();
-                    cellEntity.AddCell(new Vector3Int(i, j, 0));
-                    cellEntity.AddReputation(reputation);
+                    var whiteCellEntity = _context.CreateEntity();
+                    whiteCellEntity.AddCell(new Vector3Int(i, j, 0));
+                    whiteCellEntity.AddReputation(1);
+                    var blackCellEntity = _context.CreateEntity();
+                    blackCellEntity.AddCell(new Vector3Int(-i-1, j, 0));
+                    blackCellEntity.AddReputation(-1);
                 }
             }
             
