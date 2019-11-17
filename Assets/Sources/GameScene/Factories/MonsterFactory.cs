@@ -202,6 +202,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Worker);
             entity.AddCreatureType(CreatureType.Worker);
+            entity.AddInitialHealth(20);
             entity.AddHealth(20);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -228,6 +229,7 @@ namespace GameScene.Factories
             entity.AddInitialPosition(position);
             entity.AddResource(ResourceNames.Zombie);
             entity.AddCreatureType(CreatureType.Zombie);
+            entity.AddInitialHealth(10);
             entity.AddHealth(10);
             entity.isPhysic = true;
             entity.isDamagable = true;
