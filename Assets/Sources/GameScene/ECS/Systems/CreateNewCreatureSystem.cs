@@ -14,7 +14,10 @@ namespace GameScene.ECS.Systems
         public CreateNewCreatureSystem(IGameContext context, MonsterFactory factory)
         {
             _factory = factory;
-            _attackGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Creator, GameMatcher.Calldown, GameMatcher.InitialCalldown, GameMatcher.View));
+            _attackGroup = context.GetGroup(GameMatcher.AllOf(
+                GameMatcher.Creator,
+                GameMatcher.Calldown,
+                GameMatcher.InitialCalldown));
             _resetCallDownGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Creator, GameMatcher.Calldown));
         }
         
@@ -28,9 +31,12 @@ namespace GameScene.ECS.Systems
 
             foreach (var gameEntity in _attackGroup)
             {
-                if (!(gameEntity.calldown.Value < 0.001f)) continue;
-                _factory.Create(gameEntity.creator.Value, gameEntity.view.Value.transform.position);
+                if (!gameEntity.hasBuildTarget || !gameEntity.isCanBuild || !(gameEntity.calldown.Value < 0.001f)) continue;
+                _factory.Create(gameEntity.creator.Value, gameEntity.buildTarget.Position);
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
+                
+                gameEntity.isCanBuild = false;
+                gameEntity.RemoveBuildTarget();
             }
         }
     }

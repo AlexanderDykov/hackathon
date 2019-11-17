@@ -16,36 +16,38 @@ public static class GameComponentsLookup {
     public const int AttackTarget = 5;
     public const int Body = 6;
     public const int BoxSkills = 7;
-    public const int Calldown = 8;
-    public const int Creator = 9;
-    public const int CreatureType = 10;
-    public const int Damagable = 11;
-    public const int Damage = 12;
-    public const int Destroy = 13;
-    public const int Direction = 14;
-    public const int EndGame = 15;
-    public const int Health = 16;
-    public const int InitialCalldown = 17;
-    public const int InitialPosition = 18;
-    public const int Life = 19;
-    public const int LifeTimer = 20;
-    public const int LookNearest = 21;
-    public const int Parent = 22;
-    public const int Physic = 23;
-    public const int Player = 24;
-    public const int Resource = 25;
-    public const int Score = 26;
-    public const int ShowSelectView = 27;
-    public const int Side = 28;
-    public const int Skill = 29;
-    public const int Speed = 30;
-    public const int Tile = 31;
-    public const int View = 32;
-    public const int LifeListener = 33;
-    public const int LifeTimerListener = 34;
-    public const int ScoreListener = 35;
+    public const int BuildTarget = 8;
+    public const int Calldown = 9;
+    public const int CanBuild = 10;
+    public const int Creator = 11;
+    public const int CreatureType = 12;
+    public const int Damagable = 13;
+    public const int Damage = 14;
+    public const int Destroy = 15;
+    public const int Direction = 16;
+    public const int EndGame = 17;
+    public const int Health = 18;
+    public const int InitialCalldown = 19;
+    public const int InitialPosition = 20;
+    public const int Life = 21;
+    public const int LifeTimer = 22;
+    public const int LookNearest = 23;
+    public const int Parent = 24;
+    public const int Physic = 25;
+    public const int Player = 26;
+    public const int Resource = 27;
+    public const int Score = 28;
+    public const int ShowSelectView = 29;
+    public const int Side = 30;
+    public const int Skill = 31;
+    public const int Speed = 32;
+    public const int Tile = 33;
+    public const int View = 34;
+    public const int LifeListener = 35;
+    public const int LifeTimerListener = 36;
+    public const int ScoreListener = 37;
 
-    public const int TotalComponents = 36;
+    public const int TotalComponents = 38;
 
     public static readonly string[] componentNames = {
         "Animated",
@@ -56,7 +58,9 @@ public static class GameComponentsLookup {
         "AttackTarget",
         "Body",
         "BoxSkills",
+        "BuildTarget",
         "Calldown",
+        "CanBuild",
         "Creator",
         "CreatureType",
         "Damagable",
@@ -95,7 +99,9 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.AttackTargetComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
         typeof(GameScene.ECS.Components.BoxSkillsComponent),
+        typeof(GameScene.ECS.Components.BuildTargetComponent),
         typeof(GameScene.ECS.Components.CalldownComponent),
+        typeof(GameScene.ECS.Components.CanBuildComponent),
         typeof(GameScene.ECS.Components.CreatorComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
         typeof(GameScene.ECS.Components.DamagableComponent),

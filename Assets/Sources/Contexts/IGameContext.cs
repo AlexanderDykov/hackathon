@@ -19,6 +19,7 @@ namespace Core.Contexts
         void ReplaceScore(int newValue);
         ScoreComponent score { get; }
         HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position);
+        HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position);
     }
 }
 
@@ -27,5 +28,10 @@ partial class GameContext : IGameContext
     public HashSet<GameEntity> GetEntitiesWithIndexTilePosition(Vector2 position)
     {
         return this.GetEntitiesWithTilePosition(position);
+    }
+    
+    public HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position)
+    {
+        return this.GetEntitiesWithInitialPosition(position);
     }
 }

@@ -58,11 +58,17 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string InitialPosition = "InitialPosition";
     public const string TilePosition = "TilePosition";
     public const string TileTileType = "TileTileType";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>(
+            InitialPosition,
+            game.GetGroup(GameMatcher.InitialPosition),
+            (e, c) => ((GameScene.ECS.Components.InitialPositionComponent)c).Value));
+
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>(
             TilePosition,
             game.GetGroup(GameMatcher.Tile),
@@ -76,6 +82,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithInitialPosition(this GameContext context, UnityEngine.Vector2 Value) {
+        return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.InitialPosition)).GetEntities(Value);
+    }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithTilePosition(this GameContext context, UnityEngine.Vector2 Position) {
         return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.TilePosition)).GetEntities(Position);

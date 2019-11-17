@@ -93,8 +93,8 @@ namespace GameScene.Factories
 
             entity.AddCreator(CreatureType.Statue);
             
-            entity.AddCalldown(40);
-            entity.AddInitialCalldown(40);
+            entity.AddCalldown(2);
+            entity.AddInitialCalldown(2);
         }
         
         // 1. Skeleton: 8 HP, 4 Attack

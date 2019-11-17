@@ -52,6 +52,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<OpenChestSystem>();
             InstallUpdateSystem<AttackSystem>();
             InstallUpdateSystem<CreateNewCreatureSystem>();
+            InstallUpdateSystem<FindBuildTargetSystem>();
             base.InstallBindings();
         }
     }
