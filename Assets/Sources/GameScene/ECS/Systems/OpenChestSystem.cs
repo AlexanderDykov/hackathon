@@ -7,7 +7,7 @@ namespace GameScene.ECS.Systems
 {
     public class OpenChestSystem : IExecuteSystem
     {
-        private float radius = 0.2f;
+        private float radius = 0.02f;
         private IGameContext _context;
         private int layerMask = 1 << LayerMask.NameToLayer("Box");
 

@@ -20,37 +20,41 @@ public static class GameComponentsLookup {
     public const int Calldown = 9;
     public const int CanBuild = 10;
     public const int Cell = 11;
-    public const int Creator = 12;
-    public const int CreatureType = 13;
-    public const int Damagable = 14;
-    public const int Damage = 15;
-    public const int Destroy = 16;
-    public const int Direction = 17;
-    public const int EndGame = 18;
-    public const int Health = 19;
-    public const int InitialCalldown = 20;
-    public const int InitialPosition = 21;
-    public const int Life = 22;
-    public const int LifeTimer = 23;
-    public const int LookNearest = 24;
-    public const int Parent = 25;
-    public const int Physic = 26;
-    public const int Player = 27;
-    public const int Reputation = 28;
-    public const int Resource = 29;
-    public const int Score = 30;
-    public const int ShowSelectView = 31;
-    public const int Side = 32;
-    public const int Skill = 33;
-    public const int Speed = 34;
-    public const int Tile = 35;
-    public const int View = 36;
-    public const int World = 37;
-    public const int LifeListener = 38;
-    public const int LifeTimerListener = 39;
-    public const int ScoreListener = 40;
+    public const int CreateSoul = 12;
+    public const int Creator = 13;
+    public const int CreatureType = 14;
+    public const int Damagable = 15;
+    public const int Damage = 16;
+    public const int Destroy = 17;
+    public const int Direction = 18;
+    public const int EndGame = 19;
+    public const int Health = 20;
+    public const int InitialCalldown = 21;
+    public const int InitialPosition = 22;
+    public const int Life = 23;
+    public const int LifeTimer = 24;
+    public const int LookNearest = 25;
+    public const int Parent = 26;
+    public const int Physic = 27;
+    public const int Player = 28;
+    public const int Prist = 29;
+    public const int Reputation = 30;
+    public const int Resource = 31;
+    public const int Score = 32;
+    public const int ShowSelectView = 33;
+    public const int Side = 34;
+    public const int Skill = 35;
+    public const int Soul = 36;
+    public const int Speed = 37;
+    public const int Tile = 38;
+    public const int Upgrade = 39;
+    public const int View = 40;
+    public const int World = 41;
+    public const int LifeListener = 42;
+    public const int LifeTimerListener = 43;
+    public const int ScoreListener = 44;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 45;
 
     public static readonly string[] componentNames = {
         "Animated",
@@ -65,6 +69,7 @@ public static class GameComponentsLookup {
         "Calldown",
         "CanBuild",
         "Cell",
+        "CreateSoul",
         "Creator",
         "CreatureType",
         "Damagable",
@@ -81,14 +86,17 @@ public static class GameComponentsLookup {
         "Parent",
         "Physic",
         "Player",
+        "Prist",
         "Reputation",
         "Resource",
         "Score",
         "ShowSelectView",
         "Side",
         "Skill",
+        "Soul",
         "Speed",
         "Tile",
+        "Upgrade",
         "View",
         "World",
         "LifeListener",
@@ -109,6 +117,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.CalldownComponent),
         typeof(GameScene.ECS.Components.CanBuildComponent),
         typeof(GameScene.ECS.Components.CellComponent),
+        typeof(GameScene.ECS.Components.CreateSoulComponent),
         typeof(GameScene.ECS.Components.CreatorComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
         typeof(GameScene.ECS.Components.DamagableComponent),
@@ -125,14 +134,17 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ParentComponent),
         typeof(GameScene.ECS.Components.PhysicComponent),
         typeof(GameScene.ECS.Components.PlayerComponent),
+        typeof(GameScene.ECS.Components.PristComponent),
         typeof(GameScene.ECS.Components.ReputationComponent),
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
         typeof(GameScene.ECS.Components.SideComponent),
         typeof(GameScene.ECS.Components.SkillComponent),
+        typeof(GameScene.ECS.Components.SoulComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
         typeof(GameScene.ECS.Components.TileComponent),
+        typeof(GameScene.ECS.Components.UpgradeComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(GameScene.ECS.Components.WorldComponent),
         typeof(LifeListenerComponent),

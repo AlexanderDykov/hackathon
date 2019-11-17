@@ -27,11 +27,7 @@ namespace GameScene.ECS.Components
     public enum SkillType
     {
         CreateStatue,
-        CreateEarth = 1 << 1,
-        CreateWater = 1 << 2,
-        CreateAir = 1 << 3,
-        CreateFire = 1 << 4,
-        CreateSoul = 1 << 5,
-        Tile = CreateWater | CreateFire | CreateAir | CreateEarth | CreateSoul
+        CreateSoul,
+        CreateBlackStatue,
     }
 }

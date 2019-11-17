@@ -39,9 +39,11 @@ namespace GameScene.Factories
             _context = context;
             map = new Dictionary<CreatureType, Action<Vector2>>()
             {
-                {CreatureType.Statue, CreateHuman}
+                {CreatureType.Statue, CreateHuman},
+                {CreatureType.Warrior, CreateWarrior},
             };
         }
+
 
         // 1. Human: 10 HP
         public void CreateHuman( Vector2 position)
@@ -91,7 +93,7 @@ namespace GameScene.Factories
             entity.AddSide(Side.White);
             entity.AddSpeed(1.5f);
 
-            entity.AddCreator(CreatureType.Statue);
+            entity.AddCreator(CreatureType.WhiteBuilding);
             
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
@@ -124,6 +126,58 @@ namespace GameScene.Factories
                 map[creatureType].Invoke(position);
             }
         }
+
+        public void CreateStatue(Vector2 transformPosition)
+        {
+            var soul = _context.CreateEntity();
+            soul.AddResource(ResourceNames.Statue);
+            soul.AddInitialPosition(transformPosition);
+            soul.AddCreatureType(CreatureType.Statue);
+        }
+        
+        public void CreateSoul(Vector2 position)
+        {
+            var soul = _context.CreateEntity();
+            soul.AddResource(ResourceNames.Soul);
+            soul.AddInitialPosition(position);
+            soul.AddCreatureType(CreatureType.Soul);
+            soul.isPhysic = true;
+            soul.AddSpeed(3);
+            soul.isSoul = true;
+        }
+
+        // 5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
+        public void CreatePrist(Vector2 obj)
+        {
+            
+        }
+
+        public void CreateHealer(Vector2 obj)
+        {
+        }
+
+        public void CreateBlackWorker(Vector2 obj)
+        {
+//            throw new NotImplementedException();
+        }
+
+        public void CreateZombie(Vector2 pos)
+        {
+//            throw new NotImplementedException();
+        }
+
+        public void CreateLich(Vector2 obj)
+        {
+//            throw new NotImplementedException();
+        }
+
+        public void CreateBlackStatue(Vector3 transformPosition)
+        {
+            var statue = _context.CreateEntity();
+            statue.AddResource(ResourceNames.BlackStatue);
+            statue.AddInitialPosition(transformPosition);
+            statue.AddCreatureType(CreatureType.BlackStatue);
+        }
     }
 }
 
@@ -141,5 +195,8 @@ public enum CreatureType
     Zombie = 1 << 8,
     EvilWorker = 1 << 9,
     Lich = 1 << 10,
-    Random = 1 << 11,
+    BlackStatue = 1 << 11,
+    BlackWorker = 1 << 12,
+    WhiteBuilding = 1 << 13,
+    BlackBuilding = 1 << 14,
 }

@@ -1,6 +1,8 @@
 using Core.Contexts;
 using Entitas;
 using GameScene.ECS.Components;
+using GameScene.ECS.Utils;
+using GameScene.Factories;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems
@@ -8,10 +10,15 @@ namespace GameScene.ECS.Systems
     public sealed class InitWorldSystem : IInitializeSystem
     {
         private readonly IGameContext _context;
+        private readonly IBoxFactory _boxFactory;
+        private readonly RandomPositionGenerator _randomPositionGenerator;
 
-        public InitWorldSystem(IGameContext context)
+        public InitWorldSystem(IGameContext context, 
+            IBoxFactory boxFactory, RandomPositionGenerator randomPositionGenerator)
         {
+            _boxFactory = boxFactory;
             _context = context;
+            _randomPositionGenerator = randomPositionGenerator;
         }
 
         public void Initialize()
@@ -28,6 +35,12 @@ namespace GameScene.ECS.Systems
                     cellEntity.AddCell(new Vector3Int(i, j, 0));
                     cellEntity.AddReputation(reputation);
                 }
+            }
+            
+            
+            for (int i = 0; i < 5; i++)
+            {
+                _boxFactory.CreateEntity(_randomPositionGenerator.RandomPosition());
             }
 
         }

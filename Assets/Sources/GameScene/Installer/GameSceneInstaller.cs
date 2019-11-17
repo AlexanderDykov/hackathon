@@ -56,6 +56,10 @@ namespace GameScene.Installer
             InstallUpdateSystem<AttackSystem>();
             InstallUpdateSystem<CreateNewCreatureSystem>();
             InstallUpdateSystem<FindBuildTargetSystem>();
+            InstallUpdateSystem<CreateSoulBySkillSystem>();
+            InstallUpdateSystem<CreateStatueBySkillSystem>();
+            InstallUpdateSystem<SoulMoveSystem>();
+            InstallUpdateSystem<UpgradeSystem>();
             base.InstallBindings();
         }
     }

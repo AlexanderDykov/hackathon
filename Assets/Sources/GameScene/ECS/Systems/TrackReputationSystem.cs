@@ -29,7 +29,6 @@ namespace GameScene.ECS.Systems
 
         protected override void Execute(List<GameEntity> entities)
         {
-            Debug.Log("lol");
             foreach (var entity in entities)
             {
                 TileType reputationTile = (entity.reputation.Value > 0) ? TileType.White : TileType.Black;

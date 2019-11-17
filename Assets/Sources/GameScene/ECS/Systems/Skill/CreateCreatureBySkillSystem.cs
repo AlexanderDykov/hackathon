@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using GameScene.Factories;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems.Skill
@@ -8,10 +9,12 @@ namespace GameScene.ECS.Systems.Skill
     public abstract class CreateCreatureBySkillSystem: ReactiveSystem<GameEntity>
     {
         protected IGameContext Context;
+        protected MonsterFactory MonsterFactory;
 
-        protected CreateCreatureBySkillSystem(IGameContext context) : base(context)
+        protected CreateCreatureBySkillSystem(IGameContext context, MonsterFactory monsterFactory) : base(context)
         {
             Context = context;
+            MonsterFactory = monsterFactory;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

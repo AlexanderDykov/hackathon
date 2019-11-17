@@ -43,16 +43,7 @@ namespace GameScene.ECS.Systems
                 entity.isDestroy = true;
 
                 var randomPosition = _positionGenerator.RandomPosition();
-                
-                var tiles = _context.GetEntitiesWithIndexTilePosition(randomPosition).Where(x => x.hasTile);
-
-                var level = TileType.None;
-                var gameEntities = tiles.ToList();
-                if (gameEntities.Any())
-                {
-                    level = gameEntities.First().tile.TileType;
-                }
-                _boxFactory.CreateEntity(_context, randomPosition, level);
+                _boxFactory.CreateEntity(randomPosition);
             }
         }
     }
