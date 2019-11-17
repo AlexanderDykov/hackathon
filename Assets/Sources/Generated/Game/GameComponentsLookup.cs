@@ -20,39 +20,37 @@ public static class GameComponentsLookup {
     public const int CreateSoul = 9;
     public const int Creator = 10;
     public const int CreatureType = 11;
-    public const int Damagable = 12;
-    public const int Damage = 13;
-    public const int Destroy = 14;
-    public const int Direction = 15;
-    public const int DistanceToTarget = 16;
-    public const int EndGame = 17;
-    public const int HealPower = 18;
-    public const int Health = 19;
-    public const int InitialCalldown = 20;
-    public const int InitialHealth = 21;
-    public const int InitialPosition = 22;
-    public const int LookNearest = 23;
-    public const int Parent = 24;
-    public const int Physic = 25;
-    public const int Player = 26;
-    public const int Prist = 27;
-    public const int Reputation = 28;
-    public const int Resource = 29;
-    public const int Score = 30;
-    public const int ShowSelectView = 31;
-    public const int Side = 32;
-    public const int Skill = 33;
-    public const int Soul = 34;
-    public const int Speed = 35;
-    public const int Target = 36;
-    public const int Tile = 37;
-    public const int Upgrade = 38;
-    public const int View = 39;
-    public const int World = 40;
-    public const int ZombieTimer = 41;
-    public const int ScoreListener = 42;
+    public const int Damage = 12;
+    public const int Destroy = 13;
+    public const int Direction = 14;
+    public const int DistanceToTarget = 15;
+    public const int EndGame = 16;
+    public const int HealPower = 17;
+    public const int Health = 18;
+    public const int InitialCalldown = 19;
+    public const int InitialHealth = 20;
+    public const int InitialPosition = 21;
+    public const int LookNearest = 22;
+    public const int Parent = 23;
+    public const int Physic = 24;
+    public const int Player = 25;
+    public const int Prist = 26;
+    public const int Reputation = 27;
+    public const int Resource = 28;
+    public const int Score = 29;
+    public const int ShowSelectView = 30;
+    public const int Skill = 31;
+    public const int Soul = 32;
+    public const int Speed = 33;
+    public const int Target = 34;
+    public const int Tile = 35;
+    public const int Upgrade = 36;
+    public const int View = 37;
+    public const int World = 38;
+    public const int ZombieTimer = 39;
+    public const int ScoreListener = 40;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 41;
 
     public static readonly string[] componentNames = {
         "BalanceListener",
@@ -67,7 +65,6 @@ public static class GameComponentsLookup {
         "CreateSoul",
         "Creator",
         "CreatureType",
-        "Damagable",
         "Damage",
         "Destroy",
         "Direction",
@@ -87,7 +84,6 @@ public static class GameComponentsLookup {
         "Resource",
         "Score",
         "ShowSelectView",
-        "Side",
         "Skill",
         "Soul",
         "Speed",
@@ -113,7 +109,6 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.CreateSoulComponent),
         typeof(GameScene.ECS.Components.CreatorComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
-        typeof(GameScene.ECS.Components.DamagableComponent),
         typeof(GameScene.ECS.Components.DamageComponent),
         typeof(GameScene.ECS.Components.DestroyComponent),
         typeof(GameScene.ECS.Components.DirectionComponent),
@@ -133,7 +128,6 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
-        typeof(GameScene.ECS.Components.SideComponent),
         typeof(GameScene.ECS.Components.SkillComponent),
         typeof(GameScene.ECS.Components.SoulComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
