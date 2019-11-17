@@ -30,10 +30,16 @@ namespace GameScene.ECS.Systems
             foreach (var entity in entities)
             {
                 var prefab = Resources.Load<GameObject>(entity.resource.Path);
-                var go =  Object.Instantiate(prefab);
-                go.name = entity.resource.Path;
-                entity.AddView(go);
-                go.GetComponent<IView>()?.Link(_context, entity);
+                if (entity.hasView == false) {
+                    var go =  Object.Instantiate(prefab);
+                    go.name = entity.resource.Path;
+                    entity.AddView(go);
+                    go.GetComponent<IView>()?.Link(_context, entity);
+                } else {
+                    var go = entity.view.Value;
+                    var sr = go.GetComponent<SpriteRenderer>();
+                    sr.sprite = prefab.GetComponent<SpriteRenderer>().sprite;
+                }
                 entity.RemoveResource();
             }
         }

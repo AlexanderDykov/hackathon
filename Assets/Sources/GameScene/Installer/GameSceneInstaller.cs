@@ -34,6 +34,8 @@ namespace GameScene.Installer
 
             InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
+            InstallUpdateSystem<TrackReputationSystem>();
+            InstallUpdateSystem<CreateTileSystem>();
             InstallUpdateSystem<PlayerInputSystem>();
             InstallUpdateSystem<AddViewSystem>();
             InstallUpdateSystem<CheckEndGameSystem>();

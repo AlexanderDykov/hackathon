@@ -12,37 +12,40 @@ public static class GameComponentsLookup {
     public const int Animator = 1;
     public const int Body = 2;
     public const int BoxSkills = 3;
-    public const int CreatureType = 4;
-    public const int Damage = 5;
-    public const int Destroy = 6;
-    public const int Direction = 7;
-    public const int EndGame = 8;
-    public const int Health = 9;
-    public const int InitialPosition = 10;
-    public const int Life = 11;
-    public const int LifeTimer = 12;
-    public const int LookNearest = 13;
-    public const int Parent = 14;
-    public const int Physic = 15;
-    public const int Player = 16;
-    public const int Resource = 17;
-    public const int Score = 18;
-    public const int ShowSelectView = 19;
-    public const int Skill = 20;
-    public const int Speed = 21;
-    public const int Tile = 22;
-    public const int View = 23;
-    public const int LifeListener = 24;
-    public const int LifeTimerListener = 25;
-    public const int ScoreListener = 26;
+    public const int Cell = 4;
+    public const int CreatureType = 5;
+    public const int Damage = 6;
+    public const int Destroy = 7;
+    public const int Direction = 8;
+    public const int EndGame = 9;
+    public const int Health = 10;
+    public const int InitialPosition = 11;
+    public const int Life = 12;
+    public const int LifeTimer = 13;
+    public const int LookNearest = 14;
+    public const int Parent = 15;
+    public const int Physic = 16;
+    public const int Player = 17;
+    public const int Reputation = 18;
+    public const int Resource = 19;
+    public const int Score = 20;
+    public const int ShowSelectView = 21;
+    public const int Skill = 22;
+    public const int Speed = 23;
+    public const int Tile = 24;
+    public const int View = 25;
+    public const int LifeListener = 26;
+    public const int LifeTimerListener = 27;
+    public const int ScoreListener = 28;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
         "Animated",
         "Animator",
         "Body",
         "BoxSkills",
+        "Cell",
         "CreatureType",
         "Damage",
         "Destroy",
@@ -56,6 +59,7 @@ public static class GameComponentsLookup {
         "Parent",
         "Physic",
         "Player",
+        "Reputation",
         "Resource",
         "Score",
         "ShowSelectView",
@@ -73,6 +77,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.AnimatorComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
         typeof(GameScene.ECS.Components.BoxSkillsComponent),
+        typeof(GameScene.ECS.Components.CellComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
         typeof(GameScene.ECS.Components.DamageComponent),
         typeof(GameScene.ECS.Components.DestroyComponent),
@@ -86,6 +91,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ParentComponent),
         typeof(GameScene.ECS.Components.PhysicComponent),
         typeof(GameScene.ECS.Components.PlayerComponent),
+        typeof(GameScene.ECS.Components.ReputationComponent),
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),

@@ -58,11 +58,17 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string Cell = "Cell";
     public const string TilePosition = "TilePosition";
     public const string TileTileType = "TileTileType";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector3Int>(
+            Cell,
+            game.GetGroup(GameMatcher.Cell),
+            (e, c) => ((GameScene.ECS.Components.CellComponent)c).Position));
+
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>(
             TilePosition,
             game.GetGroup(GameMatcher.Tile),
@@ -76,6 +82,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithCell(this GameContext context, UnityEngine.Vector3Int Position) {
+        return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector3Int>)context.GetEntityIndex(Contexts.Cell)).GetEntities(Position);
+    }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithTilePosition(this GameContext context, UnityEngine.Vector2 Position) {
         return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.TilePosition)).GetEntities(Position);
