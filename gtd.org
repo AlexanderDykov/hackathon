@@ -1,4 +1,37 @@
-* roadmap
+* roadmap [0/10]
+** TODO generate initial white/black board
+** TODO create reputation system for each cell on the board
+** TODO dynamically redraw tiles on board
+** TODO create balance system(-100; +100)
+** TODO create multiple random chest
+** TODO choose skills system
+** TODO skills
+*** TODO create soul
+*** TODO create statue
+** TODO soul upgrades [0/2]
+*** TODO white
+1. statue -> human(hp + walking)
+2. human -> warrior(+attack) or worker(+build)
+3. warrior -> healer
+4. worker -> prist
+*** TODO black
+ 1. statue -> skeleton(hp + walking + attack)
+ 2. skeleton -> zombie(-attack +disease spell) or worker(-attack +build)
+ 4. worker -> lich
+** TODO unit balances
+1. White
+   1. Human: 10 HP
+   2. Warrior: 10 HP, 4 Attack
+   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+   4. Healer: 15 HP, +2 Heal on 3 radius
+   5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
+2. Black
+   1. Skeleton: 8 HP, 4 Attack
+   2. Zombie: 10 HP, [human,worker -> skeleton](need to stay around 3 seconds)
+   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+   4. Lich: 20 HP, [create skeleton near house](10 seconds){30 seconds cooldown}
+** TODO house change reputation +3 on 4 radius
+* read later
 ** basic mechanics
 *** DONE player movement
     CLOSED: [2019-11-16 сб 13:25]
@@ -55,15 +88,3 @@
 ******* TODO air + fire = coal
 **** TODO tile collision rules
 ***** TODO 
-* ideas
-** skills
-*** player can take damage
-*** player can attack
-*** player can create souls
-*** player can create statues
-*** add 1 day lifetime
-*** kill all zombies
-*** transform half of the popul into skeleton
-*** make one zombie(zombie transform human into skeleton)
-** general
-*** single box which will telleport
