@@ -158,6 +158,7 @@ namespace GameScene.Factories
             soul.isPhysic = true;
             soul.AddSpeed(3);
             soul.isSoul = true;
+            soul.AddDistanceToTarget(1f);
             soul.AddLookNearest(
                 CreatureType.Statue 
                 |CreatureType.Human
@@ -173,8 +174,8 @@ namespace GameScene.Factories
         {
             var entity = _context.CreateEntity();
             entity.AddInitialPosition(position);
-            entity.AddResource(ResourceNames.Worker);
-            entity.AddCreatureType(CreatureType.Worker);
+            entity.AddResource(ResourceNames.Priest);
+            entity.AddCreatureType(CreatureType.Priest);
             entity.AddHealth(20);
             entity.isPhysic = true;
             entity.isDamagable = true;
@@ -183,8 +184,8 @@ namespace GameScene.Factories
 
             entity.AddCreator(CreatureType.Soul);
             
-            entity.AddCalldown(20);
-            entity.AddInitialCalldown(20);
+            entity.AddCalldown(4);
+            entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
             
             entity.AddLookNearest(CreatureType.WhiteBuilding);

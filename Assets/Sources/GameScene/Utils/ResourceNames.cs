@@ -17,5 +17,6 @@ namespace GameScene.Utils
         public static string Position = "Position";
         public static string Worker = "Worker";
         public static string WhiteBuilding = "WhiteBuilding";
+        public static string Priest = "Priest";
     }
 }
