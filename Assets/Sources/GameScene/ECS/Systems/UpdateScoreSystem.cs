@@ -1,40 +1,33 @@
 using System;
-using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
 using GameScene.Utils;
+using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public class UpdateScoreSystem : ReactiveSystem<GameEntity>
+    public class UpdateScoreSystem : IExecuteSystem
     {
         private IGameContext _context;
+        private float _updateScoreTimer = Settings.UpdateScorePeriodSeconds;
 
-        public UpdateScoreSystem(IGameContext context) : base(context)
+        public UpdateScoreSystem(IGameContext context)
         {
             _context = context;
         }
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+        public void Execute()
         {
-            return context.CreateCollector(GameMatcher.Balance.Added());
-        }
-
-        protected override bool Filter(GameEntity entity)
-        {
-            return entity.hasBalance;
-        }
-
-        protected override void Execute(List<GameEntity> entities)
-        {
-            foreach (var entity in entities)
-            {
+            _updateScoreTimer -= Time.deltaTime;
+            if (_updateScoreTimer < 0) {
                 var scoreDiff = 1;
-                if (Math.Abs(_context.balance.Value) > 0.9 * Settings.MaxBalance) {
+                if (Math.Abs(_context.balance.Value) > 0.2 * Settings.MaxBalance) {
                     scoreDiff = -1;
                 }
                 _context.ReplaceScore(_context.score.Value + scoreDiff);
+                _updateScoreTimer = Settings.UpdateScorePeriodSeconds;
             }
+
         }
     }
 
