@@ -2,6 +2,7 @@ using Core.Contexts;
 using Entitas;
 using GameScene.View;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace GameScene.ECS.Systems
 {
@@ -18,9 +19,9 @@ namespace GameScene.ECS.Systems
         
         public void Execute()
         {
-            if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                //TODO: refactor Camera.main
+//                TODO: refactor Camera.main
                 Vector3 currPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
                 Vector2 curr2DPos = new Vector2 (currPos.x, currPos.y);
 
@@ -29,6 +30,7 @@ namespace GameScene.ECS.Systems
                 {
                     overlapCircle.GetComponent<BoxView>().Open(true);
                 }
+
             }
         }
     }
