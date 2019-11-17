@@ -21,5 +21,6 @@ namespace GameScene.Utils
         public static string Priest = "Priest";
         public static string Lich = "Lich";
         public static string BlackBuilding = "BlackBuilding";
+        public static string BlackWorker = "BlackWorker";
     }
 }

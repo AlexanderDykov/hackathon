@@ -115,8 +115,8 @@ namespace GameScene.Factories
             entity.AddSpeed(1f);
 
             entity.AddCreator(CreatureType.WhiteBuilding);
-            entity.AddCalldown(30);
-            entity.AddInitialCalldown(30);
+            entity.AddCalldown(10);
+            entity.AddInitialCalldown(10);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
             entity.AddReputation(3);
@@ -259,8 +259,8 @@ namespace GameScene.Factories
         {
             var entity = _context.CreateEntity();
             entity.AddCell(position);
-            entity.AddResource(ResourceNames.Worker);
-            entity.AddCreatureType(CreatureType.Worker);
+            entity.AddResource(ResourceNames.BlackWorker);
+            entity.AddCreatureType(CreatureType.BlackWorker);
             entity.AddInitialHealth(15);
             entity.AddHealth(15);
             entity.isPhysic = true;
@@ -268,8 +268,8 @@ namespace GameScene.Factories
 
             entity.AddCreator(CreatureType.BlackBuilding);
 
-            entity.AddCalldown(2);
-            entity.AddInitialCalldown(2);
+            entity.AddCalldown(20);
+            entity.AddInitialCalldown(20);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
             entity.AddReputation(-3);
