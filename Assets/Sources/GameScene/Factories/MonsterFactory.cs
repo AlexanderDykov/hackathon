@@ -79,7 +79,6 @@ namespace GameScene.Factories
             entity.AddCreatureType(CreatureType.Warrior);
             entity.AddHealth(10);
             entity.isPhysic = true;
-            entity.isAttackable = true;
             entity.isDamagable = true;
             entity.AddSide(Side.White);
             entity.AddSpeed(1);
@@ -99,7 +98,6 @@ namespace GameScene.Factories
             entity.AddCreatureType(CreatureType.Worker);
             entity.AddHealth(15);
             entity.isPhysic = true;
-            entity.isAttackable = true;
             entity.isDamagable = true;
             entity.AddSide(Side.White);
             entity.AddSpeed(1.5f);
@@ -122,7 +120,6 @@ namespace GameScene.Factories
             entity.AddCreatureType(CreatureType.Skeleton);
             entity.AddHealth(8);
             entity.isPhysic = true;
-            entity.isAttackable = true;
             entity.isDamagable = true;
             entity.AddSide(Side.Black);
             entity.AddSpeed(1);
@@ -177,9 +174,24 @@ namespace GameScene.Factories
 //            throw new NotImplementedException();
         }
 
-        public void CreateZombie(Vector2 pos)
+        public void CreateZombie(Vector2 position)
         {
-//            throw new NotImplementedException();
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Zombie);
+            entity.AddCreatureType(CreatureType.Zombie);
+            entity.AddHealth(10);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.Black);
+            entity.AddSpeed(1);
+            entity.AddDistanceToTarget(1f);
+            
+            entity.AddZombieTimer(3);
+            entity.AddCalldown(3);
+            entity.AddInitialCalldown(3);
+            
+            entity.AddLookNearest(CreatureType.Human | CreatureType.Worker);
         }
 
         public void CreateLich(Vector2 obj)

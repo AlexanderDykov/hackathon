@@ -20,7 +20,6 @@ namespace GameScene.ECS.Systems
         {
             foreach (var look in _lookingGroup.GetEntities())
             {
-                Debug.Log("Aaa");
                 var minDist = Mathf.Infinity;
                 var lookPos = look.view.Value.transform.position;
                 var direction = Vector2.zero;

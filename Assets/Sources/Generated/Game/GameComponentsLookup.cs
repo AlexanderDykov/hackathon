@@ -11,43 +11,43 @@ public static class GameComponentsLookup {
     public const int BalanceListener = 0;
     public const int Animated = 1;
     public const int Animator = 2;
-    public const int Attackable = 3;
-    public const int AttackPower = 4;
-    public const int Balance = 5;
-    public const int Body = 6;
-    public const int BoxSkills = 7;
-    public const int Calldown = 8;
-    public const int Cell = 9;
-    public const int CreateSoul = 10;
-    public const int Creator = 11;
-    public const int CreatureType = 12;
-    public const int Damagable = 13;
-    public const int Damage = 14;
-    public const int Destroy = 15;
-    public const int Direction = 16;
-    public const int DistanceToTarget = 17;
-    public const int EndGame = 18;
-    public const int Health = 19;
-    public const int InitialCalldown = 20;
-    public const int InitialPosition = 21;
-    public const int LookNearest = 22;
-    public const int Parent = 23;
-    public const int Physic = 24;
-    public const int Player = 25;
-    public const int Prist = 26;
-    public const int Reputation = 27;
-    public const int Resource = 28;
-    public const int Score = 29;
-    public const int ShowSelectView = 30;
-    public const int Side = 31;
-    public const int Skill = 32;
-    public const int Soul = 33;
-    public const int Speed = 34;
-    public const int Target = 35;
-    public const int Tile = 36;
-    public const int Upgrade = 37;
-    public const int View = 38;
-    public const int World = 39;
+    public const int AttackPower = 3;
+    public const int Balance = 4;
+    public const int Body = 5;
+    public const int BoxSkills = 6;
+    public const int Calldown = 7;
+    public const int Cell = 8;
+    public const int CreateSoul = 9;
+    public const int Creator = 10;
+    public const int CreatureType = 11;
+    public const int Damagable = 12;
+    public const int Damage = 13;
+    public const int Destroy = 14;
+    public const int Direction = 15;
+    public const int DistanceToTarget = 16;
+    public const int EndGame = 17;
+    public const int Health = 18;
+    public const int InitialCalldown = 19;
+    public const int InitialPosition = 20;
+    public const int LookNearest = 21;
+    public const int Parent = 22;
+    public const int Physic = 23;
+    public const int Player = 24;
+    public const int Prist = 25;
+    public const int Reputation = 26;
+    public const int Resource = 27;
+    public const int Score = 28;
+    public const int ShowSelectView = 29;
+    public const int Side = 30;
+    public const int Skill = 31;
+    public const int Soul = 32;
+    public const int Speed = 33;
+    public const int Target = 34;
+    public const int Tile = 35;
+    public const int Upgrade = 36;
+    public const int View = 37;
+    public const int World = 38;
+    public const int ZombieTimer = 39;
     public const int ScoreListener = 40;
 
     public const int TotalComponents = 41;
@@ -56,7 +56,6 @@ public static class GameComponentsLookup {
         "BalanceListener",
         "Animated",
         "Animator",
-        "Attackable",
         "AttackPower",
         "Balance",
         "Body",
@@ -93,6 +92,7 @@ public static class GameComponentsLookup {
         "Upgrade",
         "View",
         "World",
+        "ZombieTimer",
         "ScoreListener"
     };
 
@@ -100,7 +100,6 @@ public static class GameComponentsLookup {
         typeof(BalanceListenerComponent),
         typeof(GameScene.ECS.Components.AnimatedComponent),
         typeof(GameScene.ECS.Components.AnimatorComponent),
-        typeof(GameScene.ECS.Components.AttackableComponent),
         typeof(GameScene.ECS.Components.AttackPowerComponent),
         typeof(GameScene.ECS.Components.BalanceComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
@@ -137,6 +136,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.UpgradeComponent),
         typeof(GameScene.ECS.Components.ViewComponent),
         typeof(GameScene.ECS.Components.WorldComponent),
+        typeof(GameScene.ECS.Components.ZombieTimerComponent),
         typeof(ScoreListenerComponent)
     };
 }

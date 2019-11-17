@@ -36,6 +36,8 @@ namespace GameScene.Installer
             InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
             InstallCommonSystem<InitWorldSystem>();
+            
+            
             InstallUpdateSystem<TrackCellReputationSystem>();
             InstallUpdateSystem<CreateTileSystem>();
             InstallUpdateSystem<PlayerInputSystem>();
@@ -60,6 +62,8 @@ namespace GameScene.Installer
             InstallUpdateSystem<SoulMoveSystem>();
             InstallUpdateSystem<UpgradeSystem>();
             InstallUpdateSystem<CallDownSystem>();
+            InstallUpdateSystem<ZombieCooldownSystem>();
+            InstallUpdateSystem<ZombieSystem>();
             base.InstallBindings();
         }
     }
