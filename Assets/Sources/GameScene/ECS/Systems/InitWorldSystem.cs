@@ -1,6 +1,5 @@
 using Core.Contexts;
 using Entitas;
-using GameScene.ECS.Components;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems

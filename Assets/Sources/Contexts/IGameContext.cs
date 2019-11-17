@@ -10,11 +10,8 @@ namespace Core.Contexts
     {
         GameEntity playerEntity { get; }
         bool isShowSelectView { get; set; }
-        void ReplaceLifeTimer(float newValue);
-        GameEntity lifeTimerEntity { get; }
-        LifeTimerComponent lifeTimer { get; }
-        LifeComponent life { get; }
-        void ReplaceLife(int newValue);
+        BalanceComponent balance { get; }
+        void ReplaceBalance(int newValue);
         bool isEndGame{ get; set; }
         void ReplaceScore(int newValue);
         ScoreComponent score { get; }
@@ -31,7 +28,7 @@ partial class GameContext : IGameContext
     {
         return this.GetEntitiesWithTilePosition(position);
     }
-    
+
     public HashSet<GameEntity> EntitiesWithInitialPosition(Vector2 position)
     {
         return this.GetEntitiesWithInitialPosition(position);

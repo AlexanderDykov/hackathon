@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
+using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems
@@ -15,20 +17,21 @@ namespace GameScene.ECS.Systems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Life.Added());
+            return context.CreateCollector(GameMatcher.Balance.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasLife;
+            return entity.hasBalance;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)
             {
-                if (entity.life.Value <= 0)
+                if (Math.Abs(entity.balance.Value) == Settings.MaxBalance)
                 {
+                    Debug.Log("You're looser!");
                     _context.isEndGame = true;
                 }
             }

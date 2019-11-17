@@ -1,5 +1,4 @@
 using Core.Contexts;
-using GameScene.ECS.Utils;
 using GameScene.Utils;
 
 namespace GameScene.Factories
@@ -10,8 +9,7 @@ namespace GameScene.Factories
         {
             var entity = context.CreateEntity();
             entity.AddResource(ResourceNames.PlayerHUD);
-            entity.AddLife(Constants.StartLifeValue);
-            entity.AddLifeTimer(Constants.MaxTimerValue);
+            entity.AddBalance(0);
             entity.AddScore(0);
             entity.AddParent(ResourceNames.Canvas);
             return entity;

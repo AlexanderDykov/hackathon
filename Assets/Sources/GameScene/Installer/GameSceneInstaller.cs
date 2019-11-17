@@ -36,14 +36,14 @@ namespace GameScene.Installer
             InstallUpdateSystem<DestroySystem>();
             InstallCommonSystem<InitSystem>();
             InstallCommonSystem<InitWorldSystem>();
-            InstallUpdateSystem<TrackReputationSystem>();
+            InstallUpdateSystem<TrackCellReputationSystem>();
             InstallUpdateSystem<CreateTileSystem>();
             InstallUpdateSystem<PlayerInputSystem>();
             InstallUpdateSystem<AddViewSystem>();
             InstallUpdateSystem<CheckEndGameSystem>();
             InstallUpdateSystem<AddParentSystem>();
             InstallUpdateSystem<GameEventSystems>();
-            InstallUpdateSystem<LifeTickSystem>();
+            InstallUpdateSystem<UpdateBalanceSystem>();
             InstallUpdateSystem<SetInitialWorldPositionSystem>();
             InstallUpdateSystem<AddBodySystem>();
             InstallUpdateSystem<MovementSystem>();

@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class LifeTimerEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class BalanceEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<ILifeTimerListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IBalanceListener> _listenerBuffer;
 
-    public LifeTimerEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<ILifeTimerListener>();
+    public BalanceEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<IBalanceListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.LifeTimer)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.Balance)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasLifeTimer && entity.hasLifeTimerListener;
+        return entity.hasBalance && entity.hasBalanceListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            var component = e.lifeTimer;
+            var component = e.balance;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.lifeTimerListener.value);
+            _listenerBuffer.AddRange(e.balanceListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnLifeTimer(e, component.Value);
+                listener.OnBalance(e, component.Value);
             }
         }
     }

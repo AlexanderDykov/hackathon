@@ -6,29 +6,25 @@ using UnityEngine.UI;
 
 namespace GameScene.View
 {
-    public class PlayerHUD : MonoBehaviour, IView, ILifeListener, ILifeTimerListener, IScoreListener, IDamagable
+    public class PlayerHUD : MonoBehaviour, IView, IBalanceListener, IScoreListener, IDamagable
     {
-        [SerializeField] private Slider _timerProgress;
-        [SerializeField] private TextMeshProUGUI _playerLifeCounterLabel;
+        [SerializeField] private Slider _balanceProgress;
+        [SerializeField] private TextMeshProUGUI _playerBalanceCounterLabel;
         [SerializeField] private TextMeshProUGUI _playerScoreCounterLabel;
         private GameEntity _entity;
+
         public void Link(IGameContext context, GameEntity entity)
         {
             _entity = entity;
             gameObject.Link(_entity, context);
-            entity.AddLifeListener(this);   
-            entity.AddLifeTimerListener(this);  
+            entity.AddBalanceListener(this);
             entity.AddScoreListener(this);
         }
 
-        public void OnLifeTimer(GameEntity entity, float Value)
+        public void OnBalance(GameEntity entity, int Value)
         {
-            _timerProgress.value = Value;
-        }
-
-        public void OnLife(GameEntity entity, int Value)
-        {
-            _playerLifeCounterLabel.text = Value.ToString();
+            _balanceProgress.value = Value;
+            _playerBalanceCounterLabel.text = Value.ToString();
         }
 
         public void OnScore(GameEntity entity, int Value)
@@ -40,7 +36,7 @@ namespace GameScene.View
         {
             _entity.AddDamage(value);
         }
-        
+
         private void OnDestroy()
         {
             gameObject.Unlink();

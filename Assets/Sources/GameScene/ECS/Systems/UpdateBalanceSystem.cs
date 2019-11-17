@@ -1,20 +1,19 @@
+using System;
 using System.Collections.Generic;
 using Core.Contexts;
 using Entitas;
-using GameScene.ECS.Components;
+using GameScene.Utils;
 using UnityEngine;
 
 namespace GameScene.ECS.Systems
 {
-    public class TrackReputationSystem  : ReactiveSystem<GameEntity>
+    public class UpdateBalanceSystem : ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
-        private Grid _grid;
 
-        public TrackReputationSystem(IGameContext context, Grid grid) : base(context)
+        public UpdateBalanceSystem(IGameContext context) : base(context)
         {
             _context = context;
-            _grid = grid;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -29,15 +28,15 @@ namespace GameScene.ECS.Systems
 
         protected override void Execute(List<GameEntity> entities)
         {
-            Debug.Log("lol");
             foreach (var entity in entities)
             {
-                TileType reputationTile = (entity.reputation.Value > 0) ? TileType.White : TileType.Black;
-                if ((entity.hasTile == false) || (entity.tile.TileType != reputationTile)) {
-                    var tilePos = _grid.CellToWorld(entity.cell.Position);
-                    entity.ReplaceTile(tilePos, reputationTile);
+                int newBalance = _context.balance.Value + entity.reputation.Value;
+                if (Math.Abs(newBalance) > Settings.MaxBalance) {
+                    newBalance = Math.Sign(newBalance) * Settings.MaxBalance;
                 }
+                _context.ReplaceBalance(newBalance);
             }
         }
     }
+
 }
