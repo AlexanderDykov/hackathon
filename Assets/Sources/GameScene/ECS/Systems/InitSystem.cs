@@ -14,16 +14,19 @@ namespace GameScene.ECS.Systems
         private readonly IPlayerFactory _playerFactory;
         private readonly IBoxFactory _boxFactory;
         private readonly UIFactory _uiFactory;
+        private readonly MonsterFactory _monsterFactory;
         
         public InitSystem(IGameContext context,
             IPlayerFactory playerFactory,
             IBoxFactory boxFactory,
-            UIFactory uiFactory)
+            UIFactory uiFactory,
+            MonsterFactory monsterFactory)
         {
             _context = context;
             _playerFactory = playerFactory;
             _boxFactory = boxFactory;
             _uiFactory = uiFactory;
+            _monsterFactory = monsterFactory;
         }
         
         public void Initialize()
@@ -36,23 +39,10 @@ namespace GameScene.ECS.Systems
 
             _boxFactory.CreateEntity(_context, Vector2.zero, TileType.None);
             
-            
-//            var entity = _context.CreateEntity();
-//            entity.AddInitialPosition(new Vector2(2, 0));
-//            entity.AddResource(ResourceNames.Human);
-//            entity.AddCreatureType(CreatureType.Human);
-//            entity.AddHealth(10);
-//            entity.isPhysic = true;
-//            
-//            
-//            var sEntity = _context.CreateEntity();
-//            sEntity.AddInitialPosition(new Vector2(-2, 0));
-//            sEntity.AddResource(ResourceNames.Skeleton);
-//            sEntity.AddCreatureType(CreatureType.Skeleton);
-//            sEntity.AddHealth(10);
-//            sEntity.isPhysic = true;
-//            sEntity.AddSpeed(1);
-//            sEntity.AddLookNearest(CreatureType.Human);
+            _monsterFactory.CreateHuman(new Vector2(-2, 0));
+            _monsterFactory.CreateWarrior(new Vector2(-2, 4));
+            _monsterFactory.CreateWorker(new Vector2(-2, 8));
+            _monsterFactory.CreateSkeleton(new Vector2(2, 0));
         }
     }
 }

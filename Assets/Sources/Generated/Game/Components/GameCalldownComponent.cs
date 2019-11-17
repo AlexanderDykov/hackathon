@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GameScene.ECS.Components.LookNearestComponent lookNearest { get { return (GameScene.ECS.Components.LookNearestComponent)GetComponent(GameComponentsLookup.LookNearest); } }
-    public bool hasLookNearest { get { return HasComponent(GameComponentsLookup.LookNearest); } }
+    public GameScene.ECS.Components.CalldownComponent calldown { get { return (GameScene.ECS.Components.CalldownComponent)GetComponent(GameComponentsLookup.Calldown); } }
+    public bool hasCalldown { get { return HasComponent(GameComponentsLookup.Calldown); } }
 
-    public void AddLookNearest(CreatureType newValue) {
-        var index = GameComponentsLookup.LookNearest;
-        var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
+    public void AddCalldown(float newValue) {
+        var index = GameComponentsLookup.Calldown;
+        var component = CreateComponent<GameScene.ECS.Components.CalldownComponent>(index);
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLookNearest(CreatureType newValue) {
-        var index = GameComponentsLookup.LookNearest;
-        var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
+    public void ReplaceCalldown(float newValue) {
+        var index = GameComponentsLookup.Calldown;
+        var component = CreateComponent<GameScene.ECS.Components.CalldownComponent>(index);
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveLookNearest() {
-        RemoveComponent(GameComponentsLookup.LookNearest);
+    public void RemoveCalldown() {
+        RemoveComponent(GameComponentsLookup.Calldown);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLookNearest;
+    static Entitas.IMatcher<GameEntity> _matcherCalldown;
 
-    public static Entitas.IMatcher<GameEntity> LookNearest {
+    public static Entitas.IMatcher<GameEntity> Calldown {
         get {
-            if (_matcherLookNearest == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LookNearest);
+            if (_matcherCalldown == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Calldown);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherLookNearest = matcher;
+                _matcherCalldown = matcher;
             }
 
-            return _matcherLookNearest;
+            return _matcherCalldown;
         }
     }
 }

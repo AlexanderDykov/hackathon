@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2791133679292959521}
   - component: {fileID: 2207420065816515158}
   m_Layer: 0
-  m_Name: Human
+  m_Name: Warrior
   m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8b0e170f2f6886b449892d97310ac99d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72534687bc2fd1cabaf0f5d45fccbf5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

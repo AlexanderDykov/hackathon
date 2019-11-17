@@ -10,45 +10,62 @@ public static class GameComponentsLookup {
 
     public const int Animated = 0;
     public const int Animator = 1;
-    public const int Body = 2;
-    public const int BoxSkills = 3;
-    public const int CreatureType = 4;
-    public const int Damage = 5;
-    public const int Destroy = 6;
-    public const int Direction = 7;
-    public const int EndGame = 8;
-    public const int Health = 9;
-    public const int InitialPosition = 10;
-    public const int Life = 11;
-    public const int LifeTimer = 12;
-    public const int LookNearest = 13;
-    public const int Parent = 14;
-    public const int Physic = 15;
-    public const int Player = 16;
-    public const int Resource = 17;
-    public const int Score = 18;
-    public const int ShowSelectView = 19;
-    public const int Skill = 20;
-    public const int Speed = 21;
-    public const int Tile = 22;
-    public const int View = 23;
-    public const int LifeListener = 24;
-    public const int LifeTimerListener = 25;
-    public const int ScoreListener = 26;
+    public const int Attackable = 2;
+    public const int AttackDistance = 3;
+    public const int AttackPower = 4;
+    public const int AttackTarget = 5;
+    public const int Body = 6;
+    public const int BoxSkills = 7;
+    public const int Calldown = 8;
+    public const int Creator = 9;
+    public const int CreatureType = 10;
+    public const int Damagable = 11;
+    public const int Damage = 12;
+    public const int Destroy = 13;
+    public const int Direction = 14;
+    public const int EndGame = 15;
+    public const int Health = 16;
+    public const int InitialCalldown = 17;
+    public const int InitialPosition = 18;
+    public const int Life = 19;
+    public const int LifeTimer = 20;
+    public const int LookNearest = 21;
+    public const int Parent = 22;
+    public const int Physic = 23;
+    public const int Player = 24;
+    public const int Resource = 25;
+    public const int Score = 26;
+    public const int ShowSelectView = 27;
+    public const int Side = 28;
+    public const int Skill = 29;
+    public const int Speed = 30;
+    public const int Tile = 31;
+    public const int View = 32;
+    public const int LifeListener = 33;
+    public const int LifeTimerListener = 34;
+    public const int ScoreListener = 35;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "Animated",
         "Animator",
+        "Attackable",
+        "AttackDistance",
+        "AttackPower",
+        "AttackTarget",
         "Body",
         "BoxSkills",
+        "Calldown",
+        "Creator",
         "CreatureType",
+        "Damagable",
         "Damage",
         "Destroy",
         "Direction",
         "EndGame",
         "Health",
+        "InitialCalldown",
         "InitialPosition",
         "Life",
         "LifeTimer",
@@ -59,6 +76,7 @@ public static class GameComponentsLookup {
         "Resource",
         "Score",
         "ShowSelectView",
+        "Side",
         "Skill",
         "Speed",
         "Tile",
@@ -71,14 +89,22 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(GameScene.ECS.Components.AnimatedComponent),
         typeof(GameScene.ECS.Components.AnimatorComponent),
+        typeof(GameScene.ECS.Components.AttackableComponent),
+        typeof(GameScene.ECS.Components.AttackDistance),
+        typeof(GameScene.ECS.Components.AttackPowerComponent),
+        typeof(GameScene.ECS.Components.AttackTargetComponent),
         typeof(GameScene.ECS.Components.BodyComponent),
         typeof(GameScene.ECS.Components.BoxSkillsComponent),
+        typeof(GameScene.ECS.Components.CalldownComponent),
+        typeof(GameScene.ECS.Components.CreatorComponent),
         typeof(GameScene.ECS.Components.CreatureTypeComponent),
+        typeof(GameScene.ECS.Components.DamagableComponent),
         typeof(GameScene.ECS.Components.DamageComponent),
         typeof(GameScene.ECS.Components.DestroyComponent),
         typeof(GameScene.ECS.Components.DirectionComponent),
         typeof(GameScene.ECS.Components.EndGameComponent),
         typeof(GameScene.ECS.Components.HealthComponent),
+        typeof(GameScene.ECS.Components.InitialCalldownComponent),
         typeof(GameScene.ECS.Components.InitialPositionComponent),
         typeof(GameScene.ECS.Components.LifeComponent),
         typeof(GameScene.ECS.Components.LifeTimerComponent),
@@ -89,6 +115,7 @@ public static class GameComponentsLookup {
         typeof(GameScene.ECS.Components.ResourceComponent),
         typeof(GameScene.ECS.Components.ScoreComponent),
         typeof(GameScene.ECS.Components.ShowSelectViewComponent),
+        typeof(GameScene.ECS.Components.SideComponent),
         typeof(GameScene.ECS.Components.SkillComponent),
         typeof(GameScene.ECS.Components.SpeedComponent),
         typeof(GameScene.ECS.Components.TileComponent),

@@ -12,5 +12,6 @@ namespace GameScene.Utils
         public static string Skeleton = "Skeleton";
         public static string Human = "Human";
         public static string Soul = "Soul";
+        public static string Warrior = "Warrior";
     }
 }

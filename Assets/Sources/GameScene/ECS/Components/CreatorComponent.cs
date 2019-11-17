@@ -3,7 +3,7 @@ using Entitas;
 namespace GameScene.ECS.Components
 {
     [Game]
-    public class CreatureTypeComponent : IComponent
+    public class CreatorComponent : IComponent
     {
         public CreatureType Value;
     }

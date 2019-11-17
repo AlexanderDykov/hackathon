@@ -26,6 +26,7 @@ namespace GameScene.Installer
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
             Container.Bind<IBoxFactory>().To<BoxFactory>().AsSingle();
             Container.Bind<UIFactory>().AsSingle();
+            Container.Bind<MonsterFactory>().AsSingle();
             Container.Bind<Grid>().FromInstance(_grid).AsSingle();
 
             Container.Bind<SelectPanel>().FromInstance(_selectPanel);
@@ -52,6 +53,8 @@ namespace GameScene.Installer
             InstallUpdateSystem<DestroyBoxSystem>();
             InstallUpdateSystem<ShowPanelSystem>();
             InstallUpdateSystem<OpenChestSystem>();
+            InstallUpdateSystem<AttackSystem>();
+            InstallUpdateSystem<CreateNewCreatureSystem>();
             base.InstallBindings();
         }
     }
