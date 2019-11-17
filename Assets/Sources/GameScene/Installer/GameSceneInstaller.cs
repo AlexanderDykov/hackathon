@@ -46,6 +46,7 @@ namespace GameScene.Installer
             InstallUpdateSystem<AddParentSystem>();
             InstallUpdateSystem<GameEventSystems>();
             InstallUpdateSystem<UpdateBalanceSystem>();
+            InstallUpdateSystem<UpdateScoreSystem>();
             InstallUpdateSystem<SetInitialWorldPositionSystem>();
             InstallUpdateSystem<AddBodySystem>();
             InstallUpdateSystem<MovementSystem>();

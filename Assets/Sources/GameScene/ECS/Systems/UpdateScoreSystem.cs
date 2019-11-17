@@ -6,34 +6,34 @@ using GameScene.Utils;
 
 namespace GameScene.ECS.Systems
 {
-    public class UpdateBalanceSystem : ReactiveSystem<GameEntity>
+    public class UpdateScoreSystem : ReactiveSystem<GameEntity>
     {
         private IGameContext _context;
 
-        public UpdateBalanceSystem(IGameContext context) : base(context)
+        public UpdateScoreSystem(IGameContext context) : base(context)
         {
             _context = context;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Reputation.Added());
+            return context.CreateCollector(GameMatcher.Balance.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.hasReputation;
+            return entity.hasBalance;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)
             {
-                int newBalance = _context.balance.Value + entity.reputation.Value;
-                if (Math.Abs(newBalance) > Settings.MaxBalance) {
-                    newBalance = Math.Sign(newBalance) * Settings.MaxBalance;
+                var scoreDiff = 1;
+                if (Math.Abs(_context.balance.Value) > 0.9 * Settings.MaxBalance) {
+                    scoreDiff = -1;
                 }
-                _context.ReplaceBalance(newBalance);
+                _context.ReplaceScore(_context.score.Value + scoreDiff);
             }
         }
     }
