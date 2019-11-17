@@ -10,7 +10,7 @@ namespace GameScene.ECS.Systems
         
         public CallDownSystem(IGameContext context)
         {
-            _resetCallDownGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Creator, GameMatcher.Calldown));
+            _resetCallDownGroup = context.GetGroup(GameMatcher.AllOf(GameMatcher.Calldown));
         }
         
         public void Execute()
