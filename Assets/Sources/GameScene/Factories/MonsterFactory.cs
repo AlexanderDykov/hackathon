@@ -218,7 +218,8 @@ namespace GameScene.Factories
                 if ((((possibleTarget.creatureType.Value & desired) != 0) &&
                      possibleTarget.hasUpgradeCooldown &&
                      (possibleTarget.upgradeCooldown.Value <= 0)) ||
-                    ((possibleTarget.creatureType.Value & CreatureType.Statue) != 0))
+                    (((possibleTarget.creatureType.Value & CreatureType.Statue) != 0) ||
+                     ((possibleTarget.creatureType.Value & CreatureType.BlackStatue) != 0)))
                 {
                     return true;
                 } else
