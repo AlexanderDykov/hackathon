@@ -39,13 +39,14 @@ namespace GameScene.Factories
             _context = context;
             map = new Dictionary<CreatureType, Action<Vector2>>()
             {
-                {CreatureType.Statue, CreateHuman},
+                {CreatureType.Statue, CreateStatue},
                 {CreatureType.Warrior, CreateWarrior},
                 {CreatureType.WhiteBuilding, CreateWhiteBuilding},
+                {CreatureType.Soul, CreateSoul},
             };
         }
 
-        private void CreateWhiteBuilding(Vector2 transformPosition)
+        public void CreateWhiteBuilding(Vector2 transformPosition)
         {
             var statue = _context.CreateEntity();
             statue.AddResource(ResourceNames.WhiteBuilding);
@@ -157,12 +158,36 @@ namespace GameScene.Factories
             soul.isPhysic = true;
             soul.AddSpeed(3);
             soul.isSoul = true;
+            soul.AddLookNearest(
+                CreatureType.Statue 
+                |CreatureType.Human
+                |CreatureType.Warrior 
+                |CreatureType.Worker
+                |CreatureType.BlackStatue
+                |CreatureType.Skeleton
+                |CreatureType.BlackWorker);
         }
 
         // 5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
-        public void CreatePrist(Vector2 obj)
+        public void CreatePrist(Vector2 position)
         {
+            var entity = _context.CreateEntity();
+            entity.AddInitialPosition(position);
+            entity.AddResource(ResourceNames.Worker);
+            entity.AddCreatureType(CreatureType.Worker);
+            entity.AddHealth(20);
+            entity.isPhysic = true;
+            entity.isDamagable = true;
+            entity.AddSide(Side.White);
+            entity.AddSpeed(1.5f);
+
+            entity.AddCreator(CreatureType.Soul);
             
+            entity.AddCalldown(20);
+            entity.AddInitialCalldown(20);
+            entity.AddDistanceToTarget(1f);
+            
+            entity.AddLookNearest(CreatureType.WhiteBuilding);
         }
 
         public void CreateHealer(Vector2 obj)

@@ -30,7 +30,8 @@ namespace GameScene.ECS.Systems
                 if (!(gameEntity.calldown.Value < 0.001f)) continue;
                 _factory.Create(gameEntity.creator.Value, gameEntity.target.Entity.view.Value.transform.position);
                 
-                gameEntity.target.Entity.ReplaceInitialPosition(_randomPositionGenerator.RandomPosition());
+                if(gameEntity.target.Entity.creatureType.Value == CreatureType.Position) 
+                    gameEntity.target.Entity.ReplaceInitialPosition(_randomPositionGenerator.RandomPosition());
                 
                 gameEntity.ReplaceCalldown(gameEntity.initialCalldown.Value);
             }

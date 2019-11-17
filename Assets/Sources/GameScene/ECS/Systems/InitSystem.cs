@@ -37,8 +37,8 @@ namespace GameScene.ECS.Systems
 
 //            _monsterFactory.CreateHuman(new Vector2(-2, 0));
 //            _monsterFactory.CreateWarrior(new Vector2(-2, 4));
-            _monsterFactory.CreateHuman(new Vector2(-2, 0));
-            _monsterFactory.CreateZombie(new Vector2(2, 0));
+            _monsterFactory.CreateWhiteBuilding(new Vector2(-2, 0));
+            _monsterFactory.CreatePrist(new Vector2(2, 0));
 //            _monsterFactory.CreateSkeleton(new Vector2(2, 0));
         }
     }
