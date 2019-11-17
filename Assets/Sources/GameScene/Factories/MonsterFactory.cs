@@ -56,6 +56,7 @@ namespace GameScene.Factories
             statue.AddResource(ResourceNames.WhiteBuilding);
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.WhiteBuilding);
+            statue.AddReputation(2);
         }
 
 
@@ -88,6 +89,7 @@ namespace GameScene.Factories
             entity.AddSpeed(1);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(2);
 
             entity.AddAttackPower(4);
             entity.AddCalldown(2);
@@ -118,6 +120,7 @@ namespace GameScene.Factories
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(3);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -143,6 +146,7 @@ namespace GameScene.Factories
             entity.AddCalldown(2);
             entity.AddDistanceToTarget(3f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(3);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -168,6 +172,7 @@ namespace GameScene.Factories
             entity.AddAttackPower(2);
             entity.AddCalldown(2);
             entity.AddInitialCalldown(2);
+            entity.AddReputation(-2);
 
 
             entity.AddLookNearest(possibleTarget =>
@@ -186,10 +191,11 @@ namespace GameScene.Factories
 
         public void CreateStatue(Vector2 transformPosition)
         {
-            var soul = _context.CreateEntity();
-            soul.AddResource(ResourceNames.Statue);
-            soul.AddInitialPosition(transformPosition);
-            soul.AddCreatureType(CreatureType.Statue);
+            var statue = _context.CreateEntity();
+            statue.AddResource(ResourceNames.Statue);
+            statue.AddInitialPosition(transformPosition);
+            statue.AddCreatureType(CreatureType.Statue);
+            statue.AddReputation(1);
         }
 
         public void CreateSoul(Vector2 position)
@@ -241,6 +247,7 @@ namespace GameScene.Factories
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(4);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -265,6 +272,7 @@ namespace GameScene.Factories
             entity.AddInitialCalldown(2);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(-3);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -288,6 +296,7 @@ namespace GameScene.Factories
             entity.AddZombieTimer(3);
             entity.AddCalldown(3);
             entity.AddInitialCalldown(3);
+            entity.AddReputation(-2);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -313,6 +322,7 @@ namespace GameScene.Factories
             entity.AddInitialCalldown(4);
             entity.AddDistanceToTarget(1f);
             entity.AddUpgradeCooldown(Settings.DefaultUpgradeCooldownSeconds);
+            entity.AddReputation(-4);
 
             entity.AddLookNearest(possibleTarget =>
             {
@@ -326,6 +336,7 @@ namespace GameScene.Factories
             statue.AddResource(ResourceNames.BlackStatue);
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.BlackStatue);
+            statue.AddReputation(-1);
         }
 
         public void CreatePosition(Vector3 transformPosition)
@@ -346,6 +357,7 @@ namespace GameScene.Factories
             statue.AddResource(ResourceNames.BlackBuilding);
             statue.AddInitialPosition(transformPosition);
             statue.AddCreatureType(CreatureType.BlackBuilding);
+            statue.AddReputation(-2);
         }
     }
 }
