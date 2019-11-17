@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public GameScene.ECS.Components.LookNearestComponent lookNearest { get { return (GameScene.ECS.Components.LookNearestComponent)GetComponent(GameComponentsLookup.LookNearest); } }
-    public bool hasLookNearest { get { return HasComponent(GameComponentsLookup.LookNearest); } }
+    public GameScene.ECS.Components.AttackPowerComponent attackPower { get { return (GameScene.ECS.Components.AttackPowerComponent)GetComponent(GameComponentsLookup.AttackPower); } }
+    public bool hasAttackPower { get { return HasComponent(GameComponentsLookup.AttackPower); } }
 
-    public void AddLookNearest(CreatureType newValue) {
-        var index = GameComponentsLookup.LookNearest;
-        var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
+    public void AddAttackPower(int newValue) {
+        var index = GameComponentsLookup.AttackPower;
+        var component = CreateComponent<GameScene.ECS.Components.AttackPowerComponent>(index);
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLookNearest(CreatureType newValue) {
-        var index = GameComponentsLookup.LookNearest;
-        var component = CreateComponent<GameScene.ECS.Components.LookNearestComponent>(index);
+    public void ReplaceAttackPower(int newValue) {
+        var index = GameComponentsLookup.AttackPower;
+        var component = CreateComponent<GameScene.ECS.Components.AttackPowerComponent>(index);
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveLookNearest() {
-        RemoveComponent(GameComponentsLookup.LookNearest);
+    public void RemoveAttackPower() {
+        RemoveComponent(GameComponentsLookup.AttackPower);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLookNearest;
+    static Entitas.IMatcher<GameEntity> _matcherAttackPower;
 
-    public static Entitas.IMatcher<GameEntity> LookNearest {
+    public static Entitas.IMatcher<GameEntity> AttackPower {
         get {
-            if (_matcherLookNearest == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LookNearest);
+            if (_matcherAttackPower == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.AttackPower);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherLookNearest = matcher;
+                _matcherAttackPower = matcher;
             }
 
-            return _matcherLookNearest;
+            return _matcherAttackPower;
         }
     }
 }

@@ -1,9 +1,6 @@
-using System.Collections.Generic;
 using Core.Contexts;
-using GameScene.ECS.Components;
 using GameScene.Utils;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace GameScene.View
 {

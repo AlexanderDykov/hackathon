@@ -11,14 +11,14 @@ public partial class GameEntity {
     public GameScene.ECS.Components.CreatureTypeComponent creatureType { get { return (GameScene.ECS.Components.CreatureTypeComponent)GetComponent(GameComponentsLookup.CreatureType); } }
     public bool hasCreatureType { get { return HasComponent(GameComponentsLookup.CreatureType); } }
 
-    public void AddCreatureType(GameScene.ECS.Components.CreatureType newValue) {
+    public void AddCreatureType(CreatureType newValue) {
         var index = GameComponentsLookup.CreatureType;
         var component = CreateComponent<GameScene.ECS.Components.CreatureTypeComponent>(index);
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCreatureType(GameScene.ECS.Components.CreatureType newValue) {
+    public void ReplaceCreatureType(CreatureType newValue) {
         var index = GameComponentsLookup.CreatureType;
         var component = CreateComponent<GameScene.ECS.Components.CreatureTypeComponent>(index);
         component.Value = newValue;
