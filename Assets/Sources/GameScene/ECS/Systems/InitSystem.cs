@@ -37,6 +37,8 @@ namespace GameScene.ECS.Systems
 
             _boxFactory.CreateEntity(_context, Vector2.zero, TileType.None);
 
+            _context.ReplaceWorld(new Vector2Int(40, 40));
+
             _monsterFactory.CreateHuman(new Vector2(-2, 0));
             _monsterFactory.CreateWarrior(new Vector2(-2, 4));
             _monsterFactory.CreateWorker(new Vector2(-2, 8));
