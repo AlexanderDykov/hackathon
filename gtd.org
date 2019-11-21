@@ -1,96 +1,166 @@
-* roadmap [5/10]
-** DONE generate initial white/black board
-   CLOSED: [2019-11-17 нд 15:24]
-** DONE create reputation system for each cell on the board
-   CLOSED: [2019-11-17 нд 15:24]
-** DONE dynamically redraw tiles on board
-   CLOSED: [2019-11-17 нд 15:24]
-** TODO create balance system(-100; +100)
-** TODO create multiple random chest
-** DONE choose skills system
-** DONE skills [2/2]
-   CLOSED: [2019-11-17 нд 16:54]
-*** DONE create soul
+#+TODO: TODO(t) | DONE(d!) CANCELED(c@)
+* pandora
+** main ideas
+1. Ігровий світ стартує з 0(пустого) стану і поступово
+   створюєтся/наповнюється/відкривається речами/елементами/можливостями.
+   Під наповненням світу мається на увазі практично все(як сама гра
+   так і мета інформація про гру): ігрове меню, збереження прогресу гри,
+   можливо навіть набрані очки і статус, графіка, музика, звуки, кольори,
+   текстури, деталізація, геймплейні можливості, іконки, скіни.
+2. Якщо ідея створення світу буде визначати ігровий процес,
+   то основою геймплею буде ідея підтримання балансу, між чорним та білим,
+   добром та злом, хаосом та порядком. При певному граничному порушенні
+   балансу поточна сесія завершується, всесвіт знищується.
+3. Основною можливістю гравця впливати на світ, а також міфологічною
+   фішкою, буде відкриття скриньки Пандори. Тільки тут скриня буде давати вибір
+   і зміщувати баланс в один чи інший бік.
+** user motivation
+1. Рахунок - максимальний час протягом якого всесвіт проіснував.
+2. Досягнення - що було відкрито і скільки всього ще залишилось(лише кількість).
+3. Рівень балансу - умова завершення ігрової сесії.
+4. Рекорди(?) - що гравець досяг в кількісному/якісному плані порівняно зі зразком.
+** gameplay
+Поки що, ідея геймплею зводиться до напівавтоматичної стратегії в реальному часі,
+де гравець відкриває "скіли" і "прокачує" юнітів з обох сторін, котрі б'ються між собою,
+зміщуючи баланс. Гравець намагається втримати баланс. З часом ігровий процес
+еволюціонує і з'являється все більше можливостей прямого контролю за юнітами.
+*** zero state
+Гра запускається і одразу стартує з "нічого": немає меню, заставки і т.д. і т.п.
+З'являється перший вибір(потрібно відкрити скриню і вибрати з двох варіантів):
+темрява чи світло, екран змінює колір на відповідний,
+тоді ж виникає рахунок балансу(одразу зміщений) і відлік часу.
+Наступний вибір(знову скриня): тьма чи "біла зона"(ака земля, територія).
+З часом скринь на карті гри виникає декілька одночасно, що дає можливість
+застосувати "ефект" скрині тільки в певній частині світу.
+*** meta game features
+**** Try to give at the start
+1. Відкрити заставку гри(картинка перед входом у ігрову сесію)(світлу/темну - змістити баланс).
+2. Відкрити можливість збереження прогресу гравця.
+3. Відкрити можливість відображення прогресу гравця.
+4. Відкрити можливість збереження поточної ігрової сесії.
+5. Відкрити можливість завантаження ігрової сесії =)
+6. Відкрити внутрішньоігровий магазин(?).
+7. Відкрити базову мелодію(світлу/темну - змістити баланс).
+8. Відкрити базові звуки(світлі/темні - змістити баланс).
+9. Відкрити меню регулювання мелодії/звуків: гучність,
+   вимкнути/увімкнути.
+10. Відкрити нотифікації(?).
+11. ...
+**** Give all the time
+Капелюходрочерство TF2, Dota 2 і всіх сучасних ігор, але не рандомна роздача,
+а стилізація під концепт гри, наприклад, як у Fable.
+При цьому речі впливають на баланс :D, під час *відкриття* рахунок балансу зміститься.
+1. Нові ігрові заставки.
+2. Нові скіни на юнітів.
+3. Нові іконки.
+4. Нове оформлення HUD(?).
+5. Нові мелодії/звуки.
+6. ...
+*** game features
+*** balance
+#+BEGIN_SRC
+* hackathon progress
+** roadmap [10/10]
+*** DONE generate initial white/black board
+    CLOSED: [2019-11-17 нд 15:24]
+*** DONE create reputation system for each cell on the board
+    CLOSED: [2019-11-17 нд 15:24]
+*** DONE dynamically redraw tiles on board
+    CLOSED: [2019-11-17 нд 15:24]
+*** DONE create balance system(-100; +100)
+    CLOSED: [2019-11-21 чт 21:57]
+*** DONE create multiple random chest
+    CLOSED: [2019-11-21 чт 21:59]
+*** DONE choose skills system
+*** DONE skills [2/2]
     CLOSED: [2019-11-17 нд 16:54]
-*** DONE create statue
-    CLOSED: [2019-11-17 нд 16:54]
-** TODO soul upgrades [0/2]
-*** TODO white
-1. statue -> human(hp + walking)
-2. human -> warrior(+attack) or worker(+build)
-3. warrior -> healer
-4. worker -> prist
-*** TODO black
- 1. statue -> skeleton(hp + walking + attack)
- 2. skeleton -> zombie(-attack +disease spell) or worker(-attack +build)
- 4. worker -> lich
-** TODO unit balances
-1. White
-   1. Human: 10 HP
-   2. Warrior: 10 HP, 4 Attack
-   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
-   4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
-   5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
-2. Black
-   1. Skeleton: 8 HP, 4 Attack
-   2. Zombie: 10 HP, [human,worker -> skeleton](need to stay around 3 seconds)
-   3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
-   4. Lich: 20 HP, [create skeleton near house](10 seconds){30 seconds cooldown}
-** TODO house change reputation +3 on 4 radius
-* read later
-** basic mechanics
-*** DONE player movement
-    CLOSED: [2019-11-16 сб 13:25]
-*** DONE box generation
-    CLOSED: [2019-11-16 сб 13:25]
-*** DONE add lifetime line
-*** DONE add score counter
-    CLOSED: [2019-11-16 сб 14:38]
-*** DONE choose skills
-    CLOSED: [2019-11-16 сб 15:58]
-*** DONE basic skills [2/2]
-    CLOSED: [2019-11-16 сб 17:08]
+**** DONE create soul
+     CLOSED: [2019-11-17 нд 16:54]
 **** DONE create statue
+     CLOSED: [2019-11-17 нд 16:54]
+*** DONE soul upgrades [2/2]
+    CLOSED: [2019-11-21 чт 21:59]
+**** DONE white
+     CLOSED: [2019-11-21 чт 21:59]
+ 1. statue -> human(hp + walking)
+ 2. human -> warrior(+attack) or worker(+build)
+ 3. warrior -> healer
+ 4. worker -> prist
+**** DONE black
+     CLOSED: [2019-11-21 чт 21:59]
+  1. statue -> skeleton(hp + walking + attack)
+  2. skeleton -> zombie(-attack +disease spell) or worker(-attack +build)
+  4. worker -> lich
+*** DONE unit balances
+    CLOSED: [2019-11-21 чт 21:59]
+ 1. White
+    1. Human: 10 HP
+    2. Warrior: 10 HP, 4 Attack
+    3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+    4. Healer: 15 HP, +2 Heal on 3 radius{5 seconds cooldown}
+    5. Prist: 20 HP, [create soul near house](10 seconds){30 seconds cooldown}
+ 2. Black
+    1. Skeleton: 8 HP, 4 Attack
+    2. Zombie: 10 HP, [human,worker -> skeleton](need to stay around 3 seconds)
+    3. Worker: 15 HP, [build house](10 seconds){30 seconds cooldown}
+    4. Lich: 20 HP, [create skeleton near house](10 seconds){30 seconds cooldown}
+*** CANCELED house change reputation +3 on 4 radius
+    CLOSED: [2019-11-21 чт 22:01]
+** read later
+*** basic mechanics
+**** DONE player movement
+     CLOSED: [2019-11-16 сб 13:25]
+**** DONE box generation
+     CLOSED: [2019-11-16 сб 13:25]
+**** DONE add lifetime line
+**** DONE add score counter
+     CLOSED: [2019-11-16 сб 14:38]
+**** DONE choose skills
+     CLOSED: [2019-11-16 сб 15:58]
+**** DONE basic skills [2/2]
      CLOSED: [2019-11-16 сб 17:08]
-**** DONE open soul
-     CLOSED: [2019-11-16 сб 17:08]
-*** TODO put soul into statue(creates creatures enemy/friend)
-*** TODO creature properties [0/3]
-**** TODO simple(just hp + walking)
-**** TODO warriors(+ attach)
-**** TODO workers(+ build)
-*** TODO creature types [0/2]
-**** TODO enemy
-**** TODO friends
-*** TODO box types [0/6]
-**** TODO changes environment [0/3]
-***** TODO add statue
-***** TODO add building
-***** TODO add tree
-**** TODO player skills [0/1]
-***** TODO aura
-**** TODO creatures abilities [0/3]
-***** TODO attach
-***** TODO build
-***** TODO work
-**** TODO game features [0/4]
-***** TODO add sounds
-***** TODO add music
-***** TODO add colors
-***** TODO add more textures
-**** TODO tile types [0/2]
-****** TODO basic [0/5]
-******* TODO earth
-******* TODO water
-******* TODO fire
-******* TODO air
-******* TODO soul(good/evil)
-****** TODO upgrades [0/6]
-******* TODO earth + water = sand
-******* TODO earth + air = mountain
-******* TODO earth + fire = lava
-******* TODO water + air = ice
-******* TODO water + fire = sand
-******* TODO air + fire = coal
-**** TODO tile collision rules
-***** TODO 
+***** DONE create statue
+      CLOSED: [2019-11-16 сб 17:08]
+***** DONE open soul
+      CLOSED: [2019-11-16 сб 17:08]
+**** TODO put soul into statue(creates creatures enemy/friend)
+**** TODO creature properties [0/3]
+***** TODO simple(just hp + walking)
+***** TODO warriors(+ attach)
+***** TODO workers(+ build)
+**** TODO creature types [0/2]
+***** TODO enemy
+***** TODO friends
+**** TODO box types [0/6]
+***** TODO changes environment [0/3]
+****** TODO add statue
+****** TODO add building
+****** TODO add tree
+***** TODO player skills [0/1]
+****** TODO aura
+***** TODO creatures abilities [0/3]
+****** TODO attach
+****** TODO build
+****** TODO work
+***** TODO game features [0/4]
+****** TODO add sounds
+****** TODO add music
+****** TODO add colors
+****** TODO add more textures
+***** TODO tile types [0/2]
+******* TODO basic [0/5]
+******** TODO earth
+******** TODO water
+******** TODO fire
+******** TODO air
+******** TODO soul(good/evil)
+******* TODO upgrades [0/6]
+******** TODO earth + water = sand
+******** TODO earth + air = mountain
+******** TODO earth + fire = lava
+******** TODO water + air = ice
+******** TODO water + fire = sand
+******** TODO air + fire = coal
+***** TODO tile collision rules
+****** TODO 
+#+END_SRC
